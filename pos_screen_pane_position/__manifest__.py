@@ -33,11 +33,12 @@
     'depends': ['point_of_sale'],
     'data': ['views/pos_config_views.xml', ],
     'assets': {
-        'point_of_sale._assets_pos': [
+        'point_of_sale.assets': [
             'pos_screen_pane_position/static/src/js/numpad_modification.js',
             'pos_screen_pane_position/static/src/xml/Screens/ProductScreen/ProductScreen.xml'
         ]
     },
+    
     'images': ['static/description/banner.jpg'],
     'license': 'AGPL-3',
     'installable': True,

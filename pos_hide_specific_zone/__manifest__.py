@@ -15,7 +15,7 @@
         'views/pos_config_views.xml', 
     ],
     'assets': {
-        'point_of_sale.assets': [
+        'point_of_sale._assets_pos': [
             'pos_hide_specific_zone/static/src/js/numpad.js',
             'pos_hide_specific_zone/static/src/xml/numpad/numpad.xml',
         ]
