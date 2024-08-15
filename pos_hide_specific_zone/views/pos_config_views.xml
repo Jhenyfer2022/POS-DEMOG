@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--TO ADD POSITION IN POS CONFIG-->
+
 <odoo>
     <record id="pos_config_view_form" model="ir.ui.view">
         <field name="name">pos.config.view.form.inherit.pos.screen.pane.position
