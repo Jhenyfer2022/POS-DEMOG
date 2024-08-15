@@ -82,6 +82,7 @@
                                         <div class="rightpane overflow-auto d-flex flex-grow-1 flex-column bg-300 w-60" t-if="!ui.isSmall || pos.mobile_pane === 'right'">
                         <!--el productsWidget se bloquea-->
                         <!--<ProductsWidget/>-->
+                        <div>aaaaaaaaa</div>
                         <t t-if="ui.isSmall">
                             <div class="product-reminder d-flex justify-content-center align-items-center py-1 text-bg-warning bg-opacity-50 fw-bolder" t-if="state.showProductReminder" t-key="animationKey" >
                                 <span><t t-esc="selectedOrderlineQuantity"/> <t t-esc="selectedOrderlineDisplayName"/> <t t-esc="selectedOrderlineTotal"/></span>
@@ -136,21 +137,7 @@
                                     actionType="'payment'"
                                     onClickMore.bind="displayAllControlPopup" />
                                 <!-- Definición de la plantilla Numpad -->
-                                <template id="CustomNumpad">
-                                    <div class="numpad">
-                                        <!-- Filtrar botones específicos y añadir t-key -->
-                                        <t t-foreach="buttons" t-as="button" t-key="button.id">
-                                            <t t-if="button.id != '3'">
-                                                <button type="button" t-attf-class="btn btn-default" t-attf-data-id="button.id">
-                                                    <t t-esc="button.label"/>
-                                                </button>
-                                            </t>
-                                        </t>
-                                    </div>
-                                </template>
-
-                                <!-- Usar la plantilla personalizada -->
-                                <t t-call="CustomNumpad"/>
+                                
 
                                 <!--<Numpad buttons="getNumpadButtons()" onClick.bind="onNumpadClick" class="'w-100'"/>-->
                             </div>
