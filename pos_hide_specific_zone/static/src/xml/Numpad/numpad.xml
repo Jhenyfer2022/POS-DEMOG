@@ -3,7 +3,7 @@
     <!-- NumberPad -->
     <t t-name="NumpadWidget" owl="1">
         <xpath expr="//button[hasclass('numpad-backspace')]" position="replace">
-            <button t-if="env and env.pos and env.pos.visible_backspace_btn" class="input-button numpad-backspace" t-on-click="() => this.sendInput('Blackspace')">
+            <button t-if="env and env.pos and env.pos.numeric_buttons_visible" class="input-button numpad-backspace" t-on-click="() => this.sendInput('Blackspace')">
                 <img style="pointer-events: none;" src="/point_of_sale/static/src/img/backspace.png" width="24" heigth="21" alt="Backspace"/> 
             </button>
         </xpath>

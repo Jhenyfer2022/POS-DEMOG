@@ -12,4 +12,4 @@ class PosSession(models.Model):
 
     def _pos_data_process(self, loaded_data):
         super()._pos_data_process(loaded_data)
-        loaded_data['visible_backspace_btn'] = self.config_id.visible_backspace_btn
+        loaded_data['numeric_buttons_visible'] = self.config_id.numeric_buttons_visible
