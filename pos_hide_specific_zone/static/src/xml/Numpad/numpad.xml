@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
-    <!-- NumberPad -->
     <t t-name="NumpadWidget" owl="1">
         <xpath expr="//button[hasclass('numpad-backspace')]" position="replace">
             <button t-if="env and env.pos and env.pos.numeric_buttons_visible" class="input-button numpad-backspace" t-on-click="() => this.sendInput('Blackspace')">
