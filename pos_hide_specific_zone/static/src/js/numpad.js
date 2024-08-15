@@ -5,6 +5,6 @@ const PosButtonRestrict = (PosGlobalState) => class PosButtonRestrict extends Po
 
     async _processData(loadedData){
         await super()._processData(...arguments);
-        this.numeric_buttons_visible = loadedData['numeric_buttons_visible']
+        this.visible_backspece_btn = loadedData['visible_backspece_btn']
     }
 }
