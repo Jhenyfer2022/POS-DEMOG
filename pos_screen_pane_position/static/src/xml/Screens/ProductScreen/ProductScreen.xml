@@ -128,14 +128,14 @@
                                     <t t-component="cb.component" t-key="cb.name"/>
                                 </t>
                             </div>
-                            <div class="subpads d-flex">
+                            <!--<div class="subpads d-flex">
                                 <ActionpadWidget
                                     partner="partner"
                                     actionName="constructor.numpadActionName"
                                     actionType="'payment'"
                                     onClickMore.bind="displayAllControlPopup" />
                                 <Numpad buttons="getNumpadButtons()" onClick.bind="onNumpadClick" class="'w-100'"/>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
