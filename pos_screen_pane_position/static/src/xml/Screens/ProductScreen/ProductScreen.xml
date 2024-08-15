@@ -90,10 +90,10 @@
                                     <span class="fs-1 d-block">Pay</span>
                                     <span><t t-esc="total" /></span>
                                 </button>
-                                <button class="btn-switchpane btn w-50 btn-secondary rounded-0 fw-bolder review-button" t-on-click="switchPane">
+                                <!--<button class="btn-switchpane btn w-50 btn-secondary rounded-0 fw-bolder review-button" t-on-click="switchPane">
                                     <span class="fs-1 d-block">Review</span>
                                     <span><t t-esc="items"/> items</span>
-                                </button>
+                                </button>-->
                             </div>
                         </t>
                     </div>
@@ -128,14 +128,14 @@
                                     <t t-component="cb.component" t-key="cb.name"/>
                                 </t>
                             </div>
-                            <!--<div class="subpads d-flex">
+                            <div class="subpads d-flex">
                                 <ActionpadWidget
                                     partner="partner"
                                     actionName="constructor.numpadActionName"
                                     actionType="'payment'"
                                     onClickMore.bind="displayAllControlPopup" />
-                                <Numpad buttons="getNumpadButtons()" onClick.bind="onNumpadClick" class="'w-100'"/>
-                            </div>-->
+                                <!--<Numpad buttons="getNumpadButtons()" onClick.bind="onNumpadClick" class="'w-100'"/>-->
+                            </div>
                         </div>
                     </div>
                 </div>
