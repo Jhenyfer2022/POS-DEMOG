@@ -81,7 +81,7 @@
                 <div class="product-screen d-flex h-100 bg-100" t-att-class="{ 'd-none': !props.isShown }">
                                         <div class="rightpane overflow-auto d-flex flex-grow-1 flex-column bg-300 w-60" t-if="!ui.isSmall || pos.mobile_pane === 'right'">
                         <!--el productsWidget se bloquea-->
-                        <ProductsWidget/>
+                        <!--<ProductsWidget/>-->
                         <t t-if="ui.isSmall">
                             <div class="product-reminder d-flex justify-content-center align-items-center py-1 text-bg-warning bg-opacity-50 fw-bolder" t-if="state.showProductReminder" t-key="animationKey" >
                                 <span><t t-esc="selectedOrderlineQuantity"/> <t t-esc="selectedOrderlineDisplayName"/> <t t-esc="selectedOrderlineTotal"/></span>
