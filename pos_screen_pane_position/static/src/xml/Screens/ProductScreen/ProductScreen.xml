@@ -131,14 +131,16 @@
                                 </t>
                             </div>-->
                             <div class="subpads d-flex">
-                                <!--<ActionpadWidget
+                                <ActionpadWidget
                                     partner="partner"
                                     actionName="constructor.numpadActionName"
                                     actionType="'payment'"
-                                    onClickMore.bind="displayAllControlPopup" />
-                                    -->
+                                    onClickMore.bind="displayAllControlPopup" 
+                                    class="'w-100'"
+                                />
+                                    
                                 <!-- Definición de la plantilla Numpad -->
-                                <Numpad buttons="getNumpadButtons()" onClick.bind="onNumpadClick" class="'w-100'"/>
+                                <!--<Numpad buttons="getNumpadButtons()" onClick.bind="onNumpadClick" class="'w-100'"/>-->
                             </div>
                         </div>
                     </div>
