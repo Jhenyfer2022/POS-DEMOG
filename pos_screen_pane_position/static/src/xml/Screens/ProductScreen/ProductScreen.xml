@@ -138,8 +138,8 @@
                                 <!-- Definición de la plantilla Numpad -->
                                 <template id="CustomNumpad">
                                     <div class="numpad">
-                                        <t t-foreach="buttons" t-as="button">
-                                            <!-- Filtrar botones específicos -->
+                                        <!-- Filtrar botones específicos y añadir t-key -->
+                                        <t t-foreach="buttons" t-as="button" t-key="button.id">
                                             <t t-if="button.id != '3'">
                                                 <button type="button" t-attf-class="btn btn-default" t-attf-data-id="button.id">
                                                     <t t-esc="button.label"/>
