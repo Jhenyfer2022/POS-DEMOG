@@ -16,8 +16,8 @@
     ],
     'assets': {
         'point_of_sale.assets': [
-            'pos_hide_specific_zone/static/src/xml/Numpad/numpad.xml',
-            'pos_hide_specific_zone/static/src/js/numpad.js'
+            'pos_hide_specific_zone/static/src/js/numpad.js',
+            'pos_hide_specific_zone/static/src/xml/numpad/numpad.xml',
         ]
     },
     'license': 'AGPL-3',
