@@ -34,7 +34,6 @@
     'data': ['views/pos_config_views.xml', ],
     'assets': {
         'point_of_sale._assets_pos': [
-            'pos_screen_pane_position/static/src/js/numpad_modification.js',
             'pos_screen_pane_position/static/src/xml/Screens/ProductScreen/ProductScreen.xml'
         ]
     },

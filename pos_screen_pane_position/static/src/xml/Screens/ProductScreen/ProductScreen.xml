@@ -135,6 +135,23 @@
                                     actionName="constructor.numpadActionName"
                                     actionType="'payment'"
                                     onClickMore.bind="displayAllControlPopup" />
+                                <!-- Definición de la plantilla Numpad -->
+                                <template id="CustomNumpad">
+                                    <div class="numpad">
+                                        <t t-foreach="buttons" t-as="button">
+                                            <!-- Filtrar botones específicos -->
+                                            <t t-if="button.id != '3'">
+                                                <button type="button" t-attf-class="btn btn-default" t-attf-data-id="button.id">
+                                                    <t t-esc="button.label"/>
+                                                </button>
+                                            </t>
+                                        </t>
+                                    </div>
+                                </template>
+
+                                <!-- Usar la plantilla personalizada -->
+                                <t t-call="CustomNumpad"/>
+
                                 <!--<Numpad buttons="getNumpadButtons()" onClick.bind="onNumpadClick" class="'w-100'"/>-->
                             </div>
                         </div>
