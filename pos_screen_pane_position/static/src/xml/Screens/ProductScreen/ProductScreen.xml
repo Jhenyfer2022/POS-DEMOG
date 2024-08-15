@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
+
+    <t t-name="CustomNumpad">
+        <div class="numpad">
+            <t t-foreach="buttons" t-as="button" t-key="button.id">
+                <t t-if="button.id != '3'">
+                    <button type="button" t-attf-class="btn btn-default" t-attf-data-id="button.id">
+                        <t t-esc="button.label"/>
+                    </button>
+                </t>
+            </t>
+        </div>
+    </t>
+
     <!-- Point of sale order session page -->
     <t t-name="ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
         <xpath expr="//div[hasclass('product-screen')]" position="replace">
@@ -138,7 +151,8 @@
                                     onClickMore.bind="displayAllControlPopup" />
                                 <!-- Definición de la plantilla Numpad -->
                                 
-
+                                <!-- Llamar a la plantilla CustomNumpad -->
+                                <t t-call="CustomNumpad" buttons="getNumpadButtons()"/>
                                 <!--<Numpad buttons="getNumpadButtons()" onClick.bind="onNumpadClick" class="'w-100'"/>-->
                             </div>
                         </div>
