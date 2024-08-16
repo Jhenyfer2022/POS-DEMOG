@@ -19,7 +19,7 @@ patch(Order.prototype, {
     },
     
     hideChangeCustomerButton() {
-        const changeCustomerButton = document.querySelector('.button.set-partner');
+        const changeCustomerButton = document.querySelector('button.button.set-partner');
         if (changeCustomerButton) {
             changeCustomerButton.style.display = 'none';
         }
