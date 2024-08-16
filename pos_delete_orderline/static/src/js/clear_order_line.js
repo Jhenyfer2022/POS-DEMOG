@@ -10,8 +10,9 @@ import { usePos } from "@point_of_sale/app/store/pos_hook";
 patch(Orderline.prototype, {
     setup() {
         super.setup();
-        this.pos = usePos();
-        this.numberBuffer = useService("number_buffer");
+        //this.pos = usePos();
+        //this.numberBuffer = useService("number_buffer");
+        this.state = useState({ quantity: 1 });
     },
     /**
      * Handle the clear button click event by sending Backspace key twice to the number buffer.
