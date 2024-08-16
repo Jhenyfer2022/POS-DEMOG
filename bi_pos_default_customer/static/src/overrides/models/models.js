@@ -98,4 +98,5 @@ patch(Order.prototype, {
             childList: true,
             subtree: true
         });
+    }
 });
