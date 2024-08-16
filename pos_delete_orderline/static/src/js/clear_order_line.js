@@ -18,7 +18,7 @@ patch(Orderline.prototype, {
      * @param {Event} ev - The click event.
      */
     async clear_button_fun(ev) {
-        //debugger
+        debugger
         this.numberBuffer.sendKey('Backspace');
         this.numberBuffer.sendKey('Backspace');
     },
