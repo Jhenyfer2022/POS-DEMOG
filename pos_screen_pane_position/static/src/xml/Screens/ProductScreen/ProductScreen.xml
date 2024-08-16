@@ -129,13 +129,11 @@
                                         t-attf-class="{{ line.has_valid_product_lot() ? 'text-success' : 'text-danger'}} fa fa-list line-lot-icon ms-1"
                                         t-attf-title="{{ line.has_valid_product_lot() ? 'Valid product lot' : 'Invalid product lot'}}" />
                                 </t>
-                                <!--
                                 <ul t-if="line.pack_lot_lines">
                                     <li t-foreach="line.get_lot_lines()" t-as="lot" t-key="lot.cid">
                                         SN <t t-esc="lot.lot_name"/>
                                     </li>
                                 </ul>
-                                -->
                             </Orderline>
                             <t t-set-slot="details" />
                         </OrderWidget>
@@ -154,8 +152,11 @@
                                     onClickMore.bind="displayAllControlPopup" 
                                     
                                 />
+                                    
                                 <!-- Definición de la plantilla Numpad -->
                                 <!--<Numpad buttons="getNumpadButtons()" onClick.bind="onNumpadClick" class="'w-100'"/>-->
+                                
+
                             </div>
                         </div>
                     </div>

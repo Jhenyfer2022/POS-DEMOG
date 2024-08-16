@@ -14,7 +14,14 @@ patch(Order.prototype, {
         } else{
             this.set_partner(null);
         }
-        
+        // Ocultar el botón para cambiar el cliente
+        this.hideChangeCustomerButton();
     },
     
+    hideChangeCustomerButton() {
+        const changeCustomerButton = document.querySelector('.button-change-customer');
+        if (changeCustomerButton) {
+            changeCustomerButton.style.display = 'none';
+        }
+    },
 });
