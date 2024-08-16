@@ -19,7 +19,7 @@ patch(Orderline.prototype, {
      */
     async clear_button_fun(ev) {
         this.numberBuffer.sendKey('Backspace');
-        this.numberBuffer.sendKey('Backspace');
+        //this.numberBuffer.sendKey('Backspace');
     },
 
 
