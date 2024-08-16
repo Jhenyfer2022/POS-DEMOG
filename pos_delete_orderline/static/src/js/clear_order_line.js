@@ -9,8 +9,8 @@ import { usePos } from "@point_of_sale/app/store/pos_hook";
  */
 patch(Orderline.prototype, {
     setup() {
-        //super.setup();
-        this._super.apply(this, arguments); // Ensure the base setup is called
+        super.setup();
+        //this._super.apply(this, arguments); // Ensure the base setup is called
         this.pos = usePos();
         this.numberBuffer = useService("number_buffer");
     },
