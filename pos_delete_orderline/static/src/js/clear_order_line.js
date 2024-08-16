@@ -12,6 +12,12 @@ patch(Orderline.prototype, {
         super.setup();
         this.pos = usePos();
         this.numberBuffer = useService("number_buffer");
+        // Inicialización de propiedades
+        this.state = useState({
+            quantity: 0,
+            price: 0,
+            // otras propiedades
+        });
     },
     /**
      * Handle the clear button click event by sending Backspace key twice to the number buffer.
