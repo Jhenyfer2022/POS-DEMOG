@@ -10,7 +10,6 @@ import { usePos } from "@point_of_sale/app/store/pos_hook";
 patch(Orderline.prototype, {
     setup() {
         super.setup();
-        //this._super.apply(this, arguments); // Ensure the base setup is called
         this.pos = usePos();
         this.numberBuffer = useService("number_buffer");
     },
@@ -18,22 +17,13 @@ patch(Orderline.prototype, {
      * Handle the clear button click event by sending Backspace key twice to the number buffer.
      * @param {Event} ev - The click event.
      */
-
     async clear_button_fun(ev) {
         this.numberBuffer.sendKey('Backspace');
         this.numberBuffer.sendKey('Backspace');
     },
 
 
-    decrementOrderline() {
-        const currentQty = this.orderline.quantity;
-        if (currentQty > 1) {
-            this.orderline.set_quantity(currentQty - 1);
-        } else {
-            this.pos.remove_orderline(this.orderline);
-        }
-        this.numberBuffer.reset(); // Optionally reset number buffer
-    },
+
 
     
     /*async increase_quantity(ev) {
