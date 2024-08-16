@@ -21,7 +21,7 @@
                 -->
                 <button style="background-color: #dc3545; border-color: #dc3545; color: white; margin-right: 5px;"
                         class="btn btn-light btn-sm"
-                        t-on-click="(el) => this.decrease_quantity(el)"
+                        t-on-click="decrease_quantity"
                         t-attf-onmouseover="this.style.backgroundColor='#c82333'; this.style.borderColor='#bd2130';"
                         t-attf-onmouseout="this.style.backgroundColor='#dc3545'; this.style.borderColor='#dc3545';">
                     <i class="fa fa-minus"/>

@@ -33,7 +33,7 @@ patch(Orderline.prototype, {
     */
     
     async decrease_quantity(ev) {
-        const order_selected = this.pos.get_order().get_selected_orderline()
+        const order_selected = this.pos.get_order().get_selected_orderline();
         const cantidad = this.pos.get_order().get_selected_orderline().get_quantity();
 
         if(cantidad>0){
