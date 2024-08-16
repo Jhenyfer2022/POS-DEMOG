@@ -23,7 +23,28 @@ patch(Orderline.prototype, {
     },
 
 
-
+    get extraButtons() {
+        const buttons = this._super.apply(this, arguments);
+        return [
+            ...buttons,
+            {
+                icon: 'fa fa-minus',
+                color: 'danger',
+                action: () => this.decrementOrderline(),
+                tooltip: "Decrease Quantity",
+            }
+        ];
+    },
+    
+    decrementOrderline() {
+        const currentQty = this.orderline.quantity;
+        if (currentQty > 1) {
+            this.orderline.set_quantity(currentQty - 1);
+        } else {
+            this.pos.remove_orderline(this.orderline);
+        }
+        this.numberBuffer.reset();
+    },
 
     
     /*async increase_quantity(ev) {
@@ -31,10 +52,10 @@ patch(Orderline.prototype, {
         
         
     },
-    */
+    
     async decrease_quantity(ev) {
         debugger
         
         
-    }
+    }*/
 })
