@@ -19,11 +19,11 @@ patch(Orderline.prototype, {
      */
     async clear_button_fun(ev) {
         this.numberBuffer.sendKey('Backspace');
-        //this.numberBuffer.sendKey('Backspace');
+        this.numberBuffer.sendKey('Backspace');
     },
 
 
-    incrementNumber() {
+    incrementNumber(ev) {
         // Obtener el valor actual del buffer
         const currentValue = this.numberBuffer.get() || 0;  // Se asegura de que currentValue sea un número, si es null o undefined, se usa 0
         debugger
