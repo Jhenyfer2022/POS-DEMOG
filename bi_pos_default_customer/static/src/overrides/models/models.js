@@ -31,11 +31,12 @@ patch(Order.prototype, {
             }
         });
 
-        // Comenzar a observar el DOM
+        /*// Comenzar a observar el DOM
         observer.observe(document.body, {
             childList: true,
             subtree: true
-        });
+        });*/
+        document.body.addEventListener('DOMNodeInserted', observer);
     },
 
     resizePayButton() {
