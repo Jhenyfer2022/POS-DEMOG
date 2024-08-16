@@ -47,6 +47,8 @@ patch(Orderline.prototype, {
      */
     update_quantity(amount) {
         // Access the orderline model directly
+        debugger
+
         const orderline = this.env.pos.get_order().get_selected_orderline();
 
         if (orderline) {
