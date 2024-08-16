@@ -11,7 +11,7 @@
                    t-on-click="(el) => this.clear_button_fun(el)"/>
                    -->
 
-                <!--<button style="background-color: #28a745; border-color: #28a745; color: white; margin-right: 5px;"
+                <button style="background-color: #28a745; border-color: #28a745; color: white; margin-right: 5px;"
                         class="btn btn-light btn-sm"
                         t-on-click="increase_quantity"
                         t-attf-onmouseover="this.style.backgroundColor='#218838'; this.style.borderColor='#1e7e34';"
@@ -25,7 +25,7 @@
                         t-attf-onmouseover="this.style.backgroundColor='#c82333'; this.style.borderColor='#bd2130';"
                         t-attf-onmouseout="this.style.backgroundColor='#dc3545'; this.style.borderColor='#dc3545';">
                     <i class="fa fa-minus"/>
-                </button>-->
+                </button>
 
                 <button style="margin-left: 3%; background-color: #dc3545; border-color: #dc3545; color: white;"
                         class="btn btn-light btn-sm"
