@@ -22,28 +22,23 @@ patch(Orderline.prototype, {
         this.numberBuffer.sendKey('Backspace');
     },
 
+    /*
+    async increase_quantity(ev) {
+        const order_selected = this.pos.get_order().get_selected_orderline()
+        const cantidad = this.pos.get_order().get_selected_orderline().get_quantity();
 
-    incrementNumber(ev) {
-        // Obtener el valor actual del buffer
-        const currentValue = this.numberBuffer.get() || 0;  // Se asegura de que currentValue sea un número, si es null o undefined, se usa 0
-        debugger
-        // Incrementar el valor
-        const newValue = currentValue + 1;
-
-        // Actualizar el buffer con el nuevo valor
-        this.numberBuffer.set(newValue);  // Asume que `set` es el método para actualizar el valor del buffer
-    }
-
-    
-    /*async increase_quantity(ev) {
-        debugger
         
-        
+        this.pos.get_order().get_selected_orderline().set_quantity(cantidad+1);
     },
+    */
     
     async decrease_quantity(ev) {
         debugger
-        
-        
-    }*/
+        const order_selected = this.pos.get_order().get_selected_orderline()
+        const cantidad = this.pos.get_order().get_selected_orderline().get_quantity();
+
+        if(cantidad>0){
+            this.pos.get_order().get_selected_orderline().set_quantity(cantidad-1);
+        }
+    }
 })
