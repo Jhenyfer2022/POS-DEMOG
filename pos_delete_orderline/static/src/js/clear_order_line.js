@@ -21,7 +21,7 @@ patch(Orderline.prototype, {
         this.numberBuffer.sendKey('Backspace');
         this.numberBuffer.sendKey('Backspace');
     },
-    
+
 
 
 
@@ -45,14 +45,19 @@ patch(Orderline.prototype, {
      * Update the quantity of the orderline.
      * @param {number} amount - The amount to increase or decrease.
      */
-    update_quantity(amount) {
-        // Get the current quantity
-        let current_quantity = this.get_quantity();
+    uupdate_quantity(amount) {
+        // Access the orderline model directly
+        const orderline = this.env.pos.get_order().get_selected_orderline();
 
-        // Calculate new quantity
-        let new_quantity = Math.max(current_quantity + amount, 0); // Ensure quantity does not go below zero
+        if (orderline) {
+            // Get the current quantity
+            let current_quantity = orderline.quantity;
 
-        // Set the new quantity
-        this.set_quantity(new_quantity);
+            // Calculate new quantity
+            let new_quantity = Math.max(current_quantity + amount, 0); // Ensure quantity does not go below zero
+
+            // Set the new quantity
+            orderline.set_quantity(new_quantity);
+        }
     }
 })
