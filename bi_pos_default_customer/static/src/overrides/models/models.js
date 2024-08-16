@@ -9,7 +9,7 @@ patch(Order.prototype, {
         super.setup(...arguments);
         var default_customer = this.pos.config.res_partner_id;
         var default_customer_by_id = this.pos.db.get_partner_by_id(default_customer[0]);
-        console.log("setCustomer");
+        
         if(default_customer_by_id){
             this.set_partner(default_customer_by_id);
         } else{
@@ -40,7 +40,6 @@ patch(Order.prototype, {
         const observer = new MutationObserver(() => {
             const changeCustomerButton = document.querySelector('button.button.set-partner');
             if (changeCustomerButton) {
-                console.log("hide");
                 changeCustomerButton.style.display = 'none';
             }
         });
@@ -71,7 +70,8 @@ patch(Order.prototype, {
         const button_pay = new MutationObserver(() => {
             const payButton = document.querySelector('button.pay-order-button');
             if (payButton) {
-                payButton.style.width = '200px';
+                payButton.style.width = "100%";
+                payButton.style.height = "100%";
             }
         });
 
@@ -80,5 +80,22 @@ patch(Order.prototype, {
             childList: true,
             subtree: true
         });
+
+        this.removeMw50Class();
     },
+
+    removeMw50Class() {
+        const observer = new MutationObserver(() => {
+            // Selecciona el div con todas las clases especificadas
+            const actionpadDiv = document.querySelector('div.actionpad.d-flex.flex-column.flex-grow-1.mw-50.p-0.border-end');
+            if (actionpadDiv) {
+                actionpadDiv.classList.remove('mw-50');
+            }
+        });
+
+        // Observar cambios en el DOM
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
 });
