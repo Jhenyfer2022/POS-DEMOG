@@ -26,10 +26,11 @@
                         t-attf-onmouseout="this.style.backgroundColor='#dc3545'; this.style.borderColor='#dc3545';">
                     <i class="fa fa-minus"/>
                 </button>
-
+                <!--t-on-click="(el) => this.clear_button_fun(el)"-->
                 <button style="margin-left: 3%; background-color: #dc3545; border-color: #dc3545; color: white;"
                         class="btn btn-light btn-sm"
-                        t-on-click="(el) => this.clear_button_fun(el)"
+                        
+                        t-on-click="clearOrderline"
                         t-attf-onmouseover="this.style.backgroundColor='#c82333'; this.style.borderColor='#c82333';"
                         t-attf-onmouseout="this.style.backgroundColor='#dc3545'; this.style.borderColor='#dc3545';">
                     <i class="fa fa-trash"/>

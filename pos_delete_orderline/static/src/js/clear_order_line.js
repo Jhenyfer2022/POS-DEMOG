@@ -19,12 +19,13 @@ patch(Orderline.prototype, {
      * @param {Event} ev - The click event.
      */
 
-    clear_button_fun() {
+    clearOrderline() {
         this.pos.remove_orderline(this.orderline);
-        this.numberBuffer.reset(); // Optionally reset number buffer
+        this.numberBuffer.reset(); // Optionally reset number buffer*/
     },
 
-    /*async clear_button_fun(ev) {
+    /*Esto funciona
+    async clear_button_fun(ev) {
         this.numberBuffer.sendKey('Backspace');
         this.numberBuffer.sendKey('Backspace');
     },*/
