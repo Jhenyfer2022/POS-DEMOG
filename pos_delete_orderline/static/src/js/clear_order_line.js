@@ -26,12 +26,12 @@ patch(Orderline.prototype, {
 
 
     
-    async increase_quantity(ev) {
+    /*async increase_quantity(ev) {
         debugger
         
         
     },
-
+    */
     async decrease_quantity(ev) {
         debugger
         
