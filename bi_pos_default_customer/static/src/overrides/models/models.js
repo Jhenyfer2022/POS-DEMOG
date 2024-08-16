@@ -20,10 +20,19 @@ patch(Order.prototype, {
     },
     
     hideChangeCustomerButton() {
-        console.log("hide");
-        const changeCustomerButton = document.querySelector('button.button.set-partner');
-        if (changeCustomerButton) {
-            changeCustomerButton.style.display = 'none';
-        }
+        const observer = new MutationObserver(() => {
+            const changeCustomerButton = document.querySelector('button.button.set-partner');
+            if (changeCustomerButton) {
+                console.log("hide");
+                changeCustomerButton.style.display = 'none';
+                observer.disconnect();  // Dejar de observar una vez que el botón haya sido encontrado y ocultado
+            }
+        });
+
+        // Comenzar a observar el DOM
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
     },
 });
