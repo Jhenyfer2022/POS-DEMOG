@@ -18,7 +18,6 @@ patch(Orderline.prototype, {
      * @param {Event} ev - The click event.
      */
     async clear_button_fun(ev) {
-        debugger
         this.numberBuffer.sendKey('Backspace');
         this.numberBuffer.sendKey('Backspace');
     },
@@ -27,7 +26,7 @@ patch(Orderline.prototype, {
 
 
     
-    /*async increase_quantity(ev) {
+    async increase_quantity(ev) {
         this.update_quantity(1);
     },
 
@@ -38,5 +37,5 @@ patch(Orderline.prototype, {
     update_quantity(amount) {
         // Access the orderline model directly
         debugger
-    }*/
+    }
 })
