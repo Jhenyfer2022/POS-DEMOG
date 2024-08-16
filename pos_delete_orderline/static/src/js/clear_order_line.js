@@ -45,7 +45,7 @@ patch(Orderline.prototype, {
      * Update the quantity of the orderline.
      * @param {number} amount - The amount to increase or decrease.
      */
-    uupdate_quantity(amount) {
+    update_quantity(amount) {
         // Access the orderline model directly
         const orderline = this.env.pos.get_order().get_selected_orderline();
 
