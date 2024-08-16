@@ -28,14 +28,11 @@ patch(Orderline.prototype, {
     
     async increase_quantity(ev) {
         this.update_quantity(1);
+        debugger
     },
 
     async decrease_quantity(ev) {
         this.update_quantity(-1);
-    },
-
-    update_quantity(amount) {
-        // Access the orderline model directly
         debugger
     }
 })
