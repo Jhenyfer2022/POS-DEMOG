@@ -22,7 +22,7 @@ patch(Order.prototype, {
     },
     
     hideChangeCustomerButton() {
-        const observer = new MutationObserver(() => {
+        /*const observer = new MutationObserver(() => {
             const changeCustomerButton = document.querySelector('button.button.set-partner');
             if (changeCustomerButton) {
                 console.log("hide");
@@ -31,16 +31,29 @@ patch(Order.prototype, {
             }
         });
 
-        /*// Comenzar a observar el DOM
+        // Comenzar a observar el DOM
         observer.observe(document.body, {
             childList: true,
             subtree: true
         });*/
-        document.body.addEventListener('DOMNodeInserted', observer);
+
+        const observer = new MutationObserver(() => {
+            const changeCustomerButton = document.querySelector('button.button.set-partner');
+            if (changeCustomerButton) {
+                console.log("hide");
+                changeCustomerButton.style.display = 'none';
+            }
+        });
+
+        // Observar cambios en el DOM, especialmente el área del POS donde se renderiza el botón
+        observer.observe(document.querySelector('.pos'), {
+            childList: true,
+            subtree: true
+        });
     },
 
     resizePayButton() {
-        const resizeButton = new MutationObserver(() => {
+        /*const resizeButton = new MutationObserver(() => {
             const payButton = document.querySelector('button.pay-order-button');
             if (payButton) {
                 console.log("Resizing pay button");
@@ -48,14 +61,24 @@ patch(Order.prototype, {
                 resizeButton.disconnect();  // Dejar de observar una vez que el botón haya sido modificado
             }
         });
-        /*
+        
         // Comenzar a observar el DOM
         resizeButton.observe(document.body, {
             childList: true,
             subtree: true
         });
         */
-        // Escucha cambios en el DOM para reaplicar el estilo
-        document.body.addEventListener('DOMNodeInserted', resizeButton);
+        const button_pay = new MutationObserver(() => {
+            const payButton = document.querySelector('button.pay-order-button');
+            if (payButton) {
+                payButton.style.width = '200px';
+            }
+        });
+
+        // Observar cambios en el DOM, especialmente el área del POS donde se renderiza el botón
+        button_pay.observe(document.querySelector('.pos'), {
+            childList: true,
+            subtree: true
+        });
     },
 });
