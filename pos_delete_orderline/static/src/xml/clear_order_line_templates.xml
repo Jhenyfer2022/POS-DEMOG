@@ -6,9 +6,16 @@
         <xpath expr="//li[hasclass('orderline')]/div[hasclass('d-flex')]/div[hasclass('price')]"
                position="after">
             <t>
-                <i style="margin-left: 3%;" id="clear_icon"
+                <!--<i style="margin-left: 3%;" id="clear_icon"
                    class="fa fa-times-circle"
                    t-on-click="(el) => this.clear_button_fun(el)"/>
+                   -->
+
+                <button style="margin-left: 3%;"
+                        class="btn btn-light btn-sm"
+                        t-on-click="(el) => this.clear_button_fun(el)">
+                    <i class="fa fa-trash"/>
+                </button>
             </t>
         </xpath>
     </t>
