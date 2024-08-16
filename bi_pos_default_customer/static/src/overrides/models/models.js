@@ -39,20 +39,22 @@ patch(Order.prototype, {
     },
 
     resizePayButton() {
-        const observer = new MutationObserver(() => {
+        const resizeButton = new MutationObserver(() => {
             const payButton = document.querySelector('button.pay-order-button');
             if (payButton) {
                 console.log("Resizing pay button");
-                payButton.style.width = "100%"; // Cambia este valor según lo necesites
                 payButton.style.height = "20%"; // Cambia este valor según lo necesites
-                observer.disconnect();  // Dejar de observar una vez que el botón haya sido modificado
+                resizeButton.disconnect();  // Dejar de observar una vez que el botón haya sido modificado
             }
         });
-
+        /*
         // Comenzar a observar el DOM
-        observer.observe(document.body, {
+        resizeButton.observe(document.body, {
             childList: true,
             subtree: true
         });
+        */
+        // Escucha cambios en el DOM para reaplicar el estilo
+        document.body.addEventListener('DOMNodeInserted', resizeButton);
     },
 });
