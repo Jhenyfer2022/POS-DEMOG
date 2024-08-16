@@ -18,6 +18,7 @@ patch(Orderline.prototype, {
      * @param {Event} ev - The click event.
      */
     async clear_button_fun(ev) {
+        debugger
         this.numberBuffer.sendKey('Backspace');
         this.numberBuffer.sendKey('Backspace');
     },
@@ -49,7 +50,7 @@ patch(Orderline.prototype, {
         // Access the orderline model directly
         debugger
 
-        const orderline = this.env.pos.get_order().get_selected_orderline();
+        /*const orderline = this.env.pos.get_order().get_selected_orderline();
 
         if (orderline) {
             // Get the current quantity
@@ -60,6 +61,6 @@ patch(Orderline.prototype, {
 
             // Set the new quantity
             orderline.set_quantity(new_quantity);
-        }
+        }*/
     }
 })
