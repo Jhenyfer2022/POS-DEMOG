@@ -115,7 +115,7 @@
 
                     <div t-if="!ui.isSmall || pos.mobile_pane === 'left'"
                         t-att-class="{'flex-grow-1': ui.isSmall}"
-                        class="leftpane d-flex flex-column border-end bg-200" >
+                        class="leftpane d-flex flex-column border-end bg-200" style="width: 100vw;">
                         <OrderWidget lines="currentOrder.orderlines" t-slot-scope="scope"
                             total="env.utils.formatCurrency(currentOrder.get_total_with_tax())"
                             tax="!env.utils.floatIsZero(currentOrder.get_total_tax()) and env.utils.formatCurrency(currentOrder.get_total_tax()) or ''">
