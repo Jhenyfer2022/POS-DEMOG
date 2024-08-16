@@ -18,7 +18,7 @@ patch(Orderline.prototype, {
      * @param {Event} ev - The click event.
      */
     async clear_button_fun(ev) {
-        debugger
+        //debugger
         this.numberBuffer.sendKey('Backspace');
         this.numberBuffer.sendKey('Backspace');
     },
@@ -26,41 +26,17 @@ patch(Orderline.prototype, {
 
 
 
-    /**
-     * Handle the increase quantity button click event.
-     * @param {Event} ev - The click event.
-     */
-    async increase_quantity(ev) {
+    
+    /*async increase_quantity(ev) {
         this.update_quantity(1);
     },
 
-    /**
-     * Handle the decrease quantity button click event.
-     * @param {Event} ev - The click event.
-     */
     async decrease_quantity(ev) {
         this.update_quantity(-1);
     },
 
-    /**
-     * Update the quantity of the orderline.
-     * @param {number} amount - The amount to increase or decrease.
-     */
     update_quantity(amount) {
         // Access the orderline model directly
         debugger
-
-        /*const orderline = this.env.pos.get_order().get_selected_orderline();
-
-        if (orderline) {
-            // Get the current quantity
-            let current_quantity = orderline.quantity;
-
-            // Calculate new quantity
-            let new_quantity = Math.max(current_quantity + amount, 0); // Ensure quantity does not go below zero
-
-            // Set the new quantity
-            orderline.set_quantity(new_quantity);
-        }*/
-    }
+    }*/
 })
