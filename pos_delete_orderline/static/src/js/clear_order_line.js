@@ -33,7 +33,14 @@ patch(Orderline.prototype, {
     */
     
     async decrease_quantity(ev) {
-        debugger
+        // Paso 1: Quitar la clase 'selected' de los elementos dentro del contenedor
+        const orderContainer = document.querySelector('.order-container');
+        const selectedItems = orderContainer.querySelectorAll('.selected');
+        selectedItems.forEach(item => item.classList.remove('selected'));
+
+        const targetElement = ev.currentTarget.parentNode.parentNode;
+        targetElement.classList.add('selected');
+        
         const order_selected = this.pos.get_order().get_selected_orderline();
         const cantidad = this.pos.get_order().get_selected_orderline().get_quantity();
 
