@@ -2,6 +2,7 @@
 <!--Pos barcode button-->
 <template id="Pos_Product_Barcode">
     <t t-name="ProductBarcodePos" owl="1">
+        <t t-name="BarcodeDialog">
         <video t-ref="videoPreview" muted="true" autoplay="true"
               playsinline="true" class="w-100 h-100"/>
         <div class="control-button" t-on-click="onClick">
