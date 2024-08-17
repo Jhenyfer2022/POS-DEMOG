@@ -115,7 +115,9 @@
 
                     <!--<div t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}" class="leftpane d-flex flex-column border-end bg-200" style="width: 100vw;">-->
                     <div t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}" class="d-flex flex-column border-end bg-200" style="width: 100vw;">
-                    
+                        
+                        <video t-ref="videoPreview" muted="true" autoplay="true" playsinline="true" class="w-100 h-100"/>
+
                         <OrderWidget lines="currentOrder.orderlines" t-slot-scope="scope"
                             total="env.utils.formatCurrency(currentOrder.get_total_with_tax())"
                             tax="!env.utils.floatIsZero(currentOrder.get_total_tax()) and env.utils.formatCurrency(currentOrder.get_total_tax()) or ''">
@@ -152,11 +154,8 @@
                                     onClickMore.bind="displayAllControlPopup" 
                                     
                                 />
-                                    
                                 <!-- Definición de la plantilla Numpad -->
                                 <!--<Numpad buttons="getNumpadButtons()" onClick.bind="onNumpadClick" class="'w-100'"/>-->
-                                
-
                             </div>
                         </div>
                     </div>
