@@ -33,21 +33,17 @@ patch(Orderline.prototype, {
     */
     
     async decrease_quantity(ev) {
-        // Paso 1: Quitar la clase 'selected' de los elementos dentro del contenedor
-        const orderContainer = document.querySelector('.order-container');
-        const selectedItems = orderContainer.querySelectorAll('.selected');
-        selectedItems.forEach(item => item.classList.remove('selected'));
-        // Paso 2: Actualizar el dato seleccionado por el cual precione el boton
+        // Paso 1: pregunto si estoy seleccionando el orderline
         const targetElement = ev.currentTarget.parentNode.parentNode;
-        targetElement.classList.add('selected');
+        const hasSelectedClass = targetElement.classList.contains('selected');
+        // Paso 2: preguntar si es verdadero //caso verdadero actualizo la cantidad caso falso no actulizo nada
+        if(hasSelectedClass){
+            const order_selected = this.pos.get_order().get_selected_orderline();
+            const cantidad = this.pos.get_order().get_selected_orderline().get_quantity();
 
-        debugger
-        // Paso 3: Actualizar su cantidad
-        const order_selected = this.pos.get_order().get_selected_orderline();
-        const cantidad = this.pos.get_order().get_selected_orderline().get_quantity();
-
-        if(cantidad>0){
-            this.pos.get_order().get_selected_orderline().set_quantity(cantidad-1);
+            if(cantidad>0){
+                this.pos.get_order().get_selected_orderline().set_quantity(cantidad-1);
+            }
         }
     }
 })
