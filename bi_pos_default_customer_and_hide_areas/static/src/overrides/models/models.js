@@ -75,6 +75,7 @@ patch(Order.prototype, {
 
 
     manageDivs() {
+        console.log("estoy entrando al div");
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {
             // Buscar el contenedor principal
