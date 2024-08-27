@@ -128,7 +128,7 @@ patch(Order.prototype, {
                 const centerContent = mainContent.querySelector('.center-content.d-flex.flex-column.w-50.p-1.border-start.border-end.bg-300');
                 
                 if (centerContent) {
-                    
+
                     centerContent.classList.remove('w-50'); //elimino esto en el div
                     centerContent.classList.add('w-100'); //adiciono esto en el div
 
@@ -146,6 +146,13 @@ patch(Order.prototype, {
             childList: true,
             subtree: true
         });
+    },
+
+    sendAutomaticData(){
+        // cuando precione el boton pago de pago se presionara send automaticamente
+        // a la maquina y esperara el pago la validacion, cuando se confirme el proceso se 
+        //debe automaticamente presionara el bonton de validar
+        
     }
 
 });
