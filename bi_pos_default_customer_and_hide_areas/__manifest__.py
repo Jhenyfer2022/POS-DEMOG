@@ -2,7 +2,7 @@
 # Part of BrowseInfo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': "POS Default Customer | Point of Sales Default Invoice Customer ",
+    'name': "POS Default Customer And Hide Areas| Point of Sales Default Invoice Customer ",
     'version': '17.0.0.0',
     'category': 'Point of Sale',
     'summary': 'This app allows users to set default customer on point of sales default customer on pos default customers point of sale default customer set default customer on pos default Invoice customer point of sale default invoice customer',
