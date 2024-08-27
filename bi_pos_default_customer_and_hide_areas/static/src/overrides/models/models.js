@@ -88,9 +88,9 @@ patch(Order.prototype, {
                 if (divToHide) {
 
                     // Verificar el color de fondo del div
-                    const div_styles = divToHide.style;
+                    const have_styles = divToHide.hasAttribute('style');
                     
-                    if (div_styles) {
+                    if (have_styles) {
                         console.log("no tiene estilos");
                         // Cambiar el color de fondo a rojo
                         divToHide.style.backgroundColor = "red";
