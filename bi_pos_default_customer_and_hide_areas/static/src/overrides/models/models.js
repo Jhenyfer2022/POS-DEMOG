@@ -89,7 +89,7 @@ patch(Order.prototype, {
                     // Verificar si el estilo display ya está en none
                     if (divToHide.style.display !== 'none') {
                         // Llamar a la función solo si el div no estaba oculto
-                        //this.simulateButtonClickFacturaccion();
+                        this.simulateButtonClickFacturaccion();
                         //divToHide.style.display = 'none';
                     }
                 }
@@ -104,24 +104,14 @@ patch(Order.prototype, {
     },
 
     simulateButtonClickFacturaccion() {
-        // Crear un MutationObserver para observar cambios en el DOM
-        const observer = new MutationObserver(() => {
-            // Selecciona el botón utilizando un selector de clase
-            const button = document.querySelector('.button.js_invoice.btn.btn-light.py-3.text-start.rounded-0.border-bottom');
-            
-            if (button) {
-                console.log('Botón fue precionado');
-                button.click(); // Simula un clic en el botón
-            } else {
-                console.log('Botón no encontrado');
-            }
-        });
-
-        // Observar cambios en el DOM dentro del contenedor principal
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
+        const button = document.querySelector('.button.js_invoice.btn.btn-light.py-3.text-start.rounded-0.border-bottom');
+        
+        if (button) {
+            console.log('Botón fue precionado');
+            button.click(); // Simula un clic en el botón
+        } else {
+            console.log('Botón no encontrado');
+        }
     },
 
     paymentScreenHideNumpad() {
