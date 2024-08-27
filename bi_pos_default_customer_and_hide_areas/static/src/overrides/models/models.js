@@ -86,12 +86,23 @@ patch(Order.prototype, {
                 // Ocultar el div con la clase específica dentro del contenedor principal
                 const divToHide = mainContent.querySelector('.right-content.w-25.bg-400');
                 if (divToHide) {
+
+                    // Verificar el color de fondo del div
+                    const backgroundColor = window.getComputedStyle(divToHide).backgroundColor;
+                    const redColor = 'rgb(255, 0, 0)'; // rojo en formato rgb
+                    if (backgroundColor !== redColor) {
+                        // Cambiar el color de fondo a rojo
+                        divToHide.style.backgroundColor = redColor;
+                        // Llamar a la función solo si el color de fondo no era rojo
+                        this.simulateButtonClickFacturaccion();
+                    }
+
                     // Verificar si el estilo display ya está en none
-                    if (divToHide.style.display !== 'noneaaa') {
+                    /*if (divToHide.style.display !== 'noneaaa') {
                         // Llamar a la función solo si el div no estaba oculto
                         this.simulateButtonClickFacturaccion();
                         divToHide.style.display = 'noneaaa';
-                    }
+                    }*/
                 }
             }
         });
