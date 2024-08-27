@@ -21,6 +21,7 @@ patch(Order.prototype, {
         this.resizePayButton();
 
         //ocultar campos del payment-screen
+        manageDivs()
     },
     
     hideChangeCustomerButton() {
@@ -66,6 +67,29 @@ patch(Order.prototype, {
         });
 
         // Observar cambios en el DOM
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    },
+
+
+    manageDivs() {
+        // Crear un MutationObserver para observar cambios en el DOM
+        const observer = new MutationObserver(() => {
+            // Buscar el contenedor principal
+            const mainContent = document.querySelector('.main-content.d-flex.overflow-auto.h-100');
+    
+            if (mainContent) {
+                // Ocultar el div con la clase específica dentro del contenedor principal
+                const divToHide = mainContent.querySelector('.right-content.w-25.bg-400');
+                if (divToHide) {
+                    divToHide.style.display = 'none';
+                }
+            }
+        });
+    
+        // Observar cambios en el DOM dentro del contenedor principal
         observer.observe(document.body, {
             childList: true,
             subtree: true
