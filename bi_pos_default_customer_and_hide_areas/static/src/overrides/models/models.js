@@ -93,7 +93,7 @@ patch(Order.prototype, {
                     if (div_styles) {
                         console.log("no tiene estilos");
                         // Cambiar el color de fondo a rojo
-                        divToHide.style.backgroundColor = redColor;
+                        divToHide.style.backgroundColor = "red";
                         // Llamar a la función solo si el color de fondo no era rojo
                         this.simulateButtonClickFacturaccion();
                     }
