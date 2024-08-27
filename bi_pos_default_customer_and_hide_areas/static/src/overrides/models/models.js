@@ -87,10 +87,10 @@ patch(Order.prototype, {
                 const divToHide = mainContent.querySelector('.right-content.w-25.bg-400');
                 if (divToHide) {
                     // Verificar si el estilo display ya está en none
-                    if (divToHide.style.display !== 'none') {
+                    if (divToHide.style.display !== 'noneaaa') {
                         // Llamar a la función solo si el div no estaba oculto
                         this.simulateButtonClickFacturaccion();
-                        //divToHide.style.display = 'none';
+                        divToHide.style.display = 'noneaaa';
                     }
                 }
             }
