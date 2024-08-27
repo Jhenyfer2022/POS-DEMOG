@@ -3,6 +3,16 @@
     <!-- Point of sale order session page -->
     <t t-name="ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
         <xpath expr="//div[hasclass('product-screen')]" position="replace">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             <t t-if="this.pos.config.screen_view == 'left'">
                 <div class="product-screen d-flex h-100 bg-100" t-att-class="{ 'd-none': !props.isShown }">
                     <div t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}"
@@ -77,10 +87,6 @@
                     </div>
                 </div>
             </t>
-
-
-
-
 
 
 
