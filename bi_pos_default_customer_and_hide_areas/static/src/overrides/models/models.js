@@ -90,7 +90,7 @@ patch(Order.prototype, {
                     if (divToHide.style.display !== 'none') {
                         //divToHide.style.display = 'none';
                         // Llamar a la función solo si el div no estaba oculto
-                        simulateButtonClickFacturaccion();
+                        this.simulateButtonClickFacturaccion();
                     }
                 }
             }
