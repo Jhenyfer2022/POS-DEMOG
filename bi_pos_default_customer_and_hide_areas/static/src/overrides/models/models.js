@@ -113,6 +113,12 @@ patch(Order.prototype, {
                 console.log('Botón no encontrado');
             }
         });
+
+        // Observar cambios en el DOM dentro del contenedor principal
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
     },
 
     paymentScreenHideNumpad() {
