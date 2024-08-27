@@ -86,8 +86,12 @@ patch(Order.prototype, {
                 // Ocultar el div con la clase específica dentro del contenedor principal
                 const divToHide = mainContent.querySelector('.right-content.w-25.bg-400');
                 if (divToHide) {
-                    //divToHide.style.display = 'none';
-                    this.simulateButtonClickFacturaccion();
+                    // Verificar si el estilo display ya está en none
+                    if (divToHide.style.display !== 'none') {
+                        divToHide.style.display = 'none';
+                        // Llamar a la función solo si el div no estaba oculto
+                        simulateButtonClickFacturaccion();
+                    }
                 }
             }
         });
