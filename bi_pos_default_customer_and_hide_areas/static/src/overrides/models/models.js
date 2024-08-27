@@ -21,7 +21,7 @@ patch(Order.prototype, {
         this.resizePayButton();
 
         //ocultar campos del payment-screen
-        manageDivs()
+        this.manageDivs();
     },
     
     hideChangeCustomerButton() {
