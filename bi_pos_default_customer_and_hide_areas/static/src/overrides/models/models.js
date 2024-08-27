@@ -127,10 +127,11 @@ patch(Order.prototype, {
                 // Buscar el contenedor secundario que contiene el div que queremos eliminar
                 const centerContent = mainContent.querySelector('.center-content.d-flex.flex-column.w-50.p-1.border-start.border-end.bg-300');
                 
-                centerContent.classList.remove('w-50'); //elimino esto en el div
-                centerContent.classList.add('w-100'); //adiciono esto en el div
-
                 if (centerContent) {
+                    
+                    centerContent.classList.remove('w-50'); //elimino esto en el div
+                    centerContent.classList.add('w-100'); //adiciono esto en el div
+
                     // Buscar y eliminar el div con las clases específicas dentro de centerContent
                     const divToRemove = centerContent.querySelector('.flex-grow-1.numpad.row.row-cols-4.gx-0');
                     if (divToRemove) {
