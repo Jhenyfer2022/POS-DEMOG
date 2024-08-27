@@ -77,7 +77,7 @@ patch(Order.prototype, {
 
     paymentScreenHideCustomerAndFacturationZone() {
         this.simulateButtonClickFacturaccion();
-        
+
         console.log("estoy entrando al div");
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {
@@ -105,6 +105,7 @@ patch(Order.prototype, {
         const button = document.querySelector('.button.js_invoice.btn.btn-light.py-3.text-start.rounded-0.border-bottom');
         
         if (button) {
+            console.log('Botón fue precionado');
             button.click(); // Simula un clic en el botón
         } else {
             console.log('Botón no encontrado');
