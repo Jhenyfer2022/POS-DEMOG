@@ -22,7 +22,7 @@ patch(Order.prototype, {
 
         //ocultar campos del payment-screen
         this.paymentScreenHideCustomerAndFacturationZone();
-        //this.paymentScreenHideNumpad();
+        this.paymentScreenHideNumpad();
     },
     
     hideChangeCustomerButton() {
