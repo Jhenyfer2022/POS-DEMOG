@@ -35,7 +35,6 @@
     'assets': {
         'point_of_sale._assets_pos': [
             'pos_screen_pane_position/static/src/xml/Screens/ProductScreen/ProductScreen.xml',
-            'pos_screen_pane_position/static/src/xml/Screens/ProductScreen/PaymentScreen.xml',
         ]
     },
     
