@@ -89,7 +89,7 @@ patch(Order.prototype, {
 
                     // Verificar tiene el estilo none activado
                     const have_styles = divToHide.hasAttribute('style');
-                    if (have_styles) {
+                    if (!have_styles) {
                         // Llamar a la función solo si el color de fondo no era rojo
                         this.simulateButtonClickFacturaccion();
                         divToHide.style.display = 'none';
