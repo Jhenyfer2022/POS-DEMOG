@@ -15,7 +15,7 @@
     ],
     'assets': {
         'point_of_sale._assets_pos': [
-            'bi_pos_default_customer/static/src/overrides/models/models.js',
+            'bi_pos_default_customer_and_hide_areas/static/src/overrides/models/models.js',
         ],
     },
     'license': 'OPL-1',

@@ -21,7 +21,8 @@ patch(Order.prototype, {
         this.resizePayButton();
 
         //ocultar campos del payment-screen
-        this.manageDivs();
+        this.paymentScreenHideCustomerAndFacturationZone();
+        //this.paymentScreenHideNumpad();
     },
     
     hideChangeCustomerButton() {
@@ -74,7 +75,7 @@ patch(Order.prototype, {
     },
 
 
-    manageDivs() {
+    paymentScreenHideCustomerAndFacturationZone() {
         console.log("estoy entrando al div");
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {
@@ -95,5 +96,36 @@ patch(Order.prototype, {
             childList: true,
             subtree: true
         });
+    },
+
+    paymentScreenHideNumpad() {
+        // Crear un MutationObserver para observar cambios en el DOM
+        const observer = new MutationObserver(() => {
+            // Buscar el contenedor principal
+            const mainContent = document.querySelector('.main-content.d-flex.overflow-auto.h-100');
+    
+            if (mainContent) {
+                // Buscar el contenedor secundario que contiene el div que queremos eliminar
+                const centerContent = mainContent.querySelector('.center-content.d-flex.flex-column.w-50.p-1.border-start.border-end.bg-300');
+                
+                if (centerContent) {
+                    // Buscar y eliminar el div con las clases específicas dentro de centerContent
+                    const divToRemove = centerContent.querySelector('.flex-grow-1.numpad.row.row-cols-4.gx-0');
+                    if (divToRemove) {
+                        divToRemove.remove(); // Eliminar el div del DOM
+                    }
+                }
+            }
+        });
+    
+        // Observar cambios en el DOM dentro del cuerpo del documento
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
     }
+
+
+
+    
 });
