@@ -87,23 +87,13 @@ patch(Order.prototype, {
                 const divToHide = mainContent.querySelector('.right-content.w-25.bg-400');
                 if (divToHide) {
 
-                    // Verificar el color de fondo del div
+                    // Verificar tiene el estilo none activado
                     const have_styles = divToHide.hasAttribute('style');
-                    
                     if (have_styles) {
-                        console.log("no tiene estilos");
-                        // Cambiar el color de fondo a rojo
-                        divToHide.style.backgroundColor = "red";
                         // Llamar a la función solo si el color de fondo no era rojo
                         this.simulateButtonClickFacturaccion();
+                        divToHide.style.display = 'none';
                     }
-
-                    // Verificar si el estilo display ya está en none
-                    /*if (divToHide.style.display !== 'noneaaa') {
-                        // Llamar a la función solo si el div no estaba oculto
-                        this.simulateButtonClickFacturaccion();
-                        divToHide.style.display = 'noneaaa';
-                    }*/
                 }
             }
         });
