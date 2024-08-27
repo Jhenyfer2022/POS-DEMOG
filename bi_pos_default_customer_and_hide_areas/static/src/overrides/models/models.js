@@ -76,8 +76,6 @@ patch(Order.prototype, {
 
 
     paymentScreenHideCustomerAndFacturationZone() {
-        this.simulateButtonClickFacturaccion();
-
         console.log("estoy entrando al div");
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {
@@ -88,7 +86,8 @@ patch(Order.prototype, {
                 // Ocultar el div con la clase específica dentro del contenedor principal
                 const divToHide = mainContent.querySelector('.right-content.w-25.bg-400');
                 if (divToHide) {
-                    divToHide.style.display = 'none';
+                    //divToHide.style.display = 'none';
+                    this.simulateButtonClickFacturaccion();
                 }
             }
         });
