@@ -26,6 +26,7 @@ patch(Order.prototype, {
 
         //cambiar barra superior
         this.hide_user_and_menu();
+        this.changeLogoandAddText();
     },
     
     hideChangeCustomerButton() {
@@ -169,6 +170,42 @@ patch(Order.prototype, {
                 if(rightheader){
                     // Ocultar el campo con !important
                     rightheader.setAttribute('style', 'display: none !important;');
+                }
+            }
+        });
+    
+        // Observar cambios en el DOM dentro del contenedor principal
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    },
+
+    changeLogoandAddText(){
+        // Crear un MutationObserver para observar cambios en el DOM
+        const observer = new MutationObserver(() => {
+            //buscar el menu superior del pos
+            const mainContent = document.querySelector('.pos-topheader');
+            if (mainContent) {
+                //buscar el campo donde esta el logo de odoo
+                const pos_branding = mainContent.querySelector('.pos-branding');
+                if(pos_branding){
+                    // Seleccionar el elemento img
+                    const logo = pos_branding.querySelector('img');
+                    if (logo) {
+                        // Cambiar la imagen
+                        logo.src = 'https://s1.elespanol.com/2020/06/23/curiosidades/naturaleza-planeta-tierra/ciencias_naturales-flores-naturaleza_y_planeta_tierra_499960581_154305912_1706x960.jpg';
+                        logo.alt = 'Nuevo Logo';
+
+                        // Crear un nuevo elemento span con el texto
+                        const texto = document.createElement('span');
+                        texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
+                        texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
+                        texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
+
+                        // Añadir el texto al lado de la imagen
+                        pos_branding.appendChild(texto);
+                    }
                 }
             }
         });
