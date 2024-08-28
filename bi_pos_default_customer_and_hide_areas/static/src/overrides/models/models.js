@@ -193,7 +193,6 @@ patch(Order.prototype, {
                     // Seleccionar el elemento img
                     const logo = pos_branding.querySelector('img');
                     if (logo) {
-                        debugger
                         // Cambiar la imagen
                         logo.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
                         logo.alt = 'Nuevo Logo';
