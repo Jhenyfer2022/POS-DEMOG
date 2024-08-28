@@ -194,8 +194,8 @@ patch(Order.prototype, {
                     const logo = pos_branding.querySelector('img');
                     if (logo) {
                         // Cambiar la imagen
-                        logo.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
-                        logo.alt = 'Nuevo Logo';
+                        //logo.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
+                        //logo.alt = 'Nuevo Logo';
 
                         // Crear un nuevo elemento span con el texto
                         const texto = document.createElement('span');
