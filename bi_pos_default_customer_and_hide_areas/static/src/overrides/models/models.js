@@ -168,7 +168,7 @@ patch(Order.prototype, {
                 const rightheader = mainContent.querySelector('.pos-rightheader');
                 if(rightheader){
                     //ocultar el campo
-                    rightheader.style.display = 'none';
+                    rightheader.style.display = 'none !important';
                 }
             }
         });
