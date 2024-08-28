@@ -203,7 +203,7 @@ patch(Order.prototype, {
                         texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
                         texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
 
-                        // Añadir el texto al lado de la imagen
+                        // Añadir el texto al lado de la imagen w
                         pos_branding.appendChild(texto);
                     }
                 }
