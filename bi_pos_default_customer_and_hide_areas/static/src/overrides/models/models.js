@@ -165,7 +165,7 @@ patch(Order.prototype, {
             const mainContent = document.querySelector('.pos-topheader');
             if (mainContent) {
                 //buscar el campo superior derecho menu y usuario
-                const rightheader = document.querySelector('.pos-rightheader');
+                const rightheader = mainContent.querySelector('.pos-rightheader');
                 if(rightheader){
                     //ocultar el campo
                     rightheader.style.display = 'none';
