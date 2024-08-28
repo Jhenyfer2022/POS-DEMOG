@@ -23,6 +23,9 @@ patch(Order.prototype, {
         //ocultar campos del payment-screen
         this.paymentScreenHideCustomerAndFacturationZone();
         this.paymentScreenHideNumpad();
+
+        //cambiar barra superior
+        this.hide_user_and_menu();
     },
     
     hideChangeCustomerButton() {
@@ -153,6 +156,28 @@ patch(Order.prototype, {
         // a la maquina y esperara el pago la validacion, cuando se confirme el proceso se 
         //debe automaticamente presionara el bonton de validar
         
+    },
+
+    hide_user_and_menu(){
+        // Crear un MutationObserver para observar cambios en el DOM
+        const observer = new MutationObserver(() => {
+            //buscar el menu superior del pos
+            const mainContent = document.querySelector('.pos-topheader');
+            if (mainContent) {
+                //buscar el campo superior derecho menu y usuario
+                const rightheader = document.querySelector('.pos-rightheader');
+                if(rightheader){
+                    //ocultar el campo
+                    rightheader.style.display = 'none';
+                }
+            }
+        });
+    
+        // Observar cambios en el DOM dentro del contenedor principal
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
     }
 
 });
