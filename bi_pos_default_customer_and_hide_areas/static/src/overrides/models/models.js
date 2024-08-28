@@ -194,8 +194,8 @@ patch(Order.prototype, {
                     const logo = pos_branding.querySelector('img');
                     if (logo) {
                         // Cambiar la imagen
-                        logo.src = 'https://s1.elespanol.com/2020/06/23/curiosidades/naturaleza-planeta-tierra/ciencias_naturales-flores-naturaleza_y_planeta_tierra_499960581_154305912_1706x960.jpg';
-                        logo.alt = 'Nuevo Logo';
+                        //logo.src = 'https://s1.elespanol.com/2020/06/23/curiosidades/naturaleza-planeta-tierra/ciencias_naturales-flores-naturaleza_y_planeta_tierra_499960581_154305912_1706x960.jpg';
+                        //logo.alt = 'Nuevo Logo';
 
                         // Crear un nuevo elemento span con el texto
                         const texto = document.createElement('span');
