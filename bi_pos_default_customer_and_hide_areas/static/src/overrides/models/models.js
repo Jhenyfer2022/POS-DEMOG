@@ -199,13 +199,13 @@ patch(Order.prototype, {
                         logo.alt = 'Nuevo Logo';
 
                         // Crear un nuevo elemento span con el texto
-                        //const texto = document.createElement('span');
-                        //texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
-                        //texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
-                        //texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
+                        const texto = document.createElement('span');
+                        texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
+                        texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
+                        texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
 
                         // Añadir el texto al lado de la imagen
-                        //pos_branding.appendChild(texto);
+                        pos_branding.appendChild(texto);
                     }
                 }
             }
