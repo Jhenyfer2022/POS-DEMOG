@@ -195,8 +195,8 @@ patch(Order.prototype, {
                     if (logo) {
                         debugger
                         // Cambiar la imagen
-                        //logo.src = 'https://s1.elespanol.com/2020/06/23/curiosidades/naturaleza-planeta-tierra/ciencias_naturales-flores-naturaleza_y_planeta_tierra_499960581_154305912_1706x960.jpg';
-                        //logo.alt = 'Nuevo Logo';
+                        logo.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
+                        logo.alt = 'Nuevo Logo';
 
                         // Crear un nuevo elemento span con el texto
                         //const texto = document.createElement('span');
