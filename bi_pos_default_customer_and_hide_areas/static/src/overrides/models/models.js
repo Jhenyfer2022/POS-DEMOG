@@ -167,8 +167,8 @@ patch(Order.prototype, {
                 //buscar el campo superior derecho menu y usuario
                 const rightheader = mainContent.querySelector('.pos-rightheader');
                 if(rightheader){
-                    //ocultar el campo
-                    rightheader.style.display = 'none !important';
+                    // Ocultar el campo con !important
+                    rightheader.setAttribute('style', 'display: none !important;');
                 }
             }
         });
