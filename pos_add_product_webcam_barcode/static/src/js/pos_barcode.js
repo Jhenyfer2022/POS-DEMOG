@@ -9,8 +9,8 @@ import { ProductScreen } from "@point_of_sale/app/screens/product_screen/product
 
 export class PosProductBarcode extends Component {
     static template = "ProductBarcodePos";
-     setup() {
-        this.bus = new EventBus();
+    setup() {
+        /*this.bus = new EventBus();
         this.modalRef = useChildRef();
         this.isProcess = false;
         this.dialog = useService("dialog");
@@ -20,8 +20,7 @@ export class PosProductBarcode extends Component {
                 this.stream = null;
             }
         });
-        debugger
-        super.setup();
+        super.setup();*/
     }
     /*async onClick() {
             // Opens a Dialog box for scanning barcode
