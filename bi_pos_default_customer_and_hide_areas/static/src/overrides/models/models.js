@@ -208,13 +208,13 @@ patch(Order.prototype, {
                         pos_branding.appendChild(newImage);
 
                         // Crear un nuevo elemento span con el texto
-                        //const texto = document.createElement('span');
-                        //texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
-                        //texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
-                        //texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
+                        const asistent_texto = document.createElement('span');
+                        asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
+                        asistent_texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
+                        asistent_texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
 
                         // Añadir el texto al lado de la imagen w
-                        //pos_branding.appendChild(texto);
+                        pos_branding.appendChild(asistent_texto);
                     }
                 }
             }
