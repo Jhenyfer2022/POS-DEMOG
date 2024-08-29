@@ -20,6 +20,7 @@ export class PosProductBarcode extends Component {
                 this.stream = null;
             }
         });
+        debugger
         super.setup();
     }
     /*async onClick() {
