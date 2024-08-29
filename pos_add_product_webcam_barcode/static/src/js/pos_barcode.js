@@ -8,9 +8,9 @@ import { Component, onWillUnmount, EventBus } from "@odoo/owl";
 import { ProductScreen } from "@point_of_sale/app/screens/product_screen/product_screen";
 
 export class PosProductBarcode extends Component {
-    static template = "ProductBarcodePos";
-    setup() {
-        /*this.bus = new EventBus();
+    /*static template = "ProductBarcodePos";
+     setup() {
+        this.bus = new EventBus();
         this.modalRef = useChildRef();
         this.isProcess = false;
         this.dialog = useService("dialog");
@@ -20,9 +20,9 @@ export class PosProductBarcode extends Component {
                 this.stream = null;
             }
         });
-        super.setup();*/
+        super.setup();
     }
-    /*async onClick() {
+    async onClick() {
             // Opens a Dialog box for scanning barcode
             var self = this;
             const constraints = {
