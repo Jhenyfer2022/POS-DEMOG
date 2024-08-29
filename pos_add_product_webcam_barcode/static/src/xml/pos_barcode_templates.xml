@@ -7,7 +7,7 @@
             
     
         </div>-->
-        <div class="asdasd">
+        <div class="control-button">
             <span>asdasd</span>
             <!--<video t-ref="videoPreview" muted="true" autoplay="true" playsinline="true" class="w-100 h-100"/>-->
         </div>
