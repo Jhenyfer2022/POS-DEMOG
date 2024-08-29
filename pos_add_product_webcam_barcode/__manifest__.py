@@ -35,9 +35,9 @@
     'assets': {
         'point_of_sale._assets_pos': [
             'pos_add_product_webcam_barcode/static/src/js/quagga.js',
-            'pos_add_product_webcam_barcode/static/src/xml/barcode_dialog_templates.xml',
+            #'pos_add_product_webcam_barcode/static/src/xml/barcode_dialog_templates.xml',
             'pos_add_product_webcam_barcode/static/src/js/pos_barcode.js',
-            'pos_add_product_webcam_barcode/static/src/js/barcode_dialog.js',
+            #'pos_add_product_webcam_barcode/static/src/js/barcode_dialog.js',
             'pos_add_product_webcam_barcode/static/src/xml/pos_barcode_templates.xml',
         ],
     },

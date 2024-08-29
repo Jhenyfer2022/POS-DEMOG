@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--Pos barcode button-->
 <template id="Pos_Product_Barcode">
-    <t t-name="ProductBarcodePos" owl="1">
+    <video t-ref="videoPreview" muted="true" autoplay="true" playsinline="true" class="w-100 h-100"/>
+    <!--<t t-name="ProductBarcodePos" owl="1">
         <div class="control-button" t-on-click="onClick">
             <i class="fa fa-barcode"/>Barcode
         </div>
-    </t>
-    <!--<t t-name="BarcodeDialog">
-      <Dialog size="'md'" title="props.title" modalRef="modalRef">-->
-        <video t-ref="videoPreview" muted="true" autoplay="true"
-                playsinline="true" class="w-100 h-100"/>
-          <t t-set-slot="footer">
-            <button class="btn" t-att-class="props.confirmClass"
-                  t-on-click="_dialogConfirm" t-esc="props.confirmLabel"/>
-          </t>
-      <!--</Dialog>
     </t>-->
 </template>

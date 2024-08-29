@@ -22,7 +22,7 @@ export class PosProductBarcode extends Component {
         });
         super.setup();
     }
-    async onClick() {
+    /*async onClick() {
             // Opens a Dialog box for scanning barcode
             var self = this;
             const constraints = {
@@ -39,12 +39,13 @@ export class PosProductBarcode extends Component {
             } catch (err) {
                 window.alert('Failed to detect webcam.Please ensure that your browser has the required permissions to access your webcam.')
             }
-    }
+    }*/
 }
-PosProductBarcode.components = { BarcodeDialog };
+
+/*PosProductBarcode.components = { BarcodeDialog };
 ProductScreen.addControlButton({
     component: PosProductBarcode,
     condition: function () {
         return true
     },
-});
+});*/
