@@ -193,18 +193,19 @@ patch(Order.prototype, {
                     // Seleccionar el elemento img
                     const logo = pos_branding.querySelector('img');
                     if (logo) {
+                        console.log("asd");
                         // Cambiar la imagen
                         //logo.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
                         //logo.alt = 'Nuevo Logo';
 
                         // Crear un nuevo elemento span con el texto
-                        const texto = document.createElement('span');
-                        texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
-                        texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
-                        texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
+                        //const texto = document.createElement('span');
+                        //texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
+                        //texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
+                        //texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
 
                         // Añadir el texto al lado de la imagen w
-                        pos_branding.appendChild(texto);
+                        //pos_branding.appendChild(texto);
                     }
                 }
             }
