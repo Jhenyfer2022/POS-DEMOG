@@ -191,12 +191,21 @@ patch(Order.prototype, {
                 const pos_branding = mainContent.querySelector('.pos-branding');
                 if(pos_branding){
                     // Seleccionar el elemento img
-                    const logo = pos_branding.querySelector('img');
-                    if (logo) {
-                        console.log("asd");
-                        // Cambiar la imagen
-                        //logo.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
-                        //logo.alt = 'Nuevo Logo';
+                    const logo = pos_branding.querySelector('.pos-logo');
+                    // Verificar tiene el estilo none activado
+                    const have_styles = logo.hasAttribute('style');
+                    
+                    if (!have_styles) {
+                        // Ocultar la imagen antigua
+                        logo.style.display = 'none';
+                        
+                        // Crear y agregar la nueva imagen
+                        const newImage = document.createElement('img');
+                        newImage.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
+                        newImage.alt = 'NewLogo';
+
+                        // Insertar la nueva imagen en el div
+                        pos_branding.appendChild(newImage);
 
                         // Crear un nuevo elemento span con el texto
                         //const texto = document.createElement('span');
