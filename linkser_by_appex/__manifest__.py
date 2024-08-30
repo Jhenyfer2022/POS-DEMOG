@@ -12,6 +12,7 @@
         'payment'
     ],
     'data': [
+        'data/linkser_payment_provider_data.xml',
         'views/payment_provider_linkser_views.xml',
     ],
     #'assets': {
