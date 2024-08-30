@@ -10,6 +10,6 @@
                 eval="[Command.set([ ref('linkser_by_appex.payment_method_linkser')])]"/>
         <field name="company_id" ref="base.main_company"/>
         <field name="module_id" ref="base.module_linkser_by_appex"/>
-        <field name="inline_form_view_id" ref="inline_form"/>
+        <!--<field name="inline_form_view_id" ref="inline_form"/>-->
     </record>
 </odoo>
