@@ -12,8 +12,9 @@
         'payment'
     ],
     'data': [
+        'data/linkser_payment_method_data.xml',
         'data/linkser_payment_provider_data.xml',
-        'views/payment_provider_linkser_views.xml',
+        'views/payment_provider_views.xml',
     ],
     #'assets': {
     #    'point_of_sale._assets_pos': [
