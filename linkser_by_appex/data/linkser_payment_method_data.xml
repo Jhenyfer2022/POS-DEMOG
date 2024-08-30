@@ -5,7 +5,7 @@
         <field name="name">Linkser</field>
         <field name="code">linkser</field>
          <field name="image" type="base64"
-               file="advanced_payment_linkser/static/src/img/logo-linkser.png"/>
+               file="linkser_by_appex/static/src/img/logo-linkser.png"/>
         <field name="sequence">12</field>
         <field name="support_tokenization">True</field>
         <field name="support_express_checkout">False</field>
