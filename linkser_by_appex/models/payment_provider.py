@@ -1,6 +1,6 @@
 from odoo import models, fields
 
-class PaymentProviderLinkser(models.Model):
+class PaymentProvider(models.Model):
     _inherit = 'payment.provider'
 
     code = fields.Selection(selection_add=[('linkser', 'Linkser')],
