@@ -1,14 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_payment_provider_form_linkser" model="ir.ui.view">
-        <field name="name">payment.provider.form.linkser</field>
+    <!-- Inheriting providers to add linkser provider fields -->
+    <record id="payment_provider_form" model="ir.ui.view">
+        <field name="name">payment.provider.view.form.inherit.advanced.payment.linkser</field>
         <field name="model">payment.provider</field>
         <field name="inherit_id" ref="payment.payment_provider_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='provider']" position="after">
-                <field name="usuario" attrs="{'invisible': [('provider', '!=', 'linkser')]}"/>
-                <field name="clave" attrs="{'invisible': [('provider', '!=', 'linkser')]}"/>
-            </xpath>
+            <group name="provider_credentials" position='inside'>
+                <group invisible="code != 'linkser'">
+                    <field name="linkser_merchant"
+                           string="Merchant ID"
+                           required="code == 'linkser' and state != 'disabled'"/>
+                    <field name="linkser_key"
+                           string="key" password="1"
+                           required="code == 'linkser' and state != 'disabled'"/>
+                    <field name="linkser_secret_key"
+                           string="Secret key" password="1"
+                           required="code == 'linkser' and state != 'disabled'"/>
+                </group>
+            </group>
         </field>
     </record>
 </odoo>
