@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_payment_provider_form_linkser" model="ir.ui.view">
+        <field name="name">payment.provider.form.linkser</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='provider']" position="after">
+                <field name="usuario" attrs="{'invisible': [('provider', '!=', 'linkser')]}"/>
+                <field name="clave" attrs="{'invisible': [('provider', '!=', 'linkser')]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
