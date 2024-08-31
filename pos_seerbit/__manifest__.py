@@ -22,7 +22,7 @@
     #},
 
     'assets': {
-        'point_of_sale._assets_pos': [
+        'point_of_sale.assets': [
             'pos_seerbit/static/src/js/models.js',
             'pos_seerbit/static/src/js/payment_seerbit.js',
             'pos_seerbit/static/src/js/PaymentScreen.js',
