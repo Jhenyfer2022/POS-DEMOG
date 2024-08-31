@@ -20,18 +20,22 @@
     #        'pos_seerbit/static/src/**/*',
     #    ],
     #},
-
     'assets': {
-        'point_of_sale.assets': [
+        'point_of_sale._assets_pos': [
+            'pos_seerbit/static/src/xml/PaymentScreenPaymentLines.xml',
+        ],
+    },
+    #'assets': {
+    #    'point_of_sale.assets': [
             #'pos_seerbit/static/src/js/models.js',
             #'pos_seerbit/static/src/js/payment_seerbit.js',
             #'pos_seerbit/static/src/js/PaymentScreen.js',
 
             #'pos_seerbit/static/src/scss/pos.scss',
 
-            'pos_seerbit/static/src/xml/PaymentScreenPaymentLines.xml',
-        ],
-    },
+    #        'pos_seerbit/static/src/xml/PaymentScreenPaymentLines.xml',
+    #    ],
+    #},
 
     'license': 'OPL-1',
     'images': ['static/description/seerbit.gif']
