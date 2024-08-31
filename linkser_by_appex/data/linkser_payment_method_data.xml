@@ -1,4 +1,14 @@
-<!--<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Adding the payment provider Linkser to the payment method Card -->
+    <record id="payment_method_card" model="payment.method">
+        <field name="name">Card</field>
+        <!-- This should be the existing method for card payments -->
+        <!-- Here you are adding the Linkser provider to the Card payment method -->
+        <field name="provider_ids" eval="[Command.set([ref('payment_provider_linkser')])]"/>
+    </record>
+</odoo>
+<!--
 <odoo>
     <record id="payment_method_linkser" model="payment.method">
         <field name="name">Linkser</field>
@@ -11,14 +21,3 @@
         <field name="support_refund">partial</field>
     </record>
 </odoo> -->
-
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <!-- Adding the payment provider Linkser to the payment method Card -->
-    <record id="payment_method_card" model="payment.method">
-        <field name="name">Card</field>
-        <!-- This should be the existing method for card payments -->
-        <!-- Here you are adding the Linkser provider to the Card payment method -->
-        <field name="provider_ids" eval="[Command.set([ref('payment_provider_linkser')])]"/>
-    </record>
-</odoo>
