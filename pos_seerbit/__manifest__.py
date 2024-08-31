@@ -16,7 +16,8 @@
     'installable': True,
     'assets': {
         'point_of_sale.assets': [
-            'pos_seerbit/static/src/**/*',
+            #'pos_seerbit/static/src/**/*',
+            'pos_seerbit/static/src/js/models.js',
         ],
     },
     'license': 'OPL-1',
