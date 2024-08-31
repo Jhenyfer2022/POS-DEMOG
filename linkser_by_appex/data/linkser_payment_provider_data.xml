@@ -7,8 +7,8 @@
 
 
         <field name="image_128" type="base64"file="linkser_by_appex/static/src/img/logo-linkser.png"/>
-        <!--<field name="payment_method_ids"
-                eval="[Command.set([ ref('linkser_by_appex.payment_method_linkser')])]"/>-->
+        <field name="payment_method_ids"
+                eval="[Command.set([ ref('linkser_by_appex.payment_method_linkser')])]"/>
         <field name="company_id" ref="base.main_company"/>
         <field name="module_id" ref="base.module_linkser_by_appex"/>
         <!--<field name="inline_form_view_id" ref="inline_form"/>-->
