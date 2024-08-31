@@ -18,6 +18,13 @@
         'point_of_sale.assets': [
             #'pos_seerbit/static/src/**/*',
             'pos_seerbit/static/src/js/models.js',
+            
+            'pos_seerbit/static/src/js/payment_seerbit.js',
+            'pos_seerbit/static/src/js/PaymentScreen.js',
+
+            'pos_seerbit/static/src/scss/pos.scss',
+
+            'pos_seerbit/static/src/xml/PaymentScreenPaymentLines.xml',
         ],
     },
     'license': 'OPL-1',
