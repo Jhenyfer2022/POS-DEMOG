@@ -9,6 +9,7 @@ odoo.define('pos_seerbit.PaymentScreen', function(require) {
         setup() {
         super.setup();
             onMounted(() => {
+                debugger
                 const pendingPaymentLine = this.currentOrder.paymentlines.find(
                     paymentLine => paymentLine.payment_method.use_payment_terminal === 'seerbit' &&
                         (!paymentLine.is_done() && paymentLine.get_payment_status() !== 'pending')
