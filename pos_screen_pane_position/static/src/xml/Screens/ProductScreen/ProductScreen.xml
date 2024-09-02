@@ -124,7 +124,7 @@
                         <div id="cam-scaner">
                         
                         </div>
-                    
+                        <p id="resultado"></p>
 
 
                         <OrderWidget lines="currentOrder.orderlines" t-slot-scope="scope"
