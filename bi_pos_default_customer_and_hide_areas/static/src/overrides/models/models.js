@@ -28,7 +28,52 @@ patch(Order.prototype, {
         this.hide_user_and_menu();
         this.changeLogoandAddText();
 
-        this.oncamera();
+        //this.oncamera();
+        Quagga.init({
+            inputStream: {
+                name: "Live",
+                type: "LiveStream",
+                target: document.querySelector('#cam-scaner'),
+                constraints: {
+                    width: 640,
+                    height: 480,
+                    facingMode: "environment" // Utiliza la cámara trasera
+                },
+                /*
+                constraints: {
+                    video: {
+                        facingMode: {
+                            exact: "environment"
+                        }
+                    }
+                },
+                numOfWorkers: navigator.hardwareConcurrency,
+                target: this.videoPreviewRef.el,
+                document.querySelector("#cam-scaner")
+                */
+            },
+            decoder: {
+                readers: ['code_128_reader']
+            }
+        }, function(err) {
+            if (err) {
+                console.log(err);
+                return
+            }
+            console.log("QuaggaJS iniciado con éxito");
+            Quagga.start();
+        })
+        Quagga.onDetected(function(result) {
+            /*
+            var barcode = result.codeResult.code;
+            Quagga.offDetected();
+            Quagga.stop();
+            self.scan_product(barcode)
+            */
+            var code = result.codeResult.code;
+            document.getElementById('resultado').innerText = "Código detectado: " + code;
+            console.log("Código detectado: ", code);
+        });
     },
     
     hideChangeCustomerButton() {
