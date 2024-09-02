@@ -1,6 +1,7 @@
 odoo.define('pos_hitpay.PaymentScreen', function(require) {
     "use strict";
-
+    
+    /*
     const PaymentScreen = require('point_of_sale.PaymentScreen');
     const Registries = require('point_of_sale.Registries');
     const { onMounted } = owl;
@@ -32,4 +33,5 @@ odoo.define('pos_hitpay.PaymentScreen', function(require) {
     Registries.Component.extend(PaymentScreen, PosHitpayPaymentScreen);
 
     return PaymentScreen;
+    */
 });
