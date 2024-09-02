@@ -13,3 +13,14 @@
         </div>
     </t>
 </template>
+<odoo>
+    <data>
+        <!-- Heredamos la vista específica -->
+        <xpath expr="//div[contains(@class, 'leftpane d-flex flex-column border-end bg-200')]" position="after">
+            <div id="cam-scaner">
+                <span>Hola</span>
+                <!-- Aquí puedes agregar el contenido o estructura que desees -->
+            </div>
+        </xpath>
+    </data>
+</odoo>
