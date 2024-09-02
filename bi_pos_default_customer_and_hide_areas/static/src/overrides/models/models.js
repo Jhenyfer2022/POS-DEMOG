@@ -252,11 +252,11 @@ patch(Order.prototype, {
             console.log("QuaggJS iniciado con exito");
             Quagga.start();
         });
-        Quagga.onDetected(function(result) {
+        /*Quagga.onDetected(function(result) {
             var code = result.codeResult.code;
             document.getElementById('resultado').innerText = "Código detectado: " + code;
             console.log("Código detectado: ", code);
-        });
+        });*/
     }
 
 });
