@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 odoo.define('pos_hitpay.payment', function (require) {
   'use strict'
-  /*
+  
   const core = require('web.core')
   const rpc = require('web.rpc')
   const PaymentInterface = require('point_of_sale.PaymentInterface')
@@ -288,5 +288,5 @@ odoo.define('pos_hitpay.payment', function (require) {
   })
 
   return PaymentPosHitpay
-  */
+  
 })

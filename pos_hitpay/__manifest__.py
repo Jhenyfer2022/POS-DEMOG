@@ -22,9 +22,9 @@
     'installable': True,
     'assets': {
         'web.assets_backend': [
-            'pos_hitpay/static/src/js/PaymentScreen.js',
-            'pos_hitpay/static/src/js/payment_hitpay_pos.js',
-            'pos_hitpay/static/src/js/models.js',
+        #    'pos_hitpay/static/src/js/PaymentScreen.js',
+        #    'pos_hitpay/static/src/js/payment_hitpay_pos.js',
+        #    'pos_hitpay/static/src/js/models.js',
         ],
 		'point_of_sale.assets': [
 			'https://hit-pay.com/hitpay.js',

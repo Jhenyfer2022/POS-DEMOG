@@ -1,5 +1,5 @@
 odoo.define('pos_hitpay.models', function (require) {
-    /*
+    
     const { register_payment_method, Payment } = require('point_of_sale.models')
     const PaymentHitPay = require('pos_hitpay.payment')
     const Registries = require('point_of_sale.Registries')
@@ -61,6 +61,6 @@ odoo.define('pos_hitpay.models', function (require) {
       }
     }
     Registries.Model.extend(Payment, PosHitPayPayment)
-    */
+    
 }) 
     
