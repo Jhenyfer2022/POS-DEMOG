@@ -5,6 +5,7 @@
         <!-- Heredamos la vista específica -->
         <xpath expr="//div[contains(@class, 'leftpane d-flex flex-column border-end bg-200')]" position="after">
             <div id="cam-scaner">
+                <span>asd</span>
                 <!-- Aquí puedes agregar el contenido o estructura que desees -->
             </div>
         </xpath>
