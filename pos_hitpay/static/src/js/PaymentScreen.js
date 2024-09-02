@@ -37,8 +37,9 @@ odoo.define('pos_hitpay.PaymentScreen', function(require) {
 });
 */
 
-odoo.define('pos_hitpay.PaymentScreen', function(require) {
+odoo.define('pos_hitpay.PaymentScreen', ['web.core', 'point_of_sale.PaymentScreen'], function(require) {
     "use strict";
+
     var core = require('web.core');
     var PaymentScreen = require('point_of_sale.PaymentScreen');
 
