@@ -1,26 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!--Pos barcode button-->
-<template id="Pos_Product_Barcode">
-    <t t-name="ProductBarcodePos" owl="1">
-        <!--<div class="control-button" t-on-click="onClick">
-            <i class="fa fa-barcode"/>Barcode
-            
-    
-        </div>-->
-        <div class="control-button" >
-            <span>asdasd</span>
-            <!--<video t-ref="videoPreview" muted="true" autoplay="true" playsinline="true" class="w-100 h-100"/>-->
-        </div>
-    </t>
-</template>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <!-- Heredamos la vista específica -->
-        <xpath expr="//div[contains(@class, 'leftpane d-flex flex-column border-end bg-200')]" position="after">
-            <div id="cam-scaner">
-                <span>Hola</span>
-                <!-- Aquí puedes agregar el contenido o estructura que desees -->
-            </div>
-        </xpath>
+        <!-- Extiende la vista existente de ProductScreen -->
+        <template id="ProductScreen" inherit_id="point_of_sale.ProductScreen">
+            <xpath expr="//div[contains(@class, 'leftpane d-flex flex-column border-end bg-200')]" position="after">
+                <div id="cam-scaner">
+                    Hola
+                </div>
+            </xpath>
+        </template>
     </data>
 </odoo>
