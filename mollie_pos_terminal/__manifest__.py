@@ -1,10 +1,14 @@
 {
-    'name': 'Mollie Pos Terminal',
+    'name': 'Linkser by appex plantilla',
     'version': '17.0.0.2',
     'description': '',
     'summary': 'Connect your pos with mollie terminal',
-    'author': 'Mollie',
-    'maintainer': 'Applix',
+    
+    'author': 'Erick Denis Mercado Oudalova',
+    'maintainer': 'AppexBo',
+    'company': 'AppexBo',
+    'website': 'https://www.appexbo.com/',
+    
     'license': 'LGPL-3',
     'category': 'Point of Sale',
     'depends': [
