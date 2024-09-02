@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!-- Point of sale order session page -->
+    <t t-name="ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
+
+        
+    </t>
+</template>
 
 <odoo>
     <template id="pos_custom_layout" inherit_id="point_of_sale.view_pos_menu">
