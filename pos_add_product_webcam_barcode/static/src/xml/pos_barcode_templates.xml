@@ -1,11 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<odoo>
-    <data>
-        <!-- Extiende la vista existente de ProductScreen -->
-        <template id="ProductScreen" inherit_id="point_of_sale.ProductScreen">
-            <xpath expr="//div[contains(@class, 'leftpane d-flex flex-column border-end bg-200')]" position="after">
-                
-            </xpath>
-        </template>
-    </data>
-</odoo>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--Pos barcode button-->
+<template id="Pos_Product_Barcode">
+    <t t-name="ProductBarcodePos" owl="1">
+        
+    </t>
+</template>
