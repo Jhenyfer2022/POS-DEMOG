@@ -46,4 +46,3 @@ odoo.define('pos_hitpay.PaymentScreen', function(require) {
 
     return PaymentScreen;
 });
-
