@@ -121,7 +121,12 @@
 
                     <!--<div t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}" class="leftpane d-flex flex-column border-end bg-200" style="width: 100vw;">-->
                     <div t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}" class="d-flex flex-column border-end bg-200" style="width: 100vw;">
-                        <div>hola que hace</div>
+                        <div id="cam-scaner">
+                        
+                        </div>
+                    
+
+
                         <OrderWidget lines="currentOrder.orderlines" t-slot-scope="scope"
                             total="env.utils.formatCurrency(currentOrder.get_total_with_tax())"
                             tax="!env.utils.floatIsZero(currentOrder.get_total_tax()) and env.utils.formatCurrency(currentOrder.get_total_tax()) or ''">
@@ -175,5 +180,45 @@
 
 
         </xpath>
+
+
+
+        <xpath expr="//body" position="inside">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    Quagga.init({
+                        inputStream : {
+                            name : "Live",
+                            type : "LiveStream",
+                            target: document.querySelector('#cam-scaner'),
+                            constraints: {
+                                width: 640,
+                                height: 480,
+                                facingMode: "environment" // Utiliza la cámara trasera
+                            },
+                        },
+                        decoder : {
+                            readers : ["code_128_reader"] // Especifica el tipo de código de barras a escanear
+                        }
+                    }, function(err) {
+                        if (err) {
+                            console.log(err);
+                            return;
+                        }
+                        console.log("QuaggaJS iniciado con éxito");
+                        Quagga.start();
+                    });
+
+                    Quagga.onDetected(function(result) {
+                        var code = result.codeResult.code;
+                        $('#resultado').text("Código detectado: " + code);
+                        console.log("Código detectado: ", code);
+                    });
+                });
+            </script>
+        </xpath>
+
+
     </t>
 </templates>
