@@ -1,7 +1,7 @@
+/*
 odoo.define('pos_hitpay.PaymentScreen', function(require) {
     "use strict";
-    debugger
-    /*
+    
     const PaymentScreen = require('point_of_sale.PaymentScreen');
     const Registries = require('point_of_sale.Registries');
     const { onMounted } = owl;
@@ -33,5 +33,17 @@ odoo.define('pos_hitpay.PaymentScreen', function(require) {
     Registries.Component.extend(PaymentScreen, PosHitpayPaymentScreen);
 
     return PaymentScreen;
-    */
+    
 });
+*/
+
+odoo.define('pos_hitpay.PaymentScreen', function(require) {
+    "use strict";
+    var core = require('web.core');
+    var PaymentScreen = require('point_of_sale.PaymentScreen');
+
+    // Tu código aquí
+
+    return PaymentScreen;
+});
+
