@@ -4,9 +4,7 @@
         <!-- Extiende la vista existente de ProductScreen -->
         <template id="ProductScreen" inherit_id="point_of_sale.ProductScreen">
             <xpath expr="//div[contains(@class, 'leftpane d-flex flex-column border-end bg-200')]" position="after">
-                <div id="cam-scaner">
-                    Hola
-                </div>
+                
             </xpath>
         </template>
     </data>
