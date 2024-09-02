@@ -38,7 +38,7 @@
             #'pos_add_product_webcam_barcode/static/src/xml/barcode_dialog_templates.xml',
             #'pos_add_product_webcam_barcode/static/src/js/pos_barcode.js',
             #'pos_add_product_webcam_barcode/static/src/js/barcode_dialog.js',
-            #'pos_add_product_webcam_barcode/static/src/xml/pos_barcode_templates.xml',
+            'pos_add_product_webcam_barcode/static/src/xml/pos_barcode_templates.xml',
         ],
     },
     'images': ['static/description/banner.jpg'],

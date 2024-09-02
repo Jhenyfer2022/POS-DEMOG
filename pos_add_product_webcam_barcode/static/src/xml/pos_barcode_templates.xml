@@ -2,6 +2,10 @@
 <!--Pos barcode button-->
 <template id="Pos_Product_Barcode">
     <t t-name="ProductBarcodePos" owl="1">
-        
+        <xpath expr="//div[hasclass('leftpane')]" position="after">
+            <div id="cam-scaner">
+                Hola
+            </div>
+        </xpath>
     </t>
 </template>
