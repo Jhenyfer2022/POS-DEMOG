@@ -1,6 +1,6 @@
 odoo.define('pos_hitpay.PaymentScreen', function(require) {
     "use strict";
-    
+    debugger
     /*
     const PaymentScreen = require('point_of_sale.PaymentScreen');
     const Registries = require('point_of_sale.Registries');
