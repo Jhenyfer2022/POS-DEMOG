@@ -268,12 +268,12 @@ patch(Order.prototype, {
             console.log("QuaggJS iniciado con exito");
             Quagga.start();
         });
-        Quagga.onDetected(function(result) {
+        
+        Quagga.onDetected((result) => { // Usando una función de flecha
             var code = result.codeResult.code;
-            debugger
-            //this.scan_product(code);
-            //document.getElementById('resultado').innerText = "Código detectado: " + code;
             console.log("Código detectado: ", code);
+            debugger
+            console.log("Posición: ", pos); // Muestra el valor de pos directamente
         });
     },
 
