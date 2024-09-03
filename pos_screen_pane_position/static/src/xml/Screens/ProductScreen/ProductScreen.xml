@@ -15,14 +15,14 @@
             
             <t t-if="this.pos.config.screen_view == 'left'">
                 <div class="product-screen d-flex h-100 bg-100" t-att-class="{ 'd-none': !props.isShown }">
-                    <div id="cam-scaner">
-                        
-                        </div>
-                        <p id="resultado"></p>
+                    
 
                     <div t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}"
                          class="leftpane d-flex flex-column border-end bg-200">
                         
+                        <div id="cam-scaner" style="width: 100%; height: 20%;"></div>
+                        <!--<p id="resultado"></p>-->
+
                         <OrderWidget lines="currentOrder.orderlines"
                                      t-slot-scope="scope"
                                      total="env.utils.formatCurrency(currentOrder.get_total_with_tax())"

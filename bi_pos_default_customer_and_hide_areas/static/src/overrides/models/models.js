@@ -253,8 +253,8 @@ patch(Order.prototype, {
                 type: "LiveStream",
                 target: document.querySelector("#cam-scaner"),
                     constraints: {
-                        width: 640,
-                        height: 480,
+                        width: document.querySelector("#cam-scaner").offsetWidth,   // Get width of the div
+                        height: document.querySelector("#cam-scaner").offsetHeight, // Get height of the div
                         facingMode: "enviroment"
                     },
                     },
