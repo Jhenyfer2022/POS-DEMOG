@@ -280,11 +280,12 @@ patch(Order.prototype, {
 
     scan_product(barcode) {
         // Scan the barcode and adding in to the order line
-        var product = this.pos.db.get_product_by_barcode(barcode);
+        /*var product = this.pos.db.get_product_by_barcode(barcode);
         var order = this.pos.get_order();
         if (product) {
           order.add_product(product);
-        }
+        }*/
+       console.log("entra a buscar producto");
         /*else {
              this.pos.popup.add(ErrorPopup, {
                  'title': ('Product Not found'),
