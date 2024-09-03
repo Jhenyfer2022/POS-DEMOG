@@ -179,7 +179,28 @@
 
 
             <script type="text/javascript">
-                console.log("wtffffffffff")
+                Quagga.init({
+                    inputStream: {
+                        name: "Live",
+                        type: "LiveStream",
+                        target: document.querySelector("#cam-scaner"),
+                            constraints: {
+                                width: 640,
+                                height: 480,
+                                facingMode: "enviroment"
+                            },
+                            },
+                            decode:{
+                                readers:["code_128_reader"]
+                            }
+                    },function(err){
+                            if(err){
+                                console.log(err)
+                                return;
+                        }
+                    console.log("QuaggJS iniciado con exito");
+                    Quagga.start();
+                });
             </script>
         </xpath>
 
