@@ -277,8 +277,26 @@ patch(Order.prototype, {
             var order = pos.get_order();
             if (product) {
                 order.add_product(product);
+
+                // Mostrar el div con id "cam-scaner-success-logo" después de añadir el producto
+                var successDiv = document.getElementById('cam-scaner-success-logo');
+                successDiv.style.display = 'block';
+
+                // Pausar la ejecución de los demás scripts durante 5 segundos
+                setTimeout(() => {
+                    // Ocultar el div nuevamente después de 5 segundos
+                    successDiv.style.display = 'none';
+                    
+                    // Aquí puedes continuar con la ejecución de otros scripts si es necesario
+                }, 5000); // 5000 milisegundos = 5 segundos
             }
         });
+
+        /*const mainContent = document.querySelector('#cam-scaner');
+                if (mainContent && !mainContent.querySelector('video')) {
+                    console.log("iniciar camara");
+                    this.oncamera1(pos);
+                }*/
     },
 
 });
