@@ -30,6 +30,7 @@ patch(Order.prototype, {
 
         //this.oncamera();
         window.onload = function() {
+            debugger
             Quagga.init({
                 inputStream: {
                     name: "Live",
