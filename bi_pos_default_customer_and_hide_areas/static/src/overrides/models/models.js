@@ -29,47 +29,32 @@ patch(Order.prototype, {
         this.changeLogoandAddText();
 
         //this.oncamera();
-        debugger
-        /*
-        Quagga.init({
-            inputStream: {
-                type: "LiveStream",
-                target: document.querySelector('#cam-scaner')  // Asegúrate de que este elemento exista en el DOM
-            },
-            decoder: {
-                readers: ["code_128_reader"]  // Ajusta esto según el tipo de código que necesitas leer
-            }
-        }, function(err) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            Quagga.start();
-        });
-        */
-        /*
-        Quagga.init({
-            inputStream: {
-                name: "Live",
-                type: "LiveStream",
-                target: document.querySelector('#cam-scaner'),
-                constraints: {
-                    width: 640,
-                    height: 480,
-                    facingMode: "environment" // Utiliza la cámara trasera
+        window.onload = function() {
+            Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: document.querySelector('#cam-scaner'),
+                    constraints: {
+                        width: 640,
+                        height: 480,
+                        facingMode: "environment" // Utiliza la cámara trasera
+                    },
                 },
-            },
-            decoder: {
-                readers: ['code_128_reader']
-            }
-        }, function(err) {
-            if (err) {
-                console.log(err);
-                return
-            }
-            console.log("QuaggaJS iniciado con éxito");
-            Quagga.start();
-        });
+                decoder: {
+                    readers: ['code_128_reader']
+                }
+            }, function(err) {
+                if (err) {
+                    console.log(err);
+                    return
+                }
+                console.log("QuaggaJS iniciado con éxito");
+                Quagga.start();
+            });
+        }
+        /*
+        
         */
         /*
         Quagga.onDetected(function(result) {
