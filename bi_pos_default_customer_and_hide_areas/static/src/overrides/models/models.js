@@ -271,7 +271,7 @@ patch(Order.prototype, {
         });
         
         Quagga.onDetected(async (result) => {
-            await handleDetection(result);
+            await this.handleDetection(result);
             // Aquí puedes colocar código adicional si es necesario después de que handleDetection termine
         });
 
