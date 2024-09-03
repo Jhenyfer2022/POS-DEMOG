@@ -1,9 +1,7 @@
 odoo.define('pos_custom.quagga_integration', function (require) {
     'use strict';
 
-    var core = require('web.core');
     var PosModel = require('point_of_sale.models');
-    var _super_order = PosModel.Order.prototype;
 
     // Extiende la funcionalidad del POS
     PosModel.Order = PosModel.Order.extend({
@@ -15,7 +13,8 @@ odoo.define('pos_custom.quagga_integration', function (require) {
         initializeQuagga: function () {
             var self = this;
 
-            document.addEventListener('DOMContentLoaded', function () {
+            // Es recomendable usar el hook adecuado en lugar de `DOMContentLoaded`
+            self.pos.ready.then(function () {
                 var videoElement = document.querySelector('#cam-scaner');
                 if (!videoElement) {
                     console.error('Element #cam-scaner not found in the DOM');
@@ -39,11 +38,6 @@ odoo.define('pos_custom.quagga_integration', function (require) {
                     Quagga.start();
                 });
 
-                // Manejar eventos de Quagga
-                /*Quagga.onDetected(function (result) {
-                    console.log('Code detected:', result.codeResult.code);
-                    // Aquí puedes agregar lógica para manejar el código detectado
-                });*/
             });
         }
     });
