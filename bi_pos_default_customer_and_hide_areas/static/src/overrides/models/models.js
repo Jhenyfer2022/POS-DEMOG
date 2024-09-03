@@ -10,7 +10,8 @@ patch(Order.prototype, {
         super.setup(...arguments);
         var default_customer = this.pos.config.res_partner_id;
         var default_customer_by_id = this.pos.db.get_partner_by_id(default_customer[0]);
-        
+        var products = usePos();
+
         if(default_customer_by_id){
             this.set_partner(default_customer_by_id);
         } else{
@@ -271,6 +272,7 @@ patch(Order.prototype, {
         });
         Quagga.onDetected(function(result) {
             var code = result.codeResult.code;
+            debugger
             //this.scan_product(code);
             //document.getElementById('resultado').innerText = "Código detectado: " + code;
             console.log("Código detectado: ", code);
