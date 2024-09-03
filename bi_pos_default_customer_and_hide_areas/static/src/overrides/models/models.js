@@ -233,8 +233,8 @@ patch(Order.prototype, {
         const observer = new MutationObserver(() => {
             //buscar el menu superior del pos
             const mainContent = document.querySelector('#cam-scaner');
-            if (mainContent) {
-                console.log("asd");
+            if (mainContent && !mainContent.querySelector('video')) {
+                console.log("iniciar camara");
                 this.oncamera1();
             }
         });
@@ -246,7 +246,6 @@ patch(Order.prototype, {
     },
 
     oncamera1(){
-        console.log("camon");
         Quagga.init({
             inputStream: {
                 name: "Live",
