@@ -259,7 +259,7 @@ patch(Order.prototype, {
                 type: "LiveStream",
                 target: camScanner,
                     constraints: {
-                        width: 680,   // Get width of the div
+                        width: width,   // Get width of the div
                         height: 480, // Get height of the div
                         facingMode: "enviroment"
                     },
