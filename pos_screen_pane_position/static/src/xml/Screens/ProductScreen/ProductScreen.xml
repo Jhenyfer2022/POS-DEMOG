@@ -175,42 +175,6 @@
 
 
 
-
-
-
-            <script type="text/javascript">
-                window.onload = function () {
-                    console.log("entre a la camara");
-                    startScanner();
-                };
-
-
-                function startScanner() {
-                    Quagga.init({
-                        inputStream: {
-                            name: "Live",
-                            type: "LiveStream",
-                            target: document.querySelector("#cam-scaner"),
-                            constraints: {
-                                width: 640,
-                                height: 480,
-                                facingMode: "environment"
-                            },
-                        },
-                        decoder: {
-                            readers: ["code_128_reader"]
-                        }
-                    }, function(err) {
-                        if (err) {
-                            console.log(err);
-                            return;
-                        }
-                        console.log("QuaggaJS iniciado con éxito");
-                        Quagga.start();
-                    });
-                }
-            </script>
-
         </xpath>
 
 

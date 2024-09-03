@@ -27,7 +27,8 @@ patch(Order.prototype, {
         //cambiar barra superior
         this.hide_user_and_menu();
         this.changeLogoandAddText();
-
+        //activar camara
+        this.onCamera();
     },
     
     hideChangeCustomerButton() {
@@ -227,8 +228,22 @@ patch(Order.prototype, {
             subtree: true
         });
     },
-
-    oncamera(){
+    onCamera(){
+        // Crear un MutationObserver para observar cambios en el DOM
+        const observer = new MutationObserver(() => {
+            //buscar el menu superior del pos
+            const mainContent = document.querySelector('#cam-scaner');
+            if (mainContent) {
+            
+            }
+        });
+        // Observar cambios en el DOM dentro del contenedor principal
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });      
+    },
+    oncamera1(){
         Quagga.init({
             inputStream: {
                 name: "Live",
