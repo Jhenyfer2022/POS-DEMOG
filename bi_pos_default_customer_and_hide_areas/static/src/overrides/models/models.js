@@ -246,7 +246,9 @@ patch(Order.prototype, {
     },
 
     async oncamera1(pos){
-        var scanning_enabled = true;
+        let lastDetectionTime = 0;
+        const detectionInterval = 60000; // 60,000 milisegundos = 1 minuto
+
         Quagga.init({
             inputStream: {
                 name: "Live",
@@ -271,7 +273,11 @@ patch(Order.prototype, {
         });
         
         Quagga.onDetected(async (result) => {
-            await this.handleDetection(result, pos);
+            if (currentTime - lastDetectionTime >= detectionInterval) {
+                lastDetectionTime = currentTime; // Actualizar el tiempo de la última detección
+                
+                await this.handleDetection(result, pos);
+            }
             // Aquí puedes colocar código adicional si es necesario después de que handleDetection termine
         });
 
