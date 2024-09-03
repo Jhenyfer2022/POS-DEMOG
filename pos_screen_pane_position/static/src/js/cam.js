@@ -2,6 +2,7 @@ odoo.define('pos_custom.quagga_integration', function (require) {
     'use strict';
 
     var PosModel = require('point_of_sale.models');
+    var core = require('web.core');
 
     // Extiende la funcionalidad del POS
     PosModel.Order = PosModel.Order.extend({
@@ -13,7 +14,7 @@ odoo.define('pos_custom.quagga_integration', function (require) {
         initializeQuagga: function () {
             var self = this;
 
-            // Es recomendable usar el hook adecuado en lugar de `DOMContentLoaded`
+            // Usa el hook adecuado en lugar de `DOMContentLoaded`
             self.pos.ready.then(function () {
                 var videoElement = document.querySelector('#cam-scaner');
                 if (!videoElement) {
@@ -37,7 +38,6 @@ odoo.define('pos_custom.quagga_integration', function (require) {
                     }
                     Quagga.start();
                 });
-
             });
         }
     });
