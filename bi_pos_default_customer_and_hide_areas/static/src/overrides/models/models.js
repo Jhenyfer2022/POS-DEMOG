@@ -28,19 +28,6 @@ patch(Order.prototype, {
         this.hide_user_and_menu();
         this.changeLogoandAddText();
 
-        /*
-        Quagga.onDetected(function(result) {
-            
-            var barcode = result.codeResult.code;
-            Quagga.offDetected();
-            Quagga.stop();
-            self.scan_product(barcode)
-            
-            var code = result.codeResult.code;
-            document.getElementById('resultado').innerText = "Código detectado: " + code;
-            console.log("Código detectado: ", code);
-        });
-        */
     },
     
     hideChangeCustomerButton() {
@@ -240,5 +227,35 @@ patch(Order.prototype, {
             subtree: true
         });
     },
+
+    oncamera(){
+        Quagga.init({
+            inputStream: {
+                name: "Live",
+                type: "LiveStream",
+                target: document.querySelector("#cam-scaner"),
+                    constraints: {
+                        width: 640,
+                        height: 480,
+                        facingMode: "enviroment"
+                    },
+                    },
+                     decode:{
+                         readers:["code_128_reader"]
+                     }
+            },function(err){
+                    if(err){
+                        console.log(err)
+                        return;
+                }
+            console.log("QuaggJS iniciado con exito");
+            Quagga.start();
+        });
+        /*Quagga.onDetected(function(result) {
+            var code = result.codeResult.code;
+            document.getElementById('resultado').innerText = "Código detectado: " + code;
+            console.log("Código detectado: ", code);
+        });*/
+    }
 
 });

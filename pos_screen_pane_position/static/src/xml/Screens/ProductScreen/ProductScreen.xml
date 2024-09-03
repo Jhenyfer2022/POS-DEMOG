@@ -178,33 +178,7 @@
 
 
 
-            <script type="text/javascript">
-                // Tu código JavaScript aquí
-                document.addEventListener('DOMContentLoaded', function () {
-                    var videoElement = document.querySelector('#cam-scaner');
-                    if (!videoElement) {
-                        console.error('Element #cam-scaner not found in the DOM');
-                        return;
-                    }
-
-                    // Configuración de Quagga
-                    Quagga.init({
-                        inputStream: {
-                            type: "LiveStream",
-                            target: videoElement  // El elemento donde se mostrará el video
-                        },
-                        decoder: {
-                            readers: ["code_128_reader"]  // Ajusta esto según el tipo de código
-                        }
-                    }, function (err) {
-                        if (err) {
-                            console.log(err);
-                            return;
-                        }
-                        Quagga.start();
-                    });
-                });
-            </script>
+            
         </xpath>
 
 
