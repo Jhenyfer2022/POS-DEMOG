@@ -28,35 +28,6 @@ patch(Order.prototype, {
         this.hide_user_and_menu();
         this.changeLogoandAddText();
 
-        //this.oncamera();
-        document.addEventListener('DOMContentLoaded', function() {
-            debugger
-            Quagga.init({
-                inputStream: {
-                    name: "Live",
-                    type: "LiveStream",
-                    target: document.querySelector('#cam-scaner'),
-                    constraints: {
-                        width: 640,
-                        height: 480,
-                        facingMode: "environment" // Utiliza la cámara trasera
-                    },
-                },
-                decoder: {
-                    readers: ['code_128_reader']
-                }
-            }, function(err) {
-                if (err) {
-                    console.log(err);
-                    return
-                }
-                console.log("QuaggaJS iniciado con éxito");
-                Quagga.start();
-            });
-        });
-        /*
-        
-        */
         /*
         Quagga.onDetected(function(result) {
             
@@ -269,35 +240,5 @@ patch(Order.prototype, {
             subtree: true
         });
     },
-
-    oncamera(){
-        Quagga.init({
-            inputStream: {
-                name: "Live",
-                type: "LiveStream",
-                target: document.querySelector("#cam-scaner"),
-                    constraints: {
-                        width: 640,
-                        height: 480,
-                        facingMode: "enviroment"
-                    },
-                    },
-                     decode:{
-                         readers:["code_128_reader"]
-                     }
-            },function(err){
-                    if(err){
-                        console.log(err)
-                        return;
-                }
-            console.log("QuaggJS iniciado con exito");
-            Quagga.start();
-        });
-        /*Quagga.onDetected(function(result) {
-            var code = result.codeResult.code;
-            document.getElementById('resultado').innerText = "Código detectado: " + code;
-            console.log("Código detectado: ", code);
-        });*/
-    }
 
 });

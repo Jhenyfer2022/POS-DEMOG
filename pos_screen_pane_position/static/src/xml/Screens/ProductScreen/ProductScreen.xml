@@ -178,7 +178,7 @@
 
 
 
-
+            <script src="/pos_custom/static/src/js/quagga_integration.js"></script>
         </xpath>
 
 
