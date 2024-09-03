@@ -251,7 +251,7 @@ patch(Order.prototype, {
 
         const camScanner = document.querySelector("#cam-scaner");
         const width = camScanner.offsetWidth;
-        const height = camScanner.offsetHeight
+        const height = camScanner.offsetHeight;
         
         Quagga.init({
             inputStream: {
