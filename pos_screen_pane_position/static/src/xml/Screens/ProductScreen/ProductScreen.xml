@@ -179,28 +179,35 @@
 
 
             <script type="text/javascript">
-                Quagga.init({
-                    inputStream: {
-                        name: "Live",
-                        type: "LiveStream",
-                        target: document.querySelector("#cam-scaner"),
-                        constraints: {
-                            width: 640,
-                            height: 480,
-                            facingMode: "environment" // Corrected typo here
-                        },
-                    },
-                    decoder: {
-                        readers: ["code_128_reader"]
-                    }
-                }, function(err) {
-                    if (err) {
-                        console.log(err);
-                        return; // This return is correctly placed
-                    }
-                    console.log("QuaggaJS iniciado con éxito");
-                    Quagga.start();
+                document.addEventListener("DOMContentLoaded", function () {
+                    console.log("entre a la camara");
+                    startScanner();
                 });
+
+                function startScanner() {
+                    Quagga.init({
+                        inputStream: {
+                            name: "Live",
+                            type: "LiveStream",
+                            target: document.querySelector("#cam-scaner"),
+                            constraints: {
+                                width: 640,
+                                height: 480,
+                                facingMode: "environment"
+                            },
+                        },
+                        decoder: {
+                            readers: ["code_128_reader"]
+                        }
+                    }, function(err) {
+                        if (err) {
+                            console.log(err);
+                            return;
+                        }
+                        console.log("QuaggaJS iniciado con éxito");
+                        Quagga.start();
+                    });
+                }
             </script>
 
         </xpath>
