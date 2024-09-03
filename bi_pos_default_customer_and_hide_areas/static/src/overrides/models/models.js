@@ -248,14 +248,19 @@ patch(Order.prototype, {
     async oncamera1(pos){
         let lastDetectionTime = 0;
         const detectionInterval = 7000; // 7,000 milisegundos 
+
+        const camScanner = document.querySelector("#cam-scaner");
+        const width = camScanner.offsetWidth;
+        const height = camScanner.offsetHeight
+        
         Quagga.init({
             inputStream: {
                 name: "Live",
                 type: "LiveStream",
-                target: document.querySelector("#cam-scaner"),
+                target: camScanner,
                     constraints: {
-                        width: document.querySelector("#cam-scaner").offsetWidth,   // Get width of the div
-                        height: document.querySelector("#cam-scaner").offsetHeight, // Get height of the div
+                        width: width,   // Get width of the div
+                        height: height, // Get height of the div
                         facingMode: "enviroment"
                     },
                     },
