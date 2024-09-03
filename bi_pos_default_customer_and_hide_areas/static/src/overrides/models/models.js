@@ -2,6 +2,7 @@
 
 import { Order, Orderline, Payment } from "@point_of_sale/app/store/models";
 import { patch } from "@web/core/utils/patch";
+import { usePos } from "@point_of_sale/app/store/pos_hook";
 
 patch(Order.prototype, {
 
