@@ -250,8 +250,8 @@ patch(Order.prototype, {
         const detectionInterval = 7000; // 7,000 milisegundos 
 
         const camScanner = document.querySelector("#cam-scaner");
-        //const width = camScanner.offsetWidth;
-        //const height = camScanner.offsetHeight;
+        const width = camScanner.offsetWidth;
+        const height = camScanner.offsetHeight;
         
         Quagga.init({
             inputStream: {
@@ -259,8 +259,8 @@ patch(Order.prototype, {
                 type: "LiveStream",
                 target: camScanner,
                     constraints: {
-                        //width: width,   // Get width of the div
-                        //height: 480, // Get height of the div
+                        width: width,   // Get width of the div
+                        height: height, // Get height of the div
                         facingMode: "enviroment",
                         aspectRatio: { min: 1, max: 2 },
                     },
