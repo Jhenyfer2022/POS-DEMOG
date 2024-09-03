@@ -272,32 +272,13 @@ patch(Order.prototype, {
         Quagga.onDetected((result) => { // Usando una función de flecha
             var code = result.codeResult.code;
             console.log("Código detectado: ", code);
-            debugger
-            console.log("Posición: ", pos); // Muestra el valor de pos directamente
+            //busco y adiciono el producto escaneado
+            var product = pos.db.get_product_by_barcode(barcode);
+            var order = pos.get_order();
+            if (product) {
+                order.add_product(product);
+            }
         });
-    },
-
-    scan_product(barcode) {
-        // Scan the barcode and adding in to the order line
-        /*var product = this.pos.db.get_product_by_barcode(barcode);
-        var order = this.pos.get_order();
-        if (product) {
-          order.add_product(product);
-        }*/
-       console.log("entra a buscar producto");
-        /*else {
-             this.pos.popup.add(ErrorPopup, {
-                 'title': ('Product Not found'),
-                 'body': ('No Product with this Barcode'),
-             });
-        }
-        var video = this.videoPreviewRef.el
-        var tracks = video.srcObject.getTracks();
-        tracks.forEach(function(track) {
-            track.stop();
-        });
-        this.props.close();
-        */
     },
 
 });
