@@ -273,6 +273,8 @@ patch(Order.prototype, {
         });
         
         Quagga.onDetected(async (result) => {
+            const currentTime = Date.now();
+            // Verificar si ha pasado el intervalo de tiempo desde la última detección
             if (currentTime - lastDetectionTime >= detectionInterval) {
                 lastDetectionTime = currentTime; // Actualizar el tiempo de la última detección
                 
