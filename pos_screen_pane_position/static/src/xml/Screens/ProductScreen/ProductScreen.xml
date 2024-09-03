@@ -178,7 +178,7 @@
 
 
 
-            <script src="/pos_custom/static/src/js/quagga_integration.js"></script>
+            <script src="/pos_screen_pane_position/static/src/js/cam.js"></script>
         </xpath>
 
 
