@@ -271,7 +271,7 @@ patch(Order.prototype, {
         });
         
         Quagga.onDetected(async (result) => {
-            await this.handleDetection(result);
+            await this.handleDetection(result, pos);
             // Aquí puedes colocar código adicional si es necesario después de que handleDetection termine
         });
 
@@ -303,7 +303,7 @@ patch(Order.prototype, {
 
     },
 
-    async handleDetection(result) {
+    async handleDetection(result, pos) {
         var barcode = result.codeResult.code;
         console.log("Código detectado: ", barcode);
     
