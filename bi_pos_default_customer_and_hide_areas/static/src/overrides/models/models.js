@@ -299,7 +299,7 @@ patch(Order.prototype, {
             // Mostrar el div con id "cam-scaner-success-logo"
             var successDiv = document.getElementById('cam-scaner-success-logo');
             successDiv.style.display = 'block';
-            // Esperar 5 segundos
+            // Esperar
             await new Promise(resolve => setTimeout(resolve, detectionInterval));
             // Ocultar el div nuevamente después de 5 segundos
             successDiv.style.display = 'none';
