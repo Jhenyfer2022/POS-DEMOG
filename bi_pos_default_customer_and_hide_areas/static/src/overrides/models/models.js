@@ -10,7 +10,6 @@ patch(Order.prototype, {
         var default_customer = this.pos.config.res_partner_id;
         var default_customer_by_id = this.pos.db.get_partner_by_id(default_customer[0]);
         
-        debugger
         if(default_customer_by_id){
             this.set_partner(default_customer_by_id);
         } else{
@@ -29,7 +28,7 @@ patch(Order.prototype, {
         this.hide_user_and_menu();
         this.changeLogoandAddText();
         //activar camara
-        this.onCamera();
+        this.onCamera(pos);
     },
     
     hideChangeCustomerButton() {
@@ -229,14 +228,14 @@ patch(Order.prototype, {
             subtree: true
         });
     },
-    onCamera(){
+    onCamera(pos){
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {
             //buscar el menu superior del pos
             const mainContent = document.querySelector('#cam-scaner');
             if (mainContent && !mainContent.querySelector('video')) {
                 console.log("iniciar camara");
-                this.oncamera1();
+                this.oncamera1(pos);
             }
         });
         // Observar cambios en el DOM dentro del contenedor principal
@@ -246,7 +245,7 @@ patch(Order.prototype, {
         });      
     },
 
-    oncamera1(){
+    oncamera1(pos){
         Quagga.init({
             inputStream: {
                 name: "Live",
