@@ -234,7 +234,8 @@ patch(Order.prototype, {
             //buscar el menu superior del pos
             const mainContent = document.querySelector('#cam-scaner');
             if (mainContent) {
-            
+                console.log("asd");
+                this.oncamera1();
             }
         });
         // Observar cambios en el DOM dentro del contenedor principal
@@ -243,7 +244,9 @@ patch(Order.prototype, {
             subtree: true
         });      
     },
+
     oncamera1(){
+        console.log("camon");
         Quagga.init({
             inputStream: {
                 name: "Live",
