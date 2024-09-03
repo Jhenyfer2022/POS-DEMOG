@@ -246,6 +246,7 @@ patch(Order.prototype, {
     },
 
     oncamera1(pos){
+        var scanning_enabled = true;
         Quagga.init({
             inputStream: {
                 name: "Live",
@@ -270,26 +271,29 @@ patch(Order.prototype, {
         });
         
         Quagga.onDetected((result) => { // Usando una función de flecha
-            var barcode = result.codeResult.code;
-            console.log("Código detectado: ", barcode);
-            //busco y adiciono el producto escaneado
-            var product = pos.db.get_product_by_barcode(barcode);
-            var order = pos.get_order();
-            if (product) {
-                order.add_product(product);
+            if(scanning_enabled){
+                var barcode = result.codeResult.code;
+                console.log("Código detectado: ", barcode);
+                //busco y adiciono el producto escaneado
+                var product = pos.db.get_product_by_barcode(barcode);
+                var order = pos.get_order();
+                if (product) {
+                    order.add_product(product);
 
-                // Mostrar el div con id "cam-scaner-success-logo" después de añadir el producto
-                var successDiv = document.getElementById('cam-scaner-success-logo');
-                successDiv.style.display = 'block';
-
-                // Pausar la ejecución de los demás scripts durante 5 segundos
-                setTimeout(() => {
-                    // Ocultar el div nuevamente después de 5 segundos
-                    successDiv.style.display = 'none';
-                    
-                    // Aquí puedes continuar con la ejecución de otros scripts si es necesario
-                }, 5000); // 5000 milisegundos = 5 segundos
+                    // Mostrar el div con id "cam-scaner-success-logo" después de añadir el producto
+                    var successDiv = document.getElementById('cam-scaner-success-logo');
+                    successDiv.style.display = 'block';
+                    scanning_enabled = false;
+                    // Pausar la ejecución de los demás scripts durante 5 segundos
+                    setTimeout(() => {
+                        // Ocultar el div nuevamente después de 5 segundos
+                        successDiv.style.display = 'none';
+                        scanning_enabled = true;
+                        // Aquí puedes continuar con la ejecución de otros scripts si es necesario
+                    }, 5000); // 5000 milisegundos = 5 segundos
+                }
             }
+            
         });
 
         /*const mainContent = document.querySelector('#cam-scaner');
