@@ -20,7 +20,7 @@
                     <div t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}"
                          class="leftpane d-flex flex-column border-end bg-200">
                         
-                        <div id="cam-scaner" style="width: 100%; height: 50%;"></div>
+                        <div id="cam-scaner" style="width: 100%; height: 40%;"></div>
                         <div id="cam-scaner-success-logo" style= "
                             background: transparent; /* Fondo transparente */
                             position: absolute; /* Para posicionar el div sobre el div cam-scaner */
