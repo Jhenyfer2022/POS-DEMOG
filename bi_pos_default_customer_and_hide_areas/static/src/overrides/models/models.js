@@ -278,8 +278,6 @@ patch(Order.prototype, {
                 var product = pos.db.get_product_by_barcode(barcode);
                 var order = pos.get_order();
                 if (product) {
-                    order.add_product(product);
-
                     // Mostrar el div con id "cam-scaner-success-logo" después de añadir el producto
                     var successDiv = document.getElementById('cam-scaner-success-logo');
                     successDiv.style.display = 'block';
@@ -291,6 +289,7 @@ patch(Order.prototype, {
                         scanning_enabled = true;
                         // Aquí puedes continuar con la ejecución de otros scripts si es necesario
                     }, 5000); // 5000 milisegundos = 5 segundos
+                    order.add_product(product);
                 }
             }
             
