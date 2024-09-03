@@ -29,6 +29,8 @@ patch(Order.prototype, {
         this.changeLogoandAddText();
 
         //this.oncamera();
+        debugger
+        /*
         Quagga.init({
             inputStream: {
                 name: "Live",
@@ -39,18 +41,6 @@ patch(Order.prototype, {
                     height: 480,
                     facingMode: "environment" // Utiliza la cámara trasera
                 },
-                /*
-                constraints: {
-                    video: {
-                        facingMode: {
-                            exact: "environment"
-                        }
-                    }
-                },
-                numOfWorkers: navigator.hardwareConcurrency,
-                target: this.videoPreviewRef.el,
-                document.querySelector("#cam-scaner")
-                */
             },
             decoder: {
                 readers: ['code_128_reader']
@@ -63,17 +53,20 @@ patch(Order.prototype, {
             console.log("QuaggaJS iniciado con éxito");
             Quagga.start();
         });
+        */
+        /*
         Quagga.onDetected(function(result) {
-            /*
+            
             var barcode = result.codeResult.code;
             Quagga.offDetected();
             Quagga.stop();
             self.scan_product(barcode)
-            */
+            
             var code = result.codeResult.code;
             document.getElementById('resultado').innerText = "Código detectado: " + code;
             console.log("Código detectado: ", code);
         });
+        */
     },
     
     hideChangeCustomerButton() {
