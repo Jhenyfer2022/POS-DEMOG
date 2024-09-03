@@ -28,7 +28,7 @@ patch(Order.prototype, {
         this.hide_user_and_menu();
         this.changeLogoandAddText();
         //activar camara
-        this.onCamera(pos);
+        this.onCamera(this.pos);
     },
     
     hideChangeCustomerButton() {
