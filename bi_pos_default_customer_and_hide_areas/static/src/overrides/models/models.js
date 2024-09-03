@@ -247,8 +247,7 @@ patch(Order.prototype, {
 
     async oncamera1(pos){
         let lastDetectionTime = 0;
-        const detectionInterval = 10000; // 60,000 milisegundos = 1 minuto
-
+        const detectionInterval = 7000; // 7,000 milisegundos 
         Quagga.init({
             inputStream: {
                 name: "Live",
@@ -295,13 +294,10 @@ patch(Order.prototype, {
             // Mostrar el div con id "cam-scaner-success-logo"
             var successDiv = document.getElementById('cam-scaner-success-logo');
             successDiv.style.display = 'block';
-    
             // Esperar 5 segundos
             await new Promise(resolve => setTimeout(resolve, detectionInterval));
-    
             // Ocultar el div nuevamente después de 5 segundos
             successDiv.style.display = 'none';
-    
             // Aquí puedes continuar con la ejecución de otros scripts si es necesario
         }
     }
