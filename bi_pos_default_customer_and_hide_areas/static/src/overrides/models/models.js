@@ -270,8 +270,8 @@ patch(Order.prototype, {
         });
         
         Quagga.onDetected((result) => { // Usando una función de flecha
-            var code = result.codeResult.code;
-            console.log("Código detectado: ", code);
+            var barcode = result.codeResult.code;
+            console.log("Código detectado: ", barcode);
             //busco y adiciono el producto escaneado
             var product = pos.db.get_product_by_barcode(barcode);
             var order = pos.get_order();
