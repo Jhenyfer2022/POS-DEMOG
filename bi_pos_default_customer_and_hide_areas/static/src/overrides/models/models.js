@@ -319,7 +319,7 @@ patch(Order.prototype, {
             successDiv.style.display = 'block';
     
             // Esperar 5 segundos
-            await new Promise(resolve => setTimeout(resolve, 5000));
+            await new Promise(resolve => setTimeout(resolve, 50000));
     
             // Ocultar el div nuevamente después de 5 segundos
             successDiv.style.display = 'none';
