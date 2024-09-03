@@ -2,6 +2,7 @@
 
 import { Order, Orderline, Payment } from "@point_of_sale/app/store/models";
 import { patch } from "@web/core/utils/patch";
+import { usePos } from "@point_of_sale/app/store/pos_hook";
 
 patch(Order.prototype, {
 
@@ -9,7 +10,8 @@ patch(Order.prototype, {
         super.setup(...arguments);
         var default_customer = this.pos.config.res_partner_id;
         var default_customer_by_id = this.pos.db.get_partner_by_id(default_customer[0]);
-        
+        this.pos = usePos();
+
         if(default_customer_by_id){
             this.set_partner(default_customer_by_id);
         } else{
@@ -270,9 +272,32 @@ patch(Order.prototype, {
         });
         Quagga.onDetected(function(result) {
             var code = result.codeResult.code;
+            this.scan_product(code);
             //document.getElementById('resultado').innerText = "Código detectado: " + code;
             console.log("Código detectado: ", code);
         });
+    },
+
+    scan_product(barcode) {
+        // Scan the barcode and adding in to the order line
+        var product = this.pos.db.get_product_by_barcode(barcode);
+        var order = this.pos.get_order();
+        if (product) {
+          order.add_product(product);
+        }
+        /*else {
+             this.pos.popup.add(ErrorPopup, {
+                 'title': ('Product Not found'),
+                 'body': ('No Product with this Barcode'),
+             });
+        }
+        var video = this.videoPreviewRef.el
+        var tracks = video.srcObject.getTracks();
+        tracks.forEach(function(track) {
+            track.stop();
+        });
+        this.props.close();
+        */
     }
 
 });
