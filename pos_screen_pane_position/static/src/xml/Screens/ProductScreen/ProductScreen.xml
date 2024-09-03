@@ -179,10 +179,11 @@
 
 
             <script type="text/javascript">
-                document.addEventListener("DOMContentLoaded", function () {
+                window.onload = function () {
                     console.log("entre a la camara");
                     startScanner();
-                });
+                };
+
 
                 function startScanner() {
                     Quagga.init({
