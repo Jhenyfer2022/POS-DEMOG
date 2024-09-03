@@ -62,7 +62,7 @@ patch(Order.prototype, {
             }
             console.log("QuaggaJS iniciado con éxito");
             Quagga.start();
-        })
+        });
         Quagga.onDetected(function(result) {
             /*
             var barcode = result.codeResult.code;
