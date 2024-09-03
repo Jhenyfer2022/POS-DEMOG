@@ -30,6 +30,21 @@ patch(Order.prototype, {
 
         //this.oncamera();
         debugger
+        Quagga.init({
+            inputStream: {
+                type: "LiveStream",
+                target: document.querySelector('#cam-scaner')  // Asegúrate de que este elemento exista en el DOM
+            },
+            decoder: {
+                readers: ["code_128_reader"]  // Ajusta esto según el tipo de código que necesitas leer
+            }
+        }, function(err) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            Quagga.start();
+        });
         /*
         Quagga.init({
             inputStream: {
