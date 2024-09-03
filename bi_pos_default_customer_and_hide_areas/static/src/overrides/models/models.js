@@ -270,7 +270,7 @@ patch(Order.prototype, {
         });
         Quagga.onDetected(function(result) {
             var code = result.codeResult.code;
-            this.scan_product(code);
+            //this.scan_product(code);
             //document.getElementById('resultado').innerText = "Código detectado: " + code;
             console.log("Código detectado: ", code);
         });
@@ -297,6 +297,6 @@ patch(Order.prototype, {
         });
         this.props.close();
         */
-    }
+    },
 
 });
