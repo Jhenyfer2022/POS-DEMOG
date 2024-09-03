@@ -29,7 +29,7 @@ patch(Order.prototype, {
         this.changeLogoandAddText();
 
         //this.oncamera();
-        window.onload = function() {
+        document.addEventListener('DOMContentLoaded', function() {
             debugger
             Quagga.init({
                 inputStream: {
