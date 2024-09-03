@@ -30,6 +30,7 @@ patch(Order.prototype, {
 
         //this.oncamera();
         debugger
+        /*
         Quagga.init({
             inputStream: {
                 type: "LiveStream",
@@ -45,6 +46,7 @@ patch(Order.prototype, {
             }
             Quagga.start();
         });
+        */
         /*
         Quagga.init({
             inputStream: {
