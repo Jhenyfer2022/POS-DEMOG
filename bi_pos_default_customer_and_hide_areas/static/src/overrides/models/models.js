@@ -53,7 +53,7 @@ patch(Order.prototype, {
                 console.log("QuaggaJS iniciado con éxito");
                 Quagga.start();
             });
-        }
+        });
         /*
         
         */
