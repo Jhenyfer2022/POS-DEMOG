@@ -245,7 +245,7 @@ patch(Order.prototype, {
         });      
     },
 
-    oncamera1(pos){
+    async oncamera1(pos){
         var scanning_enabled = true;
         Quagga.init({
             inputStream: {
@@ -270,7 +270,12 @@ patch(Order.prototype, {
             Quagga.start();
         });
         
-        Quagga.onDetected((result) => { // Usando una función de flecha
+        Quagga.onDetected(async (result) => {
+            await handleDetection(result);
+            // Aquí puedes colocar código adicional si es necesario después de que handleDetection termine
+        });
+
+        /*Quagga.onDetected((result) => { // Usando una función de flecha
             if(scanning_enabled){
                 var barcode = result.codeResult.code;
                 console.log("Código detectado: ", barcode);
@@ -293,13 +298,33 @@ patch(Order.prototype, {
                 }
             }
             
-        });
+        });*/
 
-        /*const mainContent = document.querySelector('#cam-scaner');
-                if (mainContent && !mainContent.querySelector('video')) {
-                    console.log("iniciar camara");
-                    this.oncamera1(pos);
-                }*/
+
     },
 
+    async handleDetection(result) {
+        var barcode = result.codeResult.code;
+        console.log("Código detectado: ", barcode);
+    
+        // Busco y adiciono el producto escaneado
+        var product = pos.db.get_product_by_barcode(barcode);
+        var order = pos.get_order();
+    
+        if (product) {
+            order.add_product(product);
+    
+            // Mostrar el div con id "cam-scaner-success-logo"
+            var successDiv = document.getElementById('cam-scaner-success-logo');
+            successDiv.style.display = 'block';
+    
+            // Esperar 5 segundos
+            await new Promise(resolve => setTimeout(resolve, 5000));
+    
+            // Ocultar el div nuevamente después de 5 segundos
+            successDiv.style.display = 'none';
+    
+            // Aquí puedes continuar con la ejecución de otros scripts si es necesario
+        }
+    }
 });
