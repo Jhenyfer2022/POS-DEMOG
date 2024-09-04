@@ -275,7 +275,7 @@ patch(Order.prototype, {
                 type: "LiveStream",
                 target: camScanner,
                 constraints: {
-                    width: "80vw",
+                    width: "100vh",
                     height: "100vw",
                     //width: width,   // Get width of the div
                     //height: height, // Get height of the div
@@ -304,8 +304,8 @@ patch(Order.prototype, {
             const canvas = document.querySelector("canvas");
             canvas.setAttribute('style', 'display: none !important;');
 
-            //const video = document.querySelector("video");
-            //video.setAttribute('style', 'height: 40vh !important;');
+            const video = document.querySelector("video");
+            video.setAttribute('style', 'height: 40vh !important;');
         });
         
         Quagga.onDetected(async (result) => {
