@@ -130,13 +130,20 @@
                     -->
                     <div class="d-flex flex-column border-end bg-200" style="width: 100vw;">
                     
-                        <div id="cam-scaner" 
+                        <!--<div id="cam-scaner" 
                             style="
                                 display: flex; 
                                 justify-content: center; 
                                 align-items: center; 
                                 background-color: #f0f0f0; /* Solo para visualización */
                                 border: 1px solid #ccc; /* Solo para visualización */
+                            "
+                        ></div>-->
+                        <div id="cam-scaner" 
+                            style="
+                                width: 1480px;
+                                height: 300px;
+                                overflow: hidden;
                             "
                         ></div>
                         
