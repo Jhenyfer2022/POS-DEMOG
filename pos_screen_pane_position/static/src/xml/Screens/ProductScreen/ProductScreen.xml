@@ -183,8 +183,7 @@
                                     partner="partner"
                                     actionName="constructor.numpadActionName"
                                     actionType="'payment'"
-                                    onClickMore.bind="displayAllControlPopup" 
-                                    
+                                    onClickMore.bind="displayAllControlPopup"       
                                 />
                             </div>
                         </div>
