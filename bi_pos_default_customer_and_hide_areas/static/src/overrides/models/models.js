@@ -287,7 +287,7 @@ patch(Order.prototype, {
             canvas.setAttribute('style', 'display: none !important;');
 
             const video = document.querySelector("video");
-            canvas.setAttribute('style', 'height: 40vh !important;');
+            video.setAttribute('style', 'height: 40vh !important;');
         });
         
         Quagga.onDetected(async (result) => {
