@@ -276,7 +276,7 @@ patch(Order.prototype, {
                 target: camScanner,
                 constraints: {
                     width: "80vw",
-                    height: "30vw",
+                    height: "100vw",
                     //width: width,   // Get width of the div
                     //height: height, // Get height of the div
                     facingMode: "enviroment",
