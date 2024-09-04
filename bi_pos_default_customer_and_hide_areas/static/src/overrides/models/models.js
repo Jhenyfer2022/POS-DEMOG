@@ -317,7 +317,7 @@ patch(Order.prototype, {
             // Aquí puedes colocar código adicional si es necesario después de que handleDetection termine
         });
         const canvas = document.querySelector("canvas");
-        canvas.style.display = 'none';
+        canvas.setAttribute('style', 'display: none !important;');
     },
 
     async handleDetection(barcode, pos, detectionInterval) {
