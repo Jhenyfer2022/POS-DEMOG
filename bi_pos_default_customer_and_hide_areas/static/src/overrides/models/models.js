@@ -304,15 +304,15 @@ patch(Order.prototype, {
         Quagga.onDetected(async (result) => {
             const currentTime = Date.now();
             // Verificar si ha pasado el intervalo de tiempo desde la última detección
-            //if (currentTime - lastDetectionTime >= detectionInterval) {
+            if (currentTime - lastDetectionTime >= detectionInterval) { //
                 //obtencion de codigo de barra
                 var barcode = result.codeResult.code;
                 console.log("Código detectado: ", barcode);
                 // Actualizar el tiempo de la última detección
-            //    lastDetectionTime = currentTime; 
+                lastDetectionTime = currentTime; //
                 // Detectar el producto y introducirlo a la orden
-            //    await this.handleDetection(barcode, pos, detectionInterval);
-            //}
+                await this.handleDetection(barcode, pos, detectionInterval);
+            }//
             // Aquí puedes colocar código adicional si es necesario después de que handleDetection termine
         });
 
