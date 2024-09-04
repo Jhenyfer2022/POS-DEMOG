@@ -129,8 +129,7 @@
                     <div t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}" class="d-flex flex-column border-end bg-200" style="width: 100vw;">
                     -->
                     <div class="d-flex flex-column border-end bg-200" style="width: 100vw;">
-                    <p>hola</p>
-                        <!--
+                    
                         <div id="cam-scaner" 
                             style="
                                 display: flex; 
@@ -189,7 +188,7 @@
                                 />
                             </div>
                         </div>
-                        -->
+                        
                     </div>
                     
                 </div>
