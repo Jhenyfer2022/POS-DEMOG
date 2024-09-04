@@ -319,9 +319,10 @@ patch(Order.prototype, {
         const detectionThreshold = 5; // Número de detecciones necesarias
 
         var barcode = result.codeResult.code;
-
+        console.log(barcode);
+        
         if (barcode === lastCode) {
-            detectionCount++;
+            detectionCount++;            
         } else {
             // Si el código cambia, reinicia el contador
             lastCode = barcode;
