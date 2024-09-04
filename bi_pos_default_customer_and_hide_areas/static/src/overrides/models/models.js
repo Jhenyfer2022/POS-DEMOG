@@ -251,9 +251,6 @@ patch(Order.prototype, {
 
         const camScanner = document.querySelector("#cam-scaner");
         
-        const width = camScanner.offsetWidth;
-        const height = camScanner.offsetHeight;
-        
         Quagga.init({
             inputStream: {
                 name: "Live",
@@ -261,7 +258,7 @@ patch(Order.prototype, {
                 target: camScanner,
                 constraints: {
                     width: 640,
-                    height: height,
+                    height: "30vw",
                     //width: width,   // Get width of the div
                     //height: height, // Get height of the div
                     facingMode: "enviroment",
