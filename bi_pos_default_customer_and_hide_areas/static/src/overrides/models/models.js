@@ -24,6 +24,8 @@ patch(Order.prototype, {
         //ocultar campos del payment-screen
         this.paymentScreenHideCustomerAndFacturationZone();
         this.paymentScreenHideNumpad();
+        //ocultar el boton mas si esta con otro tamano de pantalla celular
+        this.hidemorebuttos();
 
         //cambiar barra superior
         this.hide_user_and_menu();
@@ -33,6 +35,20 @@ patch(Order.prototype, {
         
     },
     
+    hidemorebuttos(){
+        const observer = new MutationObserver(() => {
+            const changeCustomerButton = document.querySelector('button.button.mobile-more-button.btn.btn-secondary.flex-fill.border-bottom');
+            if (changeCustomerButton) {
+                changeCustomerButton.style.display = 'none';
+            }
+        });
+
+        // Observar cambios en el DOM, especialmente el área del POS donde se renderiza el botón
+        observer.observe(document.querySelector('.pos'), {
+            childList: true,
+            subtree: true
+        });
+    },
     hideChangeCustomerButton() {
         const observer = new MutationObserver(() => {
             const changeCustomerButton = document.querySelector('button.button.set-partner');
