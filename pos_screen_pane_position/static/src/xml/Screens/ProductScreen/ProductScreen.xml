@@ -141,8 +141,8 @@
                         ></div>-->
                         <div id="cam-scaner" 
                             style="
-                                width: 1480px;
-                                height: 300px;
+                                width: 80vw;
+                                height: 30vh;
                                 overflow: hidden;
                             "
                         ></div>
