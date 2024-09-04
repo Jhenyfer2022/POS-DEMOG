@@ -275,8 +275,8 @@ patch(Order.prototype, {
                 }
             },
             decode:{
-                readers:["code_128_reader", "ean_reader", "ean_8_reader", "upc_reader"],
-
+                //readers:["code_128_reader", "ean_reader", "ean_8_reader", "upc_reader"],
+                readers:["code_128_reader"],
                 debug: {
                     showCanvas: true,
                     showPatches: true,
@@ -300,7 +300,7 @@ patch(Order.prototype, {
             }
             //console.log("QuaggJS iniciado con exito");
             Quagga.start();
-            
+
             const canvas = document.querySelector("canvas");
             canvas.setAttribute('style', 'display: none !important;');
         });
