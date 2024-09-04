@@ -234,7 +234,7 @@ patch(Order.prototype, {
             //buscar el menu superior del pos
             const mainContent = document.querySelector('#cam-scaner');
             if (mainContent && !mainContent.querySelector('video')) {
-                console.log("iniciar camara");
+                //console.log("iniciar camara");
                 this.oncamera1(pos);
             }
         });
@@ -282,14 +282,14 @@ patch(Order.prototype, {
                         showBB: true
                     }
                 }
-                
+
             }
         },function(err){
             if(err){
                 console.log(err)
                 return;
             }
-            console.log("QuaggJS iniciado con exito");
+            //console.log("QuaggJS iniciado con exito");
             Quagga.start();
         });
         
