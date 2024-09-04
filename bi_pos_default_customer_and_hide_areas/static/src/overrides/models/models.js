@@ -259,11 +259,19 @@ patch(Order.prototype, {
                 type: "LiveStream",
                 target: camScanner,
                 constraints: {
-                    width: width,   // Get width of the div
-                    height: height, // Get height of the div
+                    width: 640,
+                    height: 480,
+                    //width: width,   // Get width of the div
+                    //height: height, // Get height of the div
                     facingMode: "enviroment",
                     //aspectRatio: { min: 1, max: 2 },
                 },
+                area: { // Para especificar un área de escaneo si es necesario
+                    top: "0%",    // Área de escaneo desde el borde superior
+                    right: "0%",  // Área de escaneo desde el borde derecho
+                    bottom: "0%", // Área de escaneo desde el borde inferior
+                    left: "0%"    // Área de escaneo desde el borde izquierdo
+                }
             },
             decode:{
                 readers:["code_128_reader"],

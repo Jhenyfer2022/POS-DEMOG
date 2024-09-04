@@ -118,14 +118,13 @@
                     <div t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}" class="d-flex flex-column border-end bg-200" style="width: 100vw;">
                         
                         <div id="cam-scaner" 
-                        style="
-                            height: 30vw; 
-                            display: flex; 
-                            justify-content: center; 
-                            align-items: center; 
-                            background-color: #f0f0f0; /* Solo para visualización */
-                            border: 1px solid #ccc; /* Solo para visualización */
-                        "
+                            style="
+                                display: flex; 
+                                justify-content: center; 
+                                align-items: center; 
+                                background-color: #f0f0f0; /* Solo para visualización */
+                                border: 1px solid #ccc; /* Solo para visualización */
+                            "
                         ></div>
                         
                         <div id="cam-scaner-success-logo" style= "
