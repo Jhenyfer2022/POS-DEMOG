@@ -277,21 +277,6 @@ patch(Order.prototype, {
             decode:{
                 //readers:["code_128_reader", "ean_reader", "ean_8_reader", "upc_reader"],
                 readers:["code_128_reader"],
-                debug: {
-                    showCanvas: true,
-                    showPatches: true,
-                    showFoundPatches: true,
-                    showSkeleton: true,
-                    showLabels: true,
-                    showPatchLabels: true,
-                    showRemainingPatchLabels: true,
-                    boxFromPatches: {
-                        showTransformed: true,
-                        showTransformedBox: true,
-                        showBB: true
-                    }
-                }
-
             }
         },function(err){
             if(err){
