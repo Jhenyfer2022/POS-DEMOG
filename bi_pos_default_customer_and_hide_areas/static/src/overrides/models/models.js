@@ -308,7 +308,7 @@ patch(Order.prototype, {
             canvas.setAttribute('style', 'display: none !important;');
 
             const video = document.querySelector("video");
-            video.setAttribute('style', 'width: 100%; height: 100%; object-fit: fill;');
+            video.setAttribute('style', 'width: 60%; height: 100%; object-fit: fill;');
         });
         
         Quagga.onDetected(async (result) => {
