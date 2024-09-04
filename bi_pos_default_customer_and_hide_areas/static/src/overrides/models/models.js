@@ -274,7 +274,7 @@ patch(Order.prototype, {
                 }
             },
             decode:{
-                readers:["code_128_reader"],
+                readers:["code_128_reader", "ean_13"],
 
                 debug: {
                     showCanvas: true,
