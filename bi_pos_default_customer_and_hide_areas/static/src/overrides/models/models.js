@@ -246,9 +246,6 @@ patch(Order.prototype, {
     },
 
     async oncamera1(pos){
-        let lastDetectionTime = 0;
-        const detectionInterval = 7000; // 7,000 milisegundos 
-
         const camScanner = document.querySelector("#cam-scaner");
         const width = camScanner.offsetWidth;
         const height = camScanner.offsetHeight;
@@ -274,7 +271,7 @@ patch(Order.prototype, {
                 }
             },
             decode:{
-                readers:["code_128_reader", "ean_reader", "ean_8_reader", "upc_reader"],
+                readers:["ean_reader", "ean_8_reader", "upc_reader"],
 
                 debug: {
                     showCanvas: true,
@@ -302,33 +299,42 @@ patch(Order.prototype, {
         });
         
         Quagga.onDetected(async (result) => {
-            const currentTime = Date.now();
-            // Verificar si ha pasado el intervalo de tiempo desde la última detección
-            if (currentTime - lastDetectionTime >= detectionInterval) {
-                lastDetectionTime = currentTime; // Actualizar el tiempo de la última detección
                 await this.handleDetection(result, pos, detectionInterval);
-            }
+            
             // Aquí puedes colocar código adicional si es necesario después de que handleDetection termine
         });
 
     },
 
     async handleDetection(result, pos, detectionInterval) {
+        
+        let lastDetectionTime = 0;
+        const detectionInterval = 7000; // 7,000 milisegundos 
+
         var barcode = result.codeResult.code;
         console.log("Código detectado: ", barcode);
-        // Busco y adiciono el producto escaneado
-        var product = pos.db.get_product_by_barcode(barcode);
-        var order = pos.get_order();
-        if (product) {
-            order.add_product(product);
-            // Mostrar el div con id "cam-scaner-success-logo"
-            var successDiv = document.getElementById('cam-scaner-success-logo');
-            successDiv.style.display = 'block';
-            // Esperar
-            await new Promise(resolve => setTimeout(resolve, detectionInterval));
-            // Ocultar el div nuevamente después de 5 segundos
-            successDiv.style.display = 'none';
-            // Aquí puedes continuar con la ejecución de otros scripts si es necesario
-        }
+
+        
+        const currentTime = Date.now();
+        // Verificar si ha pasado el intervalo de tiempo desde la última detección
+        if (currentTime - lastDetectionTime >= detectionInterval) {
+            lastDetectionTime = currentTime; // Actualizar el tiempo de la última detección
+
+            // Busco y adiciono el producto escaneado
+            var product = pos.db.get_product_by_barcode(barcode);
+            var order = pos.get_order();
+            if (product) {
+                order.add_product(product);
+                // Mostrar el div con id "cam-scaner-success-logo"
+                var successDiv = document.getElementById('cam-scaner-success-logo');
+                successDiv.style.display = 'block';
+                // Esperar
+                await new Promise(resolve => setTimeout(resolve, detectionInterval));
+                // Ocultar el div nuevamente después de 5 segundos
+                successDiv.style.display = 'none';
+                // Aquí puedes continuar con la ejecución de otros scripts si es necesario
+            }
+
+        }   
     }
 });
