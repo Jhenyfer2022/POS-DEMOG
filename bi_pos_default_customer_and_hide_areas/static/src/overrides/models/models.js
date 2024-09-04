@@ -296,7 +296,7 @@ patch(Order.prototype, {
             if (currentTime - lastDetectionTime >= detectionInterval) { //
                 //obtencion de codigo de barra
                 var barcode = result.codeResult.code;
-                console.log("Código detectado: ", barcode);
+                console.log("Código detectado.: ", barcode);
                 // Actualizar el tiempo de la última detección
                 lastDetectionTime = currentTime; //
                 // Detectar el producto y introducirlo a la orden
