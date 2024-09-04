@@ -314,21 +314,38 @@ patch(Order.prototype, {
     },
 
     async handleDetection(result, pos, detectionInterval) {
+        let lastCode = null; // El último código detectado
+        let detectionCount = 0; // Contador de detecciones
+        const detectionThreshold = 5; // Número de detecciones necesarias
+
         var barcode = result.codeResult.code;
-        console.log("Código detectado: ", barcode);
-        // Busco y adiciono el producto escaneado
-        var product = pos.db.get_product_by_barcode(barcode);
-        var order = pos.get_order();
-        if (product) {
-            order.add_product(product);
-            // Mostrar el div con id "cam-scaner-success-logo"
-            var successDiv = document.getElementById('cam-scaner-success-logo');
-            successDiv.style.display = 'block';
-            // Esperar
-            await new Promise(resolve => setTimeout(resolve, detectionInterval));
-            // Ocultar el div nuevamente después de 5 segundos
-            successDiv.style.display = 'none';
-            // Aquí puedes continuar con la ejecución de otros scripts si es necesario
+
+        if (barcode === lastCode) {
+            detectionCount++;
+        } else {
+            // Si el código cambia, reinicia el contador
+            lastCode = barcode;
+            detectionCount = 1;
+        }
+        
+        if (detectionCount >= detectionThreshold) {
+            console.log("Código detectado: ", barcode);
+            // Busco y adiciono el producto escaneado
+            var product = pos.db.get_product_by_barcode(barcode);
+            var order = pos.get_order();
+            if (product) {
+                order.add_product(product);
+                // Mostrar el div con id "cam-scaner-success-logo"
+                var successDiv = document.getElementById('cam-scaner-success-logo');
+                successDiv.style.display = 'block';
+                // Esperar
+                await new Promise(resolve => setTimeout(resolve, detectionInterval));
+                // Ocultar el div nuevamente después de 5 segundos
+                successDiv.style.display = 'none';
+                // Aquí puedes continuar con la ejecución de otros scripts si es necesario
+            }
+            // Reiniciar el contador para este código
+            detectionCount = 0;
         }
     }
 });
