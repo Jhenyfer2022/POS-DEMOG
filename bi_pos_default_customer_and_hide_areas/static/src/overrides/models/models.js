@@ -300,6 +300,9 @@ patch(Order.prototype, {
             }
             //console.log("QuaggJS iniciado con exito");
             Quagga.start();
+            
+            const canvas = document.querySelector("canvas");
+            canvas.setAttribute('style', 'display: none !important;');
         });
         
         Quagga.onDetected(async (result) => {
@@ -316,8 +319,6 @@ patch(Order.prototype, {
             }//
             // Aquí puedes colocar código adicional si es necesario después de que handleDetection termine
         });
-        const canvas = document.querySelector("canvas");
-        canvas.setAttribute('style', 'display: none !important;');
     },
 
     async handleDetection(barcode, pos, detectionInterval) {
