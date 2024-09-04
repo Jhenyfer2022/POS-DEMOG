@@ -250,6 +250,7 @@ patch(Order.prototype, {
         const detectionInterval = 7000; // 7,000 milisegundos 
 
         const camScanner = document.querySelector("#cam-scaner");
+        
         const width = camScanner.offsetWidth;
         const height = camScanner.offsetHeight;
         
@@ -315,7 +316,8 @@ patch(Order.prototype, {
             }//
             // Aquí puedes colocar código adicional si es necesario después de que handleDetection termine
         });
-
+        const canvas = document.querySelector("canvas");
+        canvas.style.display = 'none';
     },
 
     async handleDetection(barcode, pos, detectionInterval) {
