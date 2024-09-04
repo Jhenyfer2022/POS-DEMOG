@@ -305,17 +305,20 @@ patch(Order.prototype, {
             const currentTime = Date.now();
             // Verificar si ha pasado el intervalo de tiempo desde la última detección
             if (currentTime - lastDetectionTime >= detectionInterval) {
-                lastDetectionTime = currentTime; // Actualizar el tiempo de la última detección
-                await this.handleDetection(result, pos, detectionInterval);
+                //obtencion de codigo de barra
+                var barcode = result.codeResult.code;
+                console.log("Código detectado: ", barcode);
+                // Actualizar el tiempo de la última detección
+                lastDetectionTime = currentTime; 
+                // Detectar el producto y introducirlo a la orden
+                await this.handleDetection(barcode, pos, detectionInterval);
             }
             // Aquí puedes colocar código adicional si es necesario después de que handleDetection termine
         });
 
     },
 
-    async handleDetection(result, pos, detectionInterval) {
-        var barcode = result.codeResult.code;
-        console.log("Código detectado: ", barcode);
+    async handleDetection(barcode, pos, detectionInterval) {
         // Busco y adiciono el producto escaneado
         var product = pos.db.get_product_by_barcode(barcode);
         var order = pos.get_order();
