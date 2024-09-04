@@ -235,6 +235,7 @@ patch(Order.prototype, {
             const mainContent = document.querySelector('#cam-scaner');
             if (mainContent && !mainContent.querySelector('video')) {
                 //console.log("iniciar camara");
+                debugger
                 this.oncamera1(pos);
             }
         });
