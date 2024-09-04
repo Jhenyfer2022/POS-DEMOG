@@ -148,6 +148,8 @@
                             position: absolute; /* Para posicionar el div sobre el div cam-scaner */
                             top: 10%; /* Ajusta según sea necesario */
                             left: 10%; /* Ajusta según sea necesario */
+                            height: 30vw;
+                            width: 100vw;
                             display: flex;
                             align-items: center;
                             justify-content: center;
@@ -159,7 +161,7 @@
                         </div>
 
 
-                        <OrderWidget lines="currentOrder.orderlines" t-slot-scope="scope"
+                        <OrderWidget style="width: 100vw; height: 50vw;" lines="currentOrder.orderlines" t-slot-scope="scope"
                             total="env.utils.formatCurrency(currentOrder.get_total_with_tax())"
                             tax="!env.utils.floatIsZero(currentOrder.get_total_tax()) and env.utils.formatCurrency(currentOrder.get_total_tax()) or ''">
                             <t t-set="line" t-value="scope.line" />
@@ -180,7 +182,7 @@
                                 </Orderline>
                             <t t-set-slot="details" />
                         </OrderWidget>
-                        <div class="pads border-top">
+                        <div class="pads border-top" style="width: 100vw; height: 20vw;">
                             <!--<div class="control-buttons d-flex flex-wrap border-bottom overflow-hidden bg-300"
                                 t-if="!ui.isSmall">
                                 <t t-foreach="controlButtons" t-as="cb" t-key="cb.name">
