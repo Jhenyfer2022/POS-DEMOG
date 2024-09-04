@@ -142,10 +142,11 @@
                         <div id="cam-scaner" 
                             style="
                                 display: flex;
+                                justify-content: center;
+
                                 width: 100vw;
                                 height: 30vh;
                                 overflow: hidden;
-                                justify-content: center;
                             "
                         ></div>
                         
