@@ -262,7 +262,7 @@ patch(Order.prototype, {
                         width: width,   // Get width of the div
                         height: height, // Get height of the div
                         facingMode: "enviroment",
-                        aspectRatio: { min: 1, max: 2 },
+                        //aspectRatio: { min: 1, max: 2 },
                     },
                     },
                      decode:{

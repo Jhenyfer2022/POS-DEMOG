@@ -140,11 +140,21 @@
 
                     <!--<div t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}" class="leftpane d-flex flex-column border-end bg-200" style="width: 100vw;">-->
                     <div t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}" class="d-flex flex-column border-end bg-200" style="width: 100vw;">
-                        <div style="width: 100vw; height: 30vw;">
-                            <div id="cam-scaner"></div>
-                        </div>
-
-                        <div id="cam-scaner-success-logo" >
+                        
+                        <div id="cam-scaner" style="width: 100vw; height: 30vw;"></div>
+                        
+                        <div id="cam-scaner-success-logo" style= "
+                            background: transparent; /* Fondo transparente */
+                            position: absolute; /* Para posicionar el div sobre el div cam-scaner */
+                            top: 10%; /* Ajusta según sea necesario */
+                            left: 10%; /* Ajusta según sea necesario */
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: green;
+                            font-size: 8em;
+                            display: none;
+                            " >
                             <i class="fa fa-check-circle-o"></i> <!-- Ícono de éxito de Font Awesome -->
                         </div>
 
