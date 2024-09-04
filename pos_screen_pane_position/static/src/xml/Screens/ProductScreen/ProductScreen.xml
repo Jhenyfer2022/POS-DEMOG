@@ -124,6 +124,11 @@
 
 
 
+            <div class="product-screen d-flex h-100 bg-100" t-att-class="{ 'd-none': !props.isShown }">
+                <div class="d-flex flex-column border-end bg-200" style="width: 100vw;">
+                    <p>hola</p>
+                </div>
+            </div>
 
 
             <t t-if="this.pos.config.screen_view == 'right'">
