@@ -148,8 +148,7 @@
                             position: absolute; /* Para posicionar el div sobre el div cam-scaner */
                             top: 10%; /* Ajusta según sea necesario */
                             left: 10%; /* Ajusta según sea necesario */
-                            height: 30vw;
-                            width: 100vw;
+                            
                             display: flex;
                             align-items: center;
                             justify-content: center;
