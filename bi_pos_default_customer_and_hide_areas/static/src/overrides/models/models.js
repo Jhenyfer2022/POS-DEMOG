@@ -258,21 +258,37 @@ patch(Order.prototype, {
                 name: "Live",
                 type: "LiveStream",
                 target: camScanner,
-                    constraints: {
-                        width: width,   // Get width of the div
-                        height: height, // Get height of the div
-                        facingMode: "enviroment",
-                        //aspectRatio: { min: 1, max: 2 },
-                    },
-                    },
-                     decode:{
-                         readers:["code_128_reader"]
-                     }
-            },function(err){
-                    if(err){
-                        console.log(err)
-                        return;
+                constraints: {
+                    width: width,   // Get width of the div
+                    height: height, // Get height of the div
+                    facingMode: "enviroment",
+                    //aspectRatio: { min: 1, max: 2 },
+                },
+            },
+            decode:{
+                readers:["code_128_reader"],
+
+                debug: {
+                    showCanvas: true,
+                    showPatches: true,
+                    showFoundPatches: true,
+                    showSkeleton: true,
+                    showLabels: true,
+                    showPatchLabels: true,
+                    showRemainingPatchLabels: true,
+                    boxFromPatches: {
+                        showTransformed: true,
+                        showTransformedBox: true,
+                        showBB: true
+                    }
                 }
+                
+            }
+        },function(err){
+            if(err){
+                console.log(err)
+                return;
+            }
             console.log("QuaggJS iniciado con exito");
             Quagga.start();
         });
