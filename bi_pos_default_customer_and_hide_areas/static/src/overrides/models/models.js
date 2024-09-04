@@ -7,6 +7,8 @@ patch(Order.prototype, {
 
     setup() {
         super.setup(...arguments);
+        debugger
+        /*
         var default_customer = this.pos.config.res_partner_id;
         var default_customer_by_id = this.pos.db.get_partner_by_id(default_customer[0]);
         
@@ -29,6 +31,7 @@ patch(Order.prototype, {
         this.changeLogoandAddText();
         //activar camara
         this.onCamera(this.pos);
+        */
     },
     
     hideChangeCustomerButton() {

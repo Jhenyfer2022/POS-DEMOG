@@ -123,13 +123,6 @@
 
 
 
-
-            <script><![CDATA[
-                // Tu código JavaScript aquí
-                if (true) {  // Reemplaza `true` con la condición que desees verificar.
-                    console.log("Entro acá porque necesito X");
-                }
-            ]]></script>
             <t t-if="this.pos.config.screen_view == 'right'">
                 <div class="product-screen d-flex h-100 bg-100" t-att-class="{ 'd-none': !props.isShown }">
                     
