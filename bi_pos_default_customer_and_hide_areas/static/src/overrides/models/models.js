@@ -276,7 +276,7 @@ patch(Order.prototype, {
                 target: camScanner,
                 constraints: {
                     width: "100%",
-                    height: "100%",
+                    height: "40%",
                     //width: width,   // Get width of the div
                     //height: height, // Get height of the div
                     facingMode: "enviroment",
@@ -305,7 +305,7 @@ patch(Order.prototype, {
             canvas.setAttribute('style', 'display: none !important;');
 
             const video = document.querySelector("video");
-            video.setAttribute('style', 'height: 40vh !important;');
+            //video.setAttribute('style', 'height: 40vh !important;');
         });
         
         Quagga.onDetected(async (result) => {
