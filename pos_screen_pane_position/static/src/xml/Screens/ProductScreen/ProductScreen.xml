@@ -119,7 +119,6 @@
                         
                         <div id="cam-scaner" 
                             style="
-                                height: 30vw;
                                 display: flex; 
                                 justify-content: center; 
                                 align-items: center; 
