@@ -50,12 +50,19 @@ patch(Order.prototype, {
                 if(pos_branding){
                     // Seleccionar el elemento img
                     const logo = pos_branding.querySelector('.pos-logo');
-                    // Verificar tiene el estilo none activado
-                    const have_styles = logo.hasAttribute('style');
-                    if (!have_styles) {
-                        // Ocultar la imagen antigua
-                        logo.style.display = 'none';
-                        this.drawNewLogoAndText(pos_branding);
+                    if(logo){
+                        // Verificar tiene el estilo none activado
+                        const have_styles = logo.hasAttribute('style');
+                        if (!have_styles) {
+                            // Ocultar la imagen antigua
+                            logo.style.display = 'none';
+                            this.drawNewLogoAndText(pos_branding);
+                        }
+                    }else{
+                        const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
+                        if(pos_branding){
+                            this.drawNewLogoAndText(pos_rightheader);
+                        }
                     }
                 }
                 
