@@ -216,6 +216,7 @@ patch(Order.prototype, {
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {
             
+            const pos_topheader = document.querySelector('.pos-topheader') || null;
             //buscar el campo donde esta el logo de odoo
             const pos_branding = pos_topheader?.querySelector('.pos-branding') || null;
             
