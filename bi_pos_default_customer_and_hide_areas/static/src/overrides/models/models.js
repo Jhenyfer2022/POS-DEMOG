@@ -59,6 +59,7 @@ patch(Order.prototype, {
                             this.drawNewLogoAndText(pos_branding);
                         }
                     }else{
+                        console.log("wtf");
                         const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
                         if(pos_branding){
                             this.drawNewLogoAndText(pos_rightheader);
