@@ -246,13 +246,20 @@ patch(Order.prototype, {
     },
     
     drawNewLogoAndText(ubicacion_div){
+        const headerDivNewLogo = document.createElement('div');
+        headerDivNewLogo.id = 'headerNewLogo';
+        headerDivNewLogo.style.width = '100vw';
+        headerDivNewLogo.style.display = 'flex';
+        headerDivNewLogo.style.alignItems = 'center';
+        headerDivNewLogo.style.justifyContent = 'center';
+        
         // Crear y agregar la nueva imagen
         const newImage = document.createElement('img');
         newImage.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
         newImage.alt = 'NewLogo';
 
         // Insertar la nueva imagen en el div
-        ubicacion_div.appendChild(newImage);
+        headerDivNewLogo.appendChild(newImage);
 
         // Crear un nuevo elemento span con el texto
         const asistent_texto = document.createElement('span');
@@ -261,7 +268,9 @@ patch(Order.prototype, {
         asistent_texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
 
         // Añadir el texto al lado de la imagen w
-        ubicacion_div.appendChild(asistent_texto);
+        headerDivNewLogo.appendChild(asistent_texto);
+        // Añadir este div dentro del header
+        ubicacion_div.appendChild(headerDivNewLogo);
     },
 
     onCamera(pos){
