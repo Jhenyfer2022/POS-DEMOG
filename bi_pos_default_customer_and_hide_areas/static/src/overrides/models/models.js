@@ -259,7 +259,7 @@ patch(Order.prototype, {
         newImage.alt = 'NewLogo';
 
         // Insertar la nueva imagen en el div
-        headerDivNewLogo.appendChild(newImage);
+        //headerDivNewLogo.appendChild(newImage);
 
         // Crear un nuevo elemento span con el texto
         const asistent_texto = document.createElement('span');
