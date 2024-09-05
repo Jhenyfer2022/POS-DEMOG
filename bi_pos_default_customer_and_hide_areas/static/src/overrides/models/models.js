@@ -253,7 +253,7 @@ patch(Order.prototype, {
     },
     
     drawNewLogoAndText(ubicacion_div){
-        
+        debugger
         const headerDivNewLogo = document.createElement('div');
         //headerDivNewLogo.id = 'headerNewLogo';
         //headerDivNewLogo.style.width = '100vw';
