@@ -218,6 +218,9 @@ patch(Order.prototype, {
             
             //buscar el campo donde esta el logo de odoo
             const pos_branding = document.querySelector('.pos-topheader')?.querySelector('.pos-branding') || null;
+            
+            this.drawNewLogoAndText(document.querySelector('.pos-topheader'));
+            
             if(pos_branding){
                 // Seleccionar el elemento img
                 const logo = pos_branding.querySelector('.pos-logo');
@@ -226,15 +229,16 @@ patch(Order.prototype, {
                 if (!have_styles) {
                     // Ocultar la imagen antigua
                     logo.style.display = 'none';
-                    this.drawNewLogoAndText(pos_branding);
+                    //this.drawNewLogoAndText(pos_branding);
                 }
                 //ocultar el usuario, menu y simbolo de wifi
-            }else{
+            }
+            /*else{
                 const pos_rightheader = document.querySelector('.pos-topheader')?.querySelector('.pos-rightheader') || null;
                 if(pos_rightheader){
                     this.drawNewLogoAndText(pos_rightheader);
                 }
-            }
+            }*/
             this.hide_user_wifi_and_menu();
         });
     
@@ -246,7 +250,7 @@ patch(Order.prototype, {
     },
     
     drawNewLogoAndText(ubicacion_div){
-        debugger
+        
         const headerDivNewLogo = document.createElement('div');
         headerDivNewLogo.id = 'headerNewLogo';
         //headerDivNewLogo.style.width = '100vw';
