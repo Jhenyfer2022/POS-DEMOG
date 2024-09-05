@@ -50,7 +50,7 @@ patch(Order.prototype, {
                 if(pos_branding){
                     // Seleccionar el elemento img
                     const logo = pos_branding.querySelector('.pos-logo');
-                    console.log("wtf");
+                    
                     if(logo){
                         // Verificar tiene el estilo none activado
                         const have_styles = logo.hasAttribute('style');
@@ -66,6 +66,8 @@ patch(Order.prototype, {
                             this.drawNewLogoAndText(pos_rightheader);
                         }
                     }
+                }else {
+                    console.log("wtf");
                 }
                 
                 //ocultar el usuario, menu y simbolo de wifi
