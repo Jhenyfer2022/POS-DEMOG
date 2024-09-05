@@ -279,11 +279,12 @@ patch(Order.prototype, {
 
         const pos_topheader = document.querySelector('.pos-topheader') || null;
         if(pos_topheader){
+            console.log(pos_topheader);
             const nuevoDiv = document.createElement('div');
             nuevoDiv.textContent = 'Este es un nuevo div';
             nuevoDiv.classList.add('nuevo-div');
 
-            pos_topheader.appendChild(nuevoDiv);
+            //pos_topheader.appendChild(nuevoDiv);
         }
         
     },
