@@ -284,8 +284,8 @@ patch(Order.prototype, {
         nuevoDiv.textContent = 'Este es un nuevo div';
         nuevoDiv.classList.add('nuevo-div');
 
-        console.log(ubicacion_div);
-        ubicacion_div.appendChild(nuevoDiv);
+        console.log(console.log(ubicacion_div.innerHTML));
+        //ubicacion_div.appendChild(nuevoDiv);
         
     },
 
