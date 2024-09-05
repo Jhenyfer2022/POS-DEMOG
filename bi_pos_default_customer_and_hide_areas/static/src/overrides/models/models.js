@@ -270,8 +270,8 @@ patch(Order.prototype, {
         // Añadir el texto al lado de la imagen w
         //headerDivNewLogo.appendChild(asistent_texto);
         // Añadir este div dentro del header
-        //ubicacion_div.appendChild(headerDivNewLogo);
-        debugger
+        ubicacion_div.appendChild(headerDivNewLogo);
+        //debugger
     },
 
     onCamera(pos){
