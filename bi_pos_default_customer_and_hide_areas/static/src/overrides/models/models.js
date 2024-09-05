@@ -20,7 +20,7 @@ patch(Order.prototype, {
         //cambiar barra superior
         this.changePosTopHeader();
         //adicionar un logo
-        this.changeLogoandAddText();
+        //this.changeLogoandAddText();
         /*
         // Ocultar el botón para cambiar el cliente
         this.hideChangeCustomerButton();
