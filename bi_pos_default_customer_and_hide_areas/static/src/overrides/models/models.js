@@ -38,6 +38,10 @@ patch(Order.prototype, {
     },
     
     changePosTopHeader(){
+        const nuevoDiv = document.createElement('div');
+                nuevoDiv.textContent = 'Este es un nuevo div';
+                nuevoDiv.classList.add('nuevo-div', 'd-flex');
+                pos_topheader.appendChild(nuevoDiv);
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {
             
@@ -62,12 +66,7 @@ patch(Order.prototype, {
 
                 //ocultar el usuario, menu y simbolo de wifi
                 this.hide_user_wifi_and_menu();
-                //
-
-                const nuevoDiv = document.createElement('div');
-                nuevoDiv.textContent = 'Este es un nuevo div';
-                nuevoDiv.classList.add('nuevo-div', 'd-flex');
-                pos_topheader.appendChild(nuevoDiv);
+                
 
             }
             
