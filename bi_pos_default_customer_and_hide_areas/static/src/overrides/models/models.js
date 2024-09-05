@@ -41,7 +41,7 @@ patch(Order.prototype, {
         const nuevoDiv = document.createElement('div');
                 nuevoDiv.textContent = 'Este es un nuevo div';
                 nuevoDiv.classList.add('nuevo-div', 'd-flex');
-                pos_topheader.appendChild(nuevoDiv);
+                document.querySelector('.pos-topheader').appendChild(nuevoDiv);
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {
             
