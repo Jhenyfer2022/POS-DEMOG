@@ -217,7 +217,7 @@ patch(Order.prototype, {
         const observer = new MutationObserver(() => {
             
             //buscar el campo donde esta el logo de odoo
-            const pos_topheader = document.querySelector('.pos-topheader');
+            const pos_topheader = document.querySelector('.pos-topheader') || null;
             const pos_branding = pos_topheader?.querySelector('.pos-branding') || null;
             
             if(pos_branding){
