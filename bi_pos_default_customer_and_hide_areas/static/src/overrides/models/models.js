@@ -263,7 +263,7 @@ patch(Order.prototype, {
 
         // Crear un nuevo elemento span con el texto
         const asistent_texto = document.createElement('span');
-        asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
+        asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS.';
         asistent_texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
         asistent_texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
 
