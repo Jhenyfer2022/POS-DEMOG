@@ -50,6 +50,7 @@ patch(Order.prototype, {
                 if(pos_branding){
                     // Seleccionar el elemento img
                     const logo = pos_branding.querySelector('.pos-logo');
+                    console.log("wtf");
                     if(logo){
                         // Verificar tiene el estilo none activado
                         const have_styles = logo.hasAttribute('style');
@@ -59,7 +60,7 @@ patch(Order.prototype, {
                             this.drawNewLogoAndText(pos_branding);
                         }
                     }else{
-                        console.log("wtf");
+                        
                         const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
                         if(pos_branding){
                             this.drawNewLogoAndText(pos_rightheader);
@@ -82,7 +83,6 @@ patch(Order.prototype, {
     },
 
     hide_user_wifi_and_menu(){
-        console.log("asd");
         //boton usuario y wifi
         const status_buttons = document.querySelector('.status-buttons');
         if(status_buttons){
