@@ -250,8 +250,8 @@ patch(Order.prototype, {
         headerDivNewLogo.id = 'headerNewLogo';
         headerDivNewLogo.style.width = '100vw';
         headerDivNewLogo.style.display = 'flex';
-        headerDivNewLogo.style.alignItems = 'center';
-        headerDivNewLogo.style.justifyContent = 'center';
+        //headerDivNewLogo.style.alignItems = 'center';
+        //headerDivNewLogo.style.justifyContent = 'center';
         
         // Crear y agregar la nueva imagen
         const newImage = document.createElement('img');
