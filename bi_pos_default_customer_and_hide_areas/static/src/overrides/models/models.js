@@ -248,8 +248,8 @@ patch(Order.prototype, {
     drawNewLogoAndText(ubicacion_div){
         const headerDivNewLogo = document.createElement('div');
         headerDivNewLogo.id = 'headerNewLogo';
-        headerDivNewLogo.style.width = '100vw';
-        headerDivNewLogo.style.display = 'flex';
+        //headerDivNewLogo.style.width = '100vw';
+        //headerDivNewLogo.style.display = 'flex';
         //headerDivNewLogo.style.alignItems = 'center';
         //headerDivNewLogo.style.justifyContent = 'center';
         
@@ -268,7 +268,7 @@ patch(Order.prototype, {
         asistent_texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
 
         // Añadir el texto al lado de la imagen w
-        headerDivNewLogo.appendChild(asistent_texto);
+        //headerDivNewLogo.appendChild(asistent_texto);
         // Añadir este div dentro del header
         ubicacion_div.appendChild(headerDivNewLogo);
     },
