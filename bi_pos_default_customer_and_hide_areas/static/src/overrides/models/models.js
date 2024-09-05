@@ -19,7 +19,8 @@ patch(Order.prototype, {
 
         //cambiar barra superior
         this.changePosTopHeader();
-
+        //adicionar un logo
+        this.changeLogoandAddText();
         /*
         // Ocultar el botón para cambiar el cliente
         this.hideChangeCustomerButton();
@@ -38,10 +39,6 @@ patch(Order.prototype, {
     },
     
     changePosTopHeader(){
-        const nuevoDiv = document.createElement('div');
-                nuevoDiv.textContent = 'Este es un nuevo div';
-                nuevoDiv.classList.add('nuevo-div', 'd-flex');
-                document.querySelector('.pos-topheader').appendChild(nuevoDiv);
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {
             
@@ -58,16 +55,12 @@ patch(Order.prototype, {
                     if (!have_styles) {
                         // Ocultar la imagen antigua
                         logo.style.display = 'none';
-                        //this.drawNewLogoAndText(pos_branding);
+                        this.drawNewLogoAndText(pos_branding);
                     }
                 }
                 
-                
-
                 //ocultar el usuario, menu y simbolo de wifi
                 this.hide_user_wifi_and_menu();
-                
-
             }
             
 
@@ -94,44 +87,92 @@ patch(Order.prototype, {
         }
     },
 
-    drawNewLogoAndText(){
-        //const headerDivNewLogo = document.createElement('div');
-        //headerDivNewLogo.id = 'headerNewLogo';
-        //headerDivNewLogo.style.width = '100vw';
-        //headerDivNewLogo.style.display = 'flex';
-        //headerDivNewLogo.style.alignItems = 'center';
-        //headerDivNewLogo.style.justifyContent = 'center';
+    drawNewLogoAndText(pos_branding){
+        const nuevoDiv = document.createElement('div');
+        nuevoDiv.textContent = 'Este es un nuevo div';
+        nuevoDiv.classList.add('nuevo-div', 'd-flex');
         
-        // Crear y agregar la nueva imagen
-        //const newImage = document.createElement('img');
-        //newImage.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
-        //newImage.alt = 'NewLogo';
-
-        // Insertar la nueva imagen en el div
-        //headerDivNewLogo.appendChild(newImage);
-
-        // Crear un nuevo elemento span con el texto
-        //const asistent_texto = document.createElement('span');
-        //asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS.';
-        //asistent_texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
-        //asistent_texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
-
-        // Añadir el texto al lado de la imagen w
-        //headerDivNewLogo.appendChild(asistent_texto);
-        // Añadir este div dentro del header
-        //debugger
-
-        const pos_topheader = document.querySelector('.pos-topheader') || null;
-        if(pos_topheader){
-            console.log(pos_topheader);
-            const nuevoDiv = document.createElement('div');
-            nuevoDiv.textContent = 'Este es un nuevo div';
-            nuevoDiv.classList.add('nuevo-div', 'd-flex');
-            
-            pos_topheader.appendChild(nuevoDiv);
-        }
-        
+        pos_branding.appendChild(nuevoDiv);
     },
+
+
+    changeLogoandAddText(){
+        // Crear un MutationObserver para observar cambios en el DOM
+        const observer = new MutationObserver(() => {
+            //buscar el menu superior del pos
+            const mainContent = document.querySelector('.pos-topheader');
+            if (mainContent) {
+                //buscar el campo donde esta el logo de odoo
+                const pos_branding = mainContent.querySelector('.pos-branding');
+                if(pos_branding){
+                    // Seleccionar el elemento img
+                    const logo = pos_branding.querySelector('.pos-logo');
+                    // Verificar tiene el estilo none activado
+                    const have_styles = logo.hasAttribute('style');
+                    
+                    if (!have_styles) {
+                        // Ocultar la imagen antigua
+                        logo.style.display = 'none';
+                        
+                        // Crear y agregar la nueva imagen
+                        const newImage = document.createElement('img');
+                        newImage.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
+                        newImage.alt = 'NewLogo';
+
+                        // Insertar la nueva imagen en el div
+                        pos_branding.appendChild(newImage);
+
+                        // Crear un nuevo elemento span con el texto
+                        const asistent_texto = document.createElement('span');
+                        asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
+                        asistent_texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
+                        asistent_texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
+
+                        // Añadir el texto al lado de la imagen w
+                        pos_branding.appendChild(asistent_texto);
+                    }
+                }
+            }
+        });
+    
+        // Observar cambios en el DOM dentro del contenedor principal
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
