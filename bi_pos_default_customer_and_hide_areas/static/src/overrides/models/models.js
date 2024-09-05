@@ -279,8 +279,13 @@ patch(Order.prototype, {
         //headerDivNewLogo.appendChild(asistent_texto);
         // Añadir este div dentro del header
         //debugger
-        //console.log(ubicacion_div);
-        ubicacion_div.appendChild(headerDivNewLogo);
+
+        const nuevoDiv = document.createElement('div');
+        nuevoDiv.textContent = 'Este es un nuevo div';
+        nuevoDiv.classList.add('nuevo-div');
+
+        console.log(ubicacion_div);
+        ubicacion_div.appendChild(nuevoDiv);
         
     },
 
