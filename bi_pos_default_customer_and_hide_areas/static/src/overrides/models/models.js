@@ -283,7 +283,7 @@ patch(Order.prototype, {
             const nuevoDiv = document.createElement('div');
             nuevoDiv.textContent = 'Este es un nuevo div';
             nuevoDiv.classList.add('nuevo-div');
-
+            debugger
             //pos_topheader.appendChild(nuevoDiv);
         }
         
