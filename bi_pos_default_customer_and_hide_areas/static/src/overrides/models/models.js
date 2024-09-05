@@ -283,8 +283,8 @@ patch(Order.prototype, {
             const nuevoDiv = document.createElement('div');
             nuevoDiv.textContent = 'Este es un nuevo div';
             nuevoDiv.classList.add('nuevo-div d-flex');
-            debugger
-            //pos_topheader.appendChild(nuevoDiv);
+            
+            pos_topheader.appendChild(nuevoDiv);
         }
         
     },
