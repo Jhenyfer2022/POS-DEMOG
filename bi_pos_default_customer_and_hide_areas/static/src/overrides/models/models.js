@@ -28,8 +28,8 @@ patch(Order.prototype, {
         this.hidemorebuttos();
 
         //cambiar barra superior
-        this.hide_user_and_menu();
-        this.changeLogoandAddText();
+        this.changePosTopHeader();
+
         //activar camara
         this.onCamera(this.pos);
         
@@ -179,9 +179,9 @@ patch(Order.prototype, {
         
     },
 
-    hide_user_and_menu(){
+    hide_user_wifi_and_menu(){
         // Crear un MutationObserver para observar cambios en el DOM
-        const observer = new MutationObserver(() => {
+        /*const observer = new MutationObserver(() => {
             //buscar el menu superior del pos
             const mainContent = document.querySelector('.pos-topheader');
             if (mainContent) {
@@ -198,46 +198,45 @@ patch(Order.prototype, {
         observer.observe(document.body, {
             childList: true,
             subtree: true
-        });
+        });*/
+
+        //boton usuario y wifi
+        const status_buttons = document.querySelector('.status-buttons');
+        if(status_buttons){
+            status_buttons.setAttribute('style', 'display: none !important;');
+        }
+        //boton usuario y wifi
+        const menu_navbar = document.querySelector('.navbar-button.menu-button');
+        if(menu_navbar){
+            menu_navbar.setAttribute('style', 'display: none !important;');
+        }
     },
 
-    changeLogoandAddText(){
+    changePosTopHeader(){
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {
-            //buscar el menu superior del pos
-            const mainContent = document.querySelector('.pos-topheader');
-            if (mainContent) {
-                //buscar el campo donde esta el logo de odoo
-                const pos_branding = mainContent.querySelector('.pos-branding');
-                if(pos_branding){
-                    // Seleccionar el elemento img
-                    const logo = pos_branding.querySelector('.pos-logo');
-                    // Verificar tiene el estilo none activado
-                    const have_styles = logo.hasAttribute('style');
-                    
-                    if (!have_styles) {
-                        // Ocultar la imagen antigua
-                        logo.style.display = 'none';
-                        
-                        // Crear y agregar la nueva imagen
-                        const newImage = document.createElement('img');
-                        newImage.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
-                        newImage.alt = 'NewLogo';
-
-                        // Insertar la nueva imagen en el div
-                        pos_branding.appendChild(newImage);
-
-                        // Crear un nuevo elemento span con el texto
-                        const asistent_texto = document.createElement('span');
-                        asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
-                        asistent_texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
-                        asistent_texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
-
-                        // Añadir el texto al lado de la imagen w
-                        pos_branding.appendChild(asistent_texto);
-                    }
+            
+            //buscar el campo donde esta el logo de odoo
+            const pos_branding = document.querySelector('.pos-topheader').querySelector('.pos-branding');
+            if(pos_branding){
+                // Seleccionar el elemento img
+                const logo = pos_branding.querySelector('.pos-logo');
+                // Verificar tiene el estilo none activado
+                const have_styles = logo.hasAttribute('style');
+                if (!have_styles) {
+                    // Ocultar la imagen antigua
+                    logo.style.display = 'none';
+                    this.drawNewLogoAndText(pos_branding);
+                }
+                //ocultar el usuario, menu y simbolo de wifi
+            }else{
+                const pos_rightheader = document.querySelector('.pos-topheader').querySelector('.pos-rightheader');
+                if(pos_rightheader){
+                    this.drawNewLogoAndText(pos_rightheader);
                 }
             }
+            this.hide_user_wifi_and_menu();
+            
         });
     
         // Observar cambios en el DOM dentro del contenedor principal
@@ -246,6 +245,26 @@ patch(Order.prototype, {
             subtree: true
         });
     },
+    
+    drawNewLogoAndText(ubicacion_div){
+        // Crear y agregar la nueva imagen
+        const newImage = document.createElement('img');
+        newImage.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
+        newImage.alt = 'NewLogo';
+
+        // Insertar la nueva imagen en el div
+        ubicacion_div.appendChild(newImage);
+
+        // Crear un nuevo elemento span con el texto
+        const asistent_texto = document.createElement('span');
+        asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
+        asistent_texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
+        asistent_texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
+
+        // Añadir el texto al lado de la imagen w
+        ubicacion_div.appendChild(asistent_texto);
+    },
+
     onCamera(pos){
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {
