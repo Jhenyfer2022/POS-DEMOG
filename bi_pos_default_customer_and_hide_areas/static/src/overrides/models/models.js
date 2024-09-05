@@ -217,7 +217,6 @@ patch(Order.prototype, {
         const observer = new MutationObserver(() => {
             
             //buscar el campo donde esta el logo de odoo
-            const pos_topheader = document.querySelector('.pos-topheader') || null;
             const pos_branding = pos_topheader?.querySelector('.pos-branding') || null;
             
             if(pos_branding){
@@ -240,9 +239,7 @@ patch(Order.prototype, {
             }*/
             this.hide_user_wifi_and_menu();
 
-            if(pos_topheader){
-                this.drawNewLogoAndText(pos_topheader);
-            }
+            this.drawNewLogoAndText();
         });
     
         // Observar cambios en el DOM dentro del contenedor principal
@@ -252,9 +249,8 @@ patch(Order.prototype, {
         });
     },
     
-    drawNewLogoAndText(ubicacion_div){
-        debugger
-        const headerDivNewLogo = document.createElement('div');
+    drawNewLogoAndText(){
+        //const headerDivNewLogo = document.createElement('div');
         //headerDivNewLogo.id = 'headerNewLogo';
         //headerDivNewLogo.style.width = '100vw';
         //headerDivNewLogo.style.display = 'flex';
@@ -280,12 +276,14 @@ patch(Order.prototype, {
         // Añadir este div dentro del header
         //debugger
 
-        const nuevoDiv = document.createElement('div');
-        nuevoDiv.textContent = 'Este es un nuevo div';
-        nuevoDiv.classList.add('nuevo-div');
+        const pos_topheader = document.querySelector('.pos-topheader') || null;
+        if(pos_topheader){
+            const nuevoDiv = document.createElement('div');
+            nuevoDiv.textContent = 'Este es un nuevo div';
+            nuevoDiv.classList.add('nuevo-div');
 
-        console.log(console.log(ubicacion_div.innerHTML));
-        //ubicacion_div.appendChild(nuevoDiv);
+            pos_topheader.appendChild(nuevoDiv);
+        }
         
     },
 
