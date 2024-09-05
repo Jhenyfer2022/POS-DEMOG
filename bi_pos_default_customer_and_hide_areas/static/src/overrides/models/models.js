@@ -218,8 +218,8 @@ patch(Order.prototype, {
             
             //buscar el campo donde esta el logo de odoo
             const pos_branding = document.querySelector('.pos-topheader')?.querySelector('.pos-branding') || null;
-            
-            this.drawNewLogoAndText(document.querySelector('.pos-topheader'));
+            debugger
+            //this.drawNewLogoAndText(document.querySelector('.pos-topheader'));
             
             if(pos_branding){
                 // Seleccionar el elemento img
