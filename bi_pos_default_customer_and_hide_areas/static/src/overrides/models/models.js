@@ -60,7 +60,6 @@ patch(Order.prototype, {
                             this.drawNewLogoAndText(pos_branding);
                         }
                     }else{
-                        
                         const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
                         if(pos_branding){
                             this.drawNewLogoAndText(pos_rightheader);
@@ -68,6 +67,11 @@ patch(Order.prototype, {
                     }
                 }else {
                     console.log("wtf");
+                    const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
+                    if(pos_rightheader){
+                        console.log("entre");
+                        this.drawNewLogoAndText(pos_rightheader);
+                    }
                 }
                 
                 //ocultar el usuario, menu y simbolo de wifi
