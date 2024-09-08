@@ -19,15 +19,12 @@ patch(Order.prototype, {
 
         //Cambios en el POS
         this.changePos();
-
         
         /*
         
         
 
-        //ocultar campos del payment-screen
-        this.paymentScreenHideCustomerAndFacturationZone();
-        this.paymentScreenHideNumpad();
+        
         
 
         //activar camara
@@ -38,16 +35,10 @@ patch(Order.prototype, {
     changePos(){
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {            
-            // Buscar y cambiar el campo donde esta el logo de odoo
-            //this.changeLogoandAddText();
-            // Ocultar el user wifi and menu
-            this.hideUserWifiAndMenu();
-            // Ocultar el boton del cliente
-            this.hideChangeCustomerButton();
-            //redimencionar el boton de pago
-            this.resizePayButton();
-            //ocultar el boton mas si esta con otro tamano de pantalla celular
-            this.hidemorebuttos();
+            //La vista uno es el inicio del POS
+            this.camposDeLaVistaUno();
+            //La vista dos es cuando se da al boton pagar del POS donde muestra los metodos de pago
+            this.camposDeLaVistaDos();
         });
         
         // Observar cambios en el DOM dentro del contenedor principal
@@ -55,6 +46,26 @@ patch(Order.prototype, {
             childList: true,
             subtree: true
         });
+    },
+
+    camposDeLaVistaUno(){
+        // Buscar y cambiar el campo donde esta el logo de odoo
+        //PASA ALGO ACA HAY Q LEER BIEN EL CODIGO
+        //this.changeLogoandAddText();
+        // Ocultar el user wifi and menu
+        this.hideUserWifiAndMenu();
+        // Ocultar el boton del cliente
+        this.hideChangeCustomerButton();
+        //redimencionar el boton de pago
+        this.resizePayButton();
+        //ocultar el boton mas si esta con otro tamano de pantalla celular
+        this.hidemorebuttos();
+    },
+
+    camposDeLaVistaDos(){
+        //ocultar campos del payment-screen
+        this.paymentScreenHideCustomerAndFacturationZone();
+        this.paymentScreenHideNumpad();
     },
 
     hideUserWifiAndMenu(){
@@ -185,50 +196,43 @@ patch(Order.prototype, {
     
 
     paymentScreenHideCustomerAndFacturationZone() {
-        //console.log("estoy entrando al div");
         // Crear un MutationObserver para observar cambios en el DOM
-        const observer = new MutationObserver(() => {
+        //const observer = new MutationObserver(() => {
             // Buscar el contenedor principal
             const mainContent = document.querySelector('.main-content.d-flex.overflow-auto.h-100');
-    
             if (mainContent) {
                 // Ocultar el div con la clase específica dentro del contenedor principal
                 const divToHide = mainContent.querySelector('.right-content.w-25.bg-400');
                 if (divToHide) {
-
                     // Verificar tiene el estilo none activado
                     const have_styles = divToHide.hasAttribute('style');
+                    // Llamar a la función solo si el color de fondo no era rojo
                     if (!have_styles) {
-                        // Llamar a la función solo si el color de fondo no era rojo
+                        //Simulo que el boton de factura fue presionado
                         this.simulateButtonClickFacturaccion();
                         divToHide.style.display = 'none';
                     }
                 }
             }
-        });
+        //});
     
         // Observar cambios en el DOM dentro del contenedor principal
-        observer.observe(document.body, {
+        /*observer.observe(document.body, {
             childList: true,
             subtree: true
-        });
+        });*/
     },
 
     simulateButtonClickFacturaccion() {
         const button = document.querySelector('.button.js_invoice.btn.btn-light.py-3.text-start.rounded-0.border-bottom');
-        
         if (button) {
-            //console.log('Botón fue precionado');
-            button.click(); // Simula un clic en el botón
-        } 
-        /*else {
-            console.log('Botón no encontrado');
-        }*/
+            button.click(); // Simula un clic en el botón de "Factura"
+        }
     },
 
     paymentScreenHideNumpad() {
         // Crear un MutationObserver para observar cambios en el DOM
-        const observer = new MutationObserver(() => {
+        //const observer = new MutationObserver(() => {
             // Buscar el contenedor principal
             const mainContent = document.querySelector('.main-content.d-flex.overflow-auto.h-100');
     
@@ -248,13 +252,13 @@ patch(Order.prototype, {
                     }
                 }
             }
-        });
+       // });
     
         // Observar cambios en el DOM dentro del cuerpo del documento
-        observer.observe(document.body, {
+        /*observer.observe(document.body, {
             childList: true,
             subtree: true
-        });
+        });*/
     },
 
     sendAutomaticData(){
