@@ -17,16 +17,13 @@ patch(Order.prototype, {
             this.set_partner(null);
         }
 
-        //cambiar barra superior
-        this.changePosTopHeader();
+        //Cambios en el POS
+        this.changePos();
 
-        // Ocultar el botón para cambiar el cliente
-        //this.hideChangeCustomerButton();
-
+        
         /*
         
-        //redimencionar el boton de pago
-        this.resizePayButton();
+        
 
         //ocultar campos del payment-screen
         this.paymentScreenHideCustomerAndFacturationZone();
@@ -39,15 +36,17 @@ patch(Order.prototype, {
         */
     },
     
-    changePosTopHeader(){
+    changePos(){
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {            
-            //buscar el campo donde esta el logo de odoo
+            // Buscar y cambiar el campo donde esta el logo de odoo
             this.changeLogoandAddText();
-            //ocultar el user wifi and menu
-            this.hide_user_wifi_and_menu();
-
+            // Ocultar el user wifi and menu
+            this.hideUserWifiAndMenu();
+            // Ocultar el boton del cliente
             this.hideChangeCustomerButton();
+            //redimencionar el boton de pago
+            this.resizePayButton();
         });
         
         // Observar cambios en el DOM dentro del contenedor principal
@@ -57,7 +56,7 @@ patch(Order.prototype, {
         });
     },
 
-    hide_user_wifi_and_menu(){
+    hideUserWifiAndMenu(){
         //boton usuario y wifi
         const status_buttons = document.querySelector('.status-buttons');
         if(status_buttons){
@@ -117,6 +116,12 @@ patch(Order.prototype, {
         }
     },
 
+    hideChangeCustomerButton() {
+        const changeCustomerButton = document.querySelector('button.button.set-partner');
+        if (changeCustomerButton) {
+            changeCustomerButton.style.display = 'none';
+        }
+    },
 
 
 
@@ -173,37 +178,24 @@ patch(Order.prototype, {
         });
     },
     
-    hideChangeCustomerButton() {
-        //const observer = new MutationObserver(() => {
-            const changeCustomerButton = document.querySelector('button.button.set-partner');
-            if (changeCustomerButton) {
-                changeCustomerButton.style.display = 'none';
-            }
-        //});
-
-        // Observar cambios en el DOM, especialmente el área del POS donde se renderiza el botón
-        /*observer.observe(document.querySelector('.pos'), {
-            childList: true,
-            subtree: true
-        });*/
-    },
+    
 
     resizePayButton() {
-        const button_pay = new MutationObserver(() => {
+        //const button_pay = new MutationObserver(() => {
             const payButton = document.querySelector('button.pay-order-button');
             if (payButton) {
                 payButton.style.width = "100%";
                 payButton.style.height = "100%";
             }
-        });
+        //});
 
         // Observar cambios en el DOM, especialmente el área del POS donde se renderiza el botón
-        button_pay.observe(document.querySelector('.pos'), {
+        /*button_pay.observe(document.querySelector('.pos'), {
             childList: true,
             subtree: true
-        });
+        });*/
 
-        this.removeMw50Class();
+        //this.removeMw50Class();
     },
 
     removeMw50Class() {
