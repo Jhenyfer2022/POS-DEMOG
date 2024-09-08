@@ -39,7 +39,7 @@ patch(Order.prototype, {
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {            
             // Buscar y cambiar el campo donde esta el logo de odoo
-            this.changeLogoandAddText();
+            //this.changeLogoandAddText();
             // Ocultar el user wifi and menu
             this.hideUserWifiAndMenu();
             // Ocultar el boton del cliente
