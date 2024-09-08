@@ -40,14 +40,10 @@ patch(Order.prototype, {
     
     changePosTopHeader(){
         // Crear un MutationObserver para observar cambios en el DOM
-        const colocar_logo = true;
-
-        const observer = new MutationObserver(() => {
-            
+        const observer = new MutationObserver(() => {            
             //buscar el campo donde esta el logo de odoo
             const pos_topheader = document.querySelector('.pos-topheader');
             const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
-            
             if(pos_topheader){
                 const pos_branding = pos_topheader?.querySelector('.pos-branding') || null;
                 if(pos_branding){
@@ -68,18 +64,10 @@ patch(Order.prototype, {
                             this.drawNewLogoAndText(pos_rightheader);
                         }
                     }
-                }
-                console.log("wtf");
-                if(pos_rightheader && colocar_logo){
-                    console.log("entre");
-                    this.drawNewLogoAndText(pos_rightheader);
-                    colocar_logo = false;
-                }
+                }   
                 //ocultar el usuario, menu y simbolo de wifi
                 this.hide_user_wifi_and_menu();
             }
-            
-
         });
         
         // Observar cambios en el DOM dentro del contenedor principal
@@ -102,6 +90,7 @@ patch(Order.prototype, {
         }
     },
 
+    /*
     drawNewLogoAndText(pos_branding){
         const nuevoDiv = document.createElement('div');
         nuevoDiv.textContent = 'Este es un nuevo div';
@@ -109,7 +98,7 @@ patch(Order.prototype, {
         
         pos_branding.appendChild(nuevoDiv);
     },
-
+    */
 
     changeLogoandAddText(){
         // Crear un MutationObserver para observar cambios en el DOM
