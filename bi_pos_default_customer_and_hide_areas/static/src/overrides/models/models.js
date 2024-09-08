@@ -18,25 +18,14 @@ patch(Order.prototype, {
         }
 
         //Cambios en el POS
-        this.changePos();
-        
-        /*
-        
-        
-
-        
-        
-
-        //activar camara
-        this.onCamera(this.pos);
-        */
+        this.changePos(this.pos);
     },
     
-    changePos(){
+    changePos(pos){
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {            
             //La vista uno es el inicio del POS
-            this.camposDeLaVistaUno();
+            this.camposDeLaVistaUno(pos);
             //La vista dos es cuando se da al boton pagar del POS donde muestra los metodos de pago
             this.camposDeLaVistaDos();
         });
@@ -48,7 +37,7 @@ patch(Order.prototype, {
         });
     },
 
-    camposDeLaVistaUno(){
+    camposDeLaVistaUno(pos){
         // Buscar y cambiar el campo donde esta el logo de odoo
         //PASA ALGO ACA HAY Q LEER BIEN EL CODIGO
         //this.changeLogoandAddText();
@@ -60,6 +49,8 @@ patch(Order.prototype, {
         this.resizePayButton();
         //ocultar el boton mas si esta con otro tamano de pantalla celular
         this.hidemorebuttos();
+        //activar camara
+        this.onCamera(pos);
     },
 
     camposDeLaVistaDos(){
@@ -81,7 +72,6 @@ patch(Order.prototype, {
         }
     },
 
-    
     drawNewLogoAndText(pos_branding){
         const nuevoDiv = document.createElement('div');
         nuevoDiv.classList.add('nuevo-div', 'd-flex');
@@ -102,7 +92,6 @@ patch(Order.prototype, {
         pos_branding.appendChild(nuevoDiv);
     },
     
-
     changeLogoandAddText(){
         //buscar el menu superior del pos
         const mainContent = document.querySelector('.pos-topheader');
@@ -154,73 +143,22 @@ patch(Order.prototype, {
         }
     },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
     paymentScreenHideCustomerAndFacturationZone() {
-        // Crear un MutationObserver para observar cambios en el DOM
-        //const observer = new MutationObserver(() => {
-            // Buscar el contenedor principal
-            const mainContent = document.querySelector('.main-content.d-flex.overflow-auto.h-100');
-            if (mainContent) {
-                // Ocultar el div con la clase específica dentro del contenedor principal
-                const divToHide = mainContent.querySelector('.right-content.w-25.bg-400');
-                if (divToHide) {
-                    // Verificar tiene el estilo none activado
-                    const have_styles = divToHide.hasAttribute('style');
-                    // Llamar a la función solo si el color de fondo no era rojo
-                    if (!have_styles) {
-                        //Simulo que el boton de factura fue presionado
-                        this.simulateButtonClickFacturaccion();
-                        divToHide.style.display = 'none';
-                    }
+        const mainContent = document.querySelector('.main-content.d-flex.overflow-auto.h-100');
+        if (mainContent) {
+            // Ocultar el div con la clase específica dentro del contenedor principal
+            const divToHide = mainContent.querySelector('.right-content.w-25.bg-400');
+            if (divToHide) {
+                // Verificar tiene el estilo none activado
+                const have_styles = divToHide.hasAttribute('style');
+                // Llamar a la función solo si el color de fondo no era rojo
+                if (!have_styles) {
+                    //Simulo que el boton de factura fue presionado
+                    this.simulateButtonClickFacturaccion();
+                    divToHide.style.display = 'none';
                 }
             }
-        //});
-    
-        // Observar cambios en el DOM dentro del contenedor principal
-        /*observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });*/
+        }
     },
 
     simulateButtonClickFacturaccion() {
@@ -231,35 +169,66 @@ patch(Order.prototype, {
     },
 
     paymentScreenHideNumpad() {
-        // Crear un MutationObserver para observar cambios en el DOM
-        //const observer = new MutationObserver(() => {
-            // Buscar el contenedor principal
-            const mainContent = document.querySelector('.main-content.d-flex.overflow-auto.h-100');
-    
-            if (mainContent) {
-                // Buscar el contenedor secundario que contiene el div que queremos eliminar
-                const centerContent = mainContent.querySelector('.center-content.d-flex.flex-column.w-50.p-1.border-start.border-end.bg-300');
-                
-                if (centerContent) {
+        const mainContent = document.querySelector('.main-content.d-flex.overflow-auto.h-100');
 
-                    centerContent.classList.remove('w-50'); //elimino esto en el div
-                    centerContent.classList.add('w-100'); //adiciono esto en el div
+        if (mainContent) {
+            // Buscar el contenedor secundario que contiene el div que queremos eliminar
+            const centerContent = mainContent.querySelector('.center-content.d-flex.flex-column.w-50.p-1.border-start.border-end.bg-300');
+            
+            if (centerContent) {
 
-                    // Buscar y eliminar el div con las clases específicas dentro de centerContent
-                    const divToRemove = centerContent.querySelector('.flex-grow-1.numpad.row.row-cols-4.gx-0');
-                    if (divToRemove) {
-                        divToRemove.remove(); // Eliminar el div del DOM
-                    }
+                centerContent.classList.remove('w-50'); //elimino esto en el div
+                centerContent.classList.add('w-100'); //adiciono esto en el div
+
+                // Buscar y eliminar el div con las clases específicas dentro de centerContent
+                const divToRemove = centerContent.querySelector('.flex-grow-1.numpad.row.row-cols-4.gx-0');
+                if (divToRemove) {
+                    divToRemove.remove(); // Eliminar el div del DOM
                 }
             }
-       // });
-    
-        // Observar cambios en el DOM dentro del cuerpo del documento
-        /*observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });*/
+        }
     },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
 
     sendAutomaticData(){
         // cuando precione el boton pago de pago se presionara send automaticamente
@@ -276,19 +245,19 @@ patch(Order.prototype, {
 
     onCamera(pos){
         // Crear un MutationObserver para observar cambios en el DOM
-        const observer = new MutationObserver(() => {
+        //const observer = new MutationObserver(() => {
             //buscar el menu superior del pos
             const mainContent = document.querySelector('#cam-scaner');
             if (mainContent && !mainContent.querySelector('video')) {
                 //console.log("iniciar camara");
                 this.oncamera1(pos);
             }
-        });
+        //});
         // Observar cambios en el DOM dentro del contenedor principal
-        observer.observe(document.body, {
+        /*observer.observe(document.body, {
             childList: true,
             subtree: true
-        });      
+        });*/      
     },
 
     async oncamera1(pos){
@@ -368,4 +337,5 @@ patch(Order.prototype, {
             // Aquí puedes continuar con la ejecución de otros scripts si es necesario
         }
     }
+
 });
