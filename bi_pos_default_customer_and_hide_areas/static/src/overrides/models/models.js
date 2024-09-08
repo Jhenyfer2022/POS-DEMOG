@@ -187,6 +187,10 @@ patch(Order.prototype, {
                 payButton.style.width = "100%";
                 payButton.style.height = "100%";
             }
+            const actionpadDiv = document.querySelector('div.actionpad.d-flex.flex-column.flex-grow-1.mw-50.p-0.border-end');
+            if (actionpadDiv) {
+                actionpadDiv.classList.remove('mw-50');
+            }
         //});
 
         // Observar cambios en el DOM, especialmente el área del POS donde se renderiza el botón
@@ -201,10 +205,7 @@ patch(Order.prototype, {
     removeMw50Class() {
         const observer = new MutationObserver(() => {
             // Selecciona el div con todas las clases especificadas
-            const actionpadDiv = document.querySelector('div.actionpad.d-flex.flex-column.flex-grow-1.mw-50.p-0.border-end');
-            if (actionpadDiv) {
-                actionpadDiv.classList.remove('mw-50');
-            }
+            
         });
 
         // Observar cambios en el DOM
