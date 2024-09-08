@@ -40,7 +40,7 @@ patch(Order.prototype, {
     camposDeLaVistaUno(pos){
         // Buscar y cambiar el campo donde esta el logo de odoo
         //PASA ALGO ACA HAY Q LEER BIEN EL CODIGO
-        //this.changeLogoandAddText();
+        this.changeLogoandAddText();
 
         // Ocultar el user wifi and menu
         this.hideUserWifiAndMenu();
