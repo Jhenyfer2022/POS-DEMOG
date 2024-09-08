@@ -74,23 +74,7 @@ patch(Order.prototype, {
     },
 
     drawNewLogoAndText(pos_branding){
-        /*const nuevoDiv = document.createElement('div');
-        nuevoDiv.classList.add('nuevo-div', 'd-flex');
-        
-        // Crear un nuevo elemento span con el texto
-        const asistent_texto = document.createElement('span');
-        asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
-        asistent_texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
-        asistent_texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
-        nuevoDiv.appendChild(asistent_texto);
-
-        // Crear y agregar la nueva imagen
-        const newImage = document.createElement('img');
-        newImage.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
-        newImage.alt = 'NewLogo';
-        nuevoDiv.appendChild(newImage);
-
-        pos_branding.appendChild(nuevoDiv);*/
+        //coloco el nuevo logo y texto
         const html_add = '<div class="pos-branding d-flex justify-content-start flex-grow-1 h-100 p-0 my-0 text-start" style="max-width: 100% !important; width: 100% !important;"><img class="pos-logo h-75 ms-3 me-auto align-self-center" src="/web/static/img/logo.png" alt="Logo" style="display: none;"><div class="d-flex flex-md-row align-items-center justify-content-center" style="width: 100%;"><span class="mt-3 mt-md-0 ms-md-3 text-center">POR FAVOR, ESCANEE SUS PRODUCTOS</span><img src="https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png" alt="NewLogo" class="img-fluid" style="max-width: 150px;"></div></div>';
         // Insertar el HTML directamente
         pos_branding.insertAdjacentHTML('beforeend', html_add);
@@ -104,23 +88,15 @@ patch(Order.prototype, {
             const pos_branding = mainContent.querySelector('.pos-branding');
             const pos_rightheader = mainContent.querySelector('.pos-rightheader');
             if(pos_branding){
-                // Seleccionar el elemento img
-                const logo = pos_branding.querySelector('.pos-logo');
-                // Verificar tiene el estilo none activado
-                const have_styles = logo.hasAttribute('style');
-                
-                if (!have_styles) {
-                    // Ocultar la imagen antigua
-                    logo.style.display = 'none';
-                    //dibujar el nuevo logo
-                    this.drawNewLogoAndText(pos_branding);
-                }
+               //remover el pos branding
+               pos_branding.remove()
+               //colocar el nuevo logo
+                this.drawNewLogoAndText(mainContent);
             }else{
-                
                 if (pos_rightheader) {
+                    //colocar el nuevo logo
                     this.drawNewLogoAndText(pos_rightheader);
                 }
-                //this.drawNewLogoAndText(pos_rightheader);
             }
         }
     },
