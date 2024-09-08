@@ -124,9 +124,10 @@ patch(Order.prototype, {
                     this.drawNewLogoAndText(pos_branding);
                 }
             }else{
-                if (pos_rightheader) {
+                debugger
+                /*if (pos_rightheader) {
                     this.drawNewLogoAndText(pos_rightheader);
-                }
+                }*/
                 //this.drawNewLogoAndText(pos_rightheader);
             }
         }
