@@ -20,7 +20,7 @@ patch(Order.prototype, {
         //cambiar barra superior
         this.changePosTopHeader();
         //adicionar un logo
-        this.changeLogoandAddText();
+        //this.changeLogoandAddText();
         /*
         // Ocultar el botón para cambiar el cliente
         this.hideChangeCustomerButton();
@@ -64,6 +64,7 @@ patch(Order.prototype, {
                 this.hide_user_wifi_and_menu();
             }
             */
+            this.changeLogoandAddText();
             this.hide_user_wifi_and_menu();
         });
         
@@ -99,7 +100,7 @@ patch(Order.prototype, {
 
     changeLogoandAddText(){
         // Crear un MutationObserver para observar cambios en el DOM
-        const observer = new MutationObserver(() => {
+        //const observer = new MutationObserver(() => {
             //buscar el menu superior del pos
             const mainContent = document.querySelector('.pos-topheader');
             if (mainContent) {
@@ -134,13 +135,13 @@ patch(Order.prototype, {
                     }
                 }
             }
-        });
+        //});
     
         // Observar cambios en el DOM dentro del contenedor principal
-        observer.observe(document.body, {
+        /*observer.observe(document.body, {
             childList: true,
             subtree: true
-        });
+        });*/
     },
 
 
