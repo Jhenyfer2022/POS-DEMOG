@@ -91,7 +91,7 @@ patch(Order.prototype, {
         nuevoDiv.appendChild(newImage);
 
         pos_branding.appendChild(nuevoDiv);*/
-        const html_add = '<div class="pos-branding d-flex justify-content-start flex-grow-1 h-100 p-0 my-0 text-start"><img class="pos-logo h-75 ms-3 me-auto align-self-center" src="/web/static/img/logo.png" alt="Logo" style="display: none;"><div class="d-flex flex-column flex-md-row align-items-center justify-content-center"><span class="mt-3 mt-md-0 ms-md-3 text-center">POR FAVOR, ESCANEE SUS PRODUCTOS</span><img src="https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png" alt="NewLogo" class="img-fluid" style="max-width: 150px;"></div></div>';
+        const html_add = '<div class="pos-branding d-flex justify-content-start flex-grow-1 h-100 p-0 my-0 text-start" style="max-width: 100% !important; width: 100% !important;"><img class="pos-logo h-75 ms-3 me-auto align-self-center" src="/web/static/img/logo.png" alt="Logo" style="display: none;"><div class="d-flex flex-column flex-md-row align-items-center justify-content-center" style="width: 100%;"><span class="mt-3 mt-md-0 ms-md-3 text-center">POR FAVOR, ESCANEE SUS PRODUCTOS</span><img src="https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png" alt="NewLogo" class="img-fluid" style="max-width: 150px;"></div></div>';
         // Insertar el HTML directamente
         pos_branding.insertAdjacentHTML('beforeend', html_add);
     },
