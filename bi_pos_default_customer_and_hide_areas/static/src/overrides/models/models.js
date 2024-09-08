@@ -45,7 +45,7 @@ patch(Order.prototype, {
             //buscar el campo donde esta el logo de odoo
             const pos_topheader = document.querySelector('.pos-topheader');
             const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
-            const painted = false;
+            const colocar_logo = true;
 
             if(pos_topheader){
                 const pos_branding = pos_topheader?.querySelector('.pos-branding') || null;
@@ -69,10 +69,10 @@ patch(Order.prototype, {
                     }
                 }
                 console.log("wtf");
-                if(pos_rightheader && painted){
+                if(pos_rightheader && colocar_logo){
                     console.log("entre");
                     this.drawNewLogoAndText(pos_rightheader);
-                    painted = false;
+                    colocar_logo = false;
                 }
                 //ocultar el usuario, menu y simbolo de wifi
                 this.hide_user_wifi_and_menu();
