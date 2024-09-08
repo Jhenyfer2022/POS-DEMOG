@@ -28,8 +28,7 @@ patch(Order.prototype, {
         //ocultar campos del payment-screen
         this.paymentScreenHideCustomerAndFacturationZone();
         this.paymentScreenHideNumpad();
-        //ocultar el boton mas si esta con otro tamano de pantalla celular
-        this.hidemorebuttos();
+        
 
         //activar camara
         this.onCamera(this.pos);
@@ -47,6 +46,8 @@ patch(Order.prototype, {
             this.hideChangeCustomerButton();
             //redimencionar el boton de pago
             this.resizePayButton();
+            //ocultar el boton mas si esta con otro tamano de pantalla celular
+            this.hidemorebuttos();
         });
         
         // Observar cambios en el DOM dentro del contenedor principal
@@ -123,98 +124,65 @@ patch(Order.prototype, {
         }
     },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    hidemorebuttos(){
-        const observer = new MutationObserver(() => {
-            const changeCustomerButton = document.querySelector('button.button.mobile-more-button.btn.btn-secondary.flex-fill.border-bottom');
-            if (changeCustomerButton) {
-                changeCustomerButton.style.display = 'none';
-            }
-        });
-
-        // Observar cambios en el DOM, especialmente el área del POS donde se renderiza el botón
-        observer.observe(document.querySelector('.pos'), {
-            childList: true,
-            subtree: true
-        });
-    },
-    
-    
-
     resizePayButton() {
-        //const button_pay = new MutationObserver(() => {
-            const payButton = document.querySelector('button.pay-order-button');
-            if (payButton) {
-                payButton.style.width = "100%";
-                payButton.style.height = "100%";
-            }
-            const actionpadDiv = document.querySelector('div.actionpad.d-flex.flex-column.flex-grow-1.mw-50.p-0.border-end');
-            if (actionpadDiv) {
-                actionpadDiv.classList.remove('mw-50');
-            }
-        //});
-
-        // Observar cambios en el DOM, especialmente el área del POS donde se renderiza el botón
-        /*button_pay.observe(document.querySelector('.pos'), {
-            childList: true,
-            subtree: true
-        });*/
-
-        //this.removeMw50Class();
+        const payButton = document.querySelector('button.pay-order-button');
+        if (payButton) {
+            payButton.style.width = "100%";
+            payButton.style.height = "100%";
+        }
+        const actionpadDiv = document.querySelector('div.actionpad.d-flex.flex-column.flex-grow-1.mw-50.p-0.border-end');
+        if (actionpadDiv) {
+            actionpadDiv.classList.remove('mw-50');
+        }
+    },
+    
+    hidemorebuttos(){
+        const changeCustomerButton = document.querySelector('button.button.mobile-more-button.btn.btn-secondary.flex-fill.border-bottom');
+        if (changeCustomerButton) {
+            changeCustomerButton.style.display = 'none';
+        }
     },
 
-    removeMw50Class() {
-        const observer = new MutationObserver(() => {
-            // Selecciona el div con todas las clases especificadas
-            
-        });
 
-        // Observar cambios en el DOM
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
-    },
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
     paymentScreenHideCustomerAndFacturationZone() {
         //console.log("estoy entrando al div");
