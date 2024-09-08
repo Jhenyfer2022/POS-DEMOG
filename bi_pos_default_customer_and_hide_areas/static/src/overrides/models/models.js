@@ -74,34 +74,26 @@ patch(Order.prototype, {
     },
 
     drawNewLogoAndText(pos_branding){
-        const nuevoDiv = document.createElement('div');
-        nuevoDiv.classList.add('d-flex', 'flex-column', 'flex-md-row', 'align-items-center', 'justify-content-center');
-        //nuevoDiv.classList.add('nuevo-div', 'd-flex');
+        /*const nuevoDiv = document.createElement('div');
+        nuevoDiv.classList.add('nuevo-div', 'd-flex');
         
         // Crear un nuevo elemento span con el texto
-        /*const asistent_texto = document.createElement('span');
+        const asistent_texto = document.createElement('span');
         asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
         asistent_texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
         asistent_texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
-        nuevoDiv.appendChild(asistent_texto);*/
-        const asistent_texto = document.createElement('span');
-        asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
-        asistent_texto.className = 'mt-3 mt-md-0 ms-md-3 text-center'; // Márgenes responsivos y centrado de texto
         nuevoDiv.appendChild(asistent_texto);
 
         // Crear y agregar la nueva imagen
-        /*const newImage = document.createElement('img');
-        newImage.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
-        newImage.alt = 'NewLogo';
-        nuevoDiv.appendChild(newImage);*/
         const newImage = document.createElement('img');
         newImage.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
         newImage.alt = 'NewLogo';
-        newImage.classList.add('img-fluid'); // Imagen responsiva
-        newImage.style.maxWidth = '150px'; // Limitar el tamaño máximo de la imagen para pantallas pequeñas
         nuevoDiv.appendChild(newImage);
 
-        pos_branding.appendChild(nuevoDiv);
+        pos_branding.appendChild(nuevoDiv);*/
+        const html_add = '<div class="pos-branding d-flex justify-content-start flex-grow-1 h-100 p-0 my-0 text-start"><img class="pos-logo h-75 ms-3 me-auto align-self-center" src="/web/static/img/logo.png" alt="Logo" style="display: none;"><div class="d-flex flex-column flex-md-row align-items-center justify-content-center"><span class="mt-3 mt-md-0 ms-md-3 text-center">POR FAVOR, ESCANEE SUS PRODUCTOS</span><img src="https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png" alt="NewLogo" class="img-fluid" style="max-width: 150px;"></div></div>';
+        // Insertar el HTML directamente
+        pos_branding.insertAdjacentHTML('beforeend', html_add);
     },
     
     changeLogoandAddText(){
@@ -124,7 +116,7 @@ patch(Order.prototype, {
                     this.drawNewLogoAndText(pos_branding);
                 }
             }else{
-                debugger
+                
                 /*if (pos_rightheader) {
                     this.drawNewLogoAndText(pos_rightheader);
                 }*/
