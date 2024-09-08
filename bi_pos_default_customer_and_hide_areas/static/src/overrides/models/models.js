@@ -42,6 +42,7 @@ patch(Order.prototype, {
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {            
             //buscar el campo donde esta el logo de odoo
+            /*
             const pos_topheader = document.querySelector('.pos-topheader');
             const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
             if(pos_topheader){
@@ -62,6 +63,8 @@ patch(Order.prototype, {
                 //ocultar el usuario, menu y simbolo de wifi
                 this.hide_user_wifi_and_menu();
             }
+            */
+            this.hide_user_wifi_and_menu();
         });
         
         // Observar cambios en el DOM dentro del contenedor principal
