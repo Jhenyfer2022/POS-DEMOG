@@ -105,7 +105,6 @@ patch(Order.prototype, {
             const pos_branding = mainContent.querySelector('.pos-branding');
             const pos_rightheader = mainContent.querySelector('.pos-rightheader');
             if(pos_branding){
-                /*
                 // Seleccionar el elemento img
                 const logo = pos_branding.querySelector('.pos-logo');
                 // Verificar tiene el estilo none activado
@@ -116,11 +115,11 @@ patch(Order.prototype, {
                     logo.style.display = 'none';
                     //dibujar el nuevo logo
                     this.drawNewLogoAndText(pos_branding);
-                }*/
-               //remover el pos branding
-               //pos_branding.remove()
-               //colocar el nuevo logo
-                this.drawNewLogoAndText(mainContent);
+                }
+                //remover el pos branding
+                //pos_branding.remove()
+                //colocar el nuevo logo
+                //this.drawNewLogoAndText(mainContent);
             }else{
                 if (pos_rightheader) {
                     //colocar el nuevo logo
