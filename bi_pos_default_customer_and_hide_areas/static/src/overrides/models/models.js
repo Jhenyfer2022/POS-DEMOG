@@ -39,15 +39,15 @@ patch(Order.prototype, {
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {            
             // Buscar y cambiar el campo donde esta el logo de odoo
-            this.changeLogoandAddText();
+            //this.changeLogoandAddText();
             // Ocultar el user wifi and menu
-            this.hideUserWifiAndMenu();
+            //this.hideUserWifiAndMenu();
             // Ocultar el boton del cliente
-            this.hideChangeCustomerButton();
+            //this.hideChangeCustomerButton();
             //redimencionar el boton de pago
-            this.resizePayButton();
+            //this.resizePayButton();
             //ocultar el boton mas si esta con otro tamano de pantalla celular
-            this.hidemorebuttos();
+            //this.hidemorebuttos();
         });
         
         // Observar cambios en el DOM dentro del contenedor principal
@@ -135,7 +135,7 @@ patch(Order.prototype, {
             actionpadDiv.classList.remove('mw-50');
         }
     },
-    
+
     hidemorebuttos(){
         const changeCustomerButton = document.querySelector('button.button.mobile-more-button.btn.btn-secondary.flex-fill.border-bottom');
         if (changeCustomerButton) {
