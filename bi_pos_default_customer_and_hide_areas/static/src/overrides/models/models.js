@@ -44,7 +44,8 @@ patch(Order.prototype, {
             
             //buscar el campo donde esta el logo de odoo
             const pos_topheader = document.querySelector('.pos-topheader');
-            
+            const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
+
             if(pos_topheader){
                 const pos_branding = pos_topheader?.querySelector('.pos-branding') || null;
                 if(pos_branding){
@@ -60,20 +61,17 @@ patch(Order.prototype, {
                             this.drawNewLogoAndText(pos_branding);
                         }
                     }else{
-                        const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
+                        //const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
                         if(pos_branding){
                             this.drawNewLogoAndText(pos_rightheader);
                         }
                     }
-                }else {
-                    console.log("wtf");
-                    /*const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
-                    if(pos_rightheader){
-                        console.log("entre");
-                        this.drawNewLogoAndText(pos_rightheader);
-                    }*/
                 }
-                
+                console.log("wtf");
+                if(pos_rightheader){
+                    console.log("entre");
+                    this.drawNewLogoAndText(pos_rightheader);
+                }
                 //ocultar el usuario, menu y simbolo de wifi
                 this.hide_user_wifi_and_menu();
             }
