@@ -56,12 +56,6 @@ patch(Order.prototype, {
                         if (!have_styles) {
                             // Ocultar la imagen antigua
                             logo.style.display = 'none';
-                            this.drawNewLogoAndText(pos_branding);
-                        }
-                    }else{
-                        //const pos_rightheader = pos_topheader?.querySelector('.pos-rightheader') || null;
-                        if(pos_branding){
-                            this.drawNewLogoAndText(pos_rightheader);
                         }
                     }
                 }   
