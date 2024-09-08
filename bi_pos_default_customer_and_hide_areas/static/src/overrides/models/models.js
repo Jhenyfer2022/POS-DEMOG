@@ -95,6 +95,7 @@ patch(Order.prototype, {
         if (mainContent) {
             //buscar el campo donde esta el logo de odoo
             const pos_branding = mainContent.querySelector('.pos-branding');
+            const pos_rightheader = mainContent.querySelector('.pos-rightheader');
             if(pos_branding){
                 // Seleccionar el elemento img
                 const logo = pos_branding.querySelector('.pos-logo');
@@ -108,7 +109,7 @@ patch(Order.prototype, {
                     this.drawNewLogoAndText(pos_branding);
                 }
             }else{
-                console.log("asd");
+                this.drawNewLogoAndText(pos_rightheader);
             }
         }
     },
