@@ -117,9 +117,9 @@ patch(Order.prototype, {
                 }
             }else{
                 
-                /*if (pos_rightheader) {
+                if (pos_rightheader) {
                     this.drawNewLogoAndText(pos_rightheader);
-                }*/
+                }
                 //this.drawNewLogoAndText(pos_rightheader);
             }
         }
