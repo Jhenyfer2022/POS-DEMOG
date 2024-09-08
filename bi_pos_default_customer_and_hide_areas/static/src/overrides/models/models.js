@@ -75,19 +75,30 @@ patch(Order.prototype, {
 
     drawNewLogoAndText(pos_branding){
         const nuevoDiv = document.createElement('div');
-        nuevoDiv.classList.add('nuevo-div', 'd-flex');
+        nuevoDiv.classList.add('d-flex', 'flex-column', 'flex-md-row', 'align-items-center', 'justify-content-center');
+        //nuevoDiv.classList.add('nuevo-div', 'd-flex');
         
         // Crear un nuevo elemento span con el texto
-        const asistent_texto = document.createElement('span');
+        /*const asistent_texto = document.createElement('span');
         asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
         asistent_texto.className = 'ms-3'; // Añadir margen para separar el texto de la imagen
         asistent_texto.style.alignSelf = 'center'; // Alinear el texto verticalmente al centro
+        nuevoDiv.appendChild(asistent_texto);*/
+        const asistent_texto = document.createElement('span');
+        asistent_texto.textContent = 'POR FAVOR, ESCANEE SUS PRODUCTOS';
+        asistent_texto.className = 'mt-3 mt-md-0 ms-md-3 text-center'; // Márgenes responsivos y centrado de texto
         nuevoDiv.appendChild(asistent_texto);
 
         // Crear y agregar la nueva imagen
+        /*const newImage = document.createElement('img');
+        newImage.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
+        newImage.alt = 'NewLogo';
+        nuevoDiv.appendChild(newImage);*/
         const newImage = document.createElement('img');
         newImage.src = 'https://static.vecteezy.com/system/resources/thumbnails/036/627/416/small_2x/ai-generated-branch-with-colorful-blooming-flowers-isolated-on-transparent-background-png.png';
         newImage.alt = 'NewLogo';
+        newImage.classList.add('img-fluid'); // Imagen responsiva
+        newImage.style.maxWidth = '150px'; // Limitar el tamaño máximo de la imagen para pantallas pequeñas
         nuevoDiv.appendChild(newImage);
 
         pos_branding.appendChild(nuevoDiv);
@@ -113,6 +124,9 @@ patch(Order.prototype, {
                     this.drawNewLogoAndText(pos_branding);
                 }
             }else{
+                if (pos_rightheader) {
+                    this.drawNewLogoAndText(pos_rightheader);
+                }
                 //this.drawNewLogoAndText(pos_rightheader);
             }
         }
