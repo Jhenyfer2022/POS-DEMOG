@@ -43,11 +43,11 @@ patch(Order.prototype, {
             // Ocultar el user wifi and menu
             this.hideUserWifiAndMenu();
             // Ocultar el boton del cliente
-            //this.hideChangeCustomerButton();
+            this.hideChangeCustomerButton();
             //redimencionar el boton de pago
-            //this.resizePayButton();
+            this.resizePayButton();
             //ocultar el boton mas si esta con otro tamano de pantalla celular
-            //this.hidemorebuttos();
+            this.hidemorebuttos();
         });
         
         // Observar cambios en el DOM dentro del contenedor principal
