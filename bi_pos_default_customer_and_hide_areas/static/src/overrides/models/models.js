@@ -41,6 +41,7 @@ patch(Order.prototype, {
         // Buscar y cambiar el campo donde esta el logo de odoo
         //PASA ALGO ACA HAY Q LEER BIEN EL CODIGO
         //this.changeLogoandAddText();
+
         // Ocultar el user wifi and menu
         this.hideUserWifiAndMenu();
         // Ocultar el boton del cliente
@@ -112,7 +113,7 @@ patch(Order.prototype, {
                     this.drawNewLogoAndText(pos_branding);
                 }
             }else{
-                this.drawNewLogoAndText(pos_rightheader);
+                //this.drawNewLogoAndText(pos_rightheader);
             }
         }
     },
@@ -189,75 +190,12 @@ patch(Order.prototype, {
         }
     },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    
-
-    sendAutomaticData(){
-        // cuando precione el boton pago de pago se presionara send automaticamente
-        // a la maquina y esperara el pago la validacion, cuando se confirme el proceso se 
-        //debe automaticamente presionara el bonton de validar
-        
-    },
-
-    
-
-    
-    
-    
-
     onCamera(pos){
-        // Crear un MutationObserver para observar cambios en el DOM
-        //const observer = new MutationObserver(() => {
-            //buscar el menu superior del pos
-            const mainContent = document.querySelector('#cam-scaner');
-            if (mainContent && !mainContent.querySelector('video')) {
-                //console.log("iniciar camara");
-                this.oncamera1(pos);
-            }
-        //});
-        // Observar cambios en el DOM dentro del contenedor principal
-        /*observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });*/      
+        const mainContent = document.querySelector('#cam-scaner');
+        if (mainContent && !mainContent.querySelector('video')) {
+            //console.log("iniciar camara");
+            this.oncamera1(pos);
+        }    
     },
 
     async oncamera1(pos){
@@ -336,6 +274,14 @@ patch(Order.prototype, {
             successDiv.style.display = 'none';
             // Aquí puedes continuar con la ejecución de otros scripts si es necesario
         }
-    }
+    },
+
+
+
+    sendAutomaticData(){
+        // cuando precione el boton pago de pago se presionara send automaticamente
+        // a la maquina y esperara el pago la validacion, cuando se confirme el proceso se 
+        //debe automaticamente presionara el bonton de validar
+    },
 
 });
