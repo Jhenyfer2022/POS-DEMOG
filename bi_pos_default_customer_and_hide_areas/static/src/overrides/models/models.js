@@ -19,11 +19,12 @@ patch(Order.prototype, {
 
         //cambiar barra superior
         this.changePosTopHeader();
-        //adicionar un logo
-        //this.changeLogoandAddText();
-        /*
+
         // Ocultar el botón para cambiar el cliente
-        this.hideChangeCustomerButton();
+        //this.hideChangeCustomerButton();
+
+        /*
+        
         //redimencionar el boton de pago
         this.resizePayButton();
 
@@ -45,6 +46,8 @@ patch(Order.prototype, {
             this.changeLogoandAddText();
             //ocultar el user wifi and menu
             this.hide_user_wifi_and_menu();
+
+            this.hideChangeCustomerButton();
         });
         
         // Observar cambios en el DOM dentro del contenedor principal
@@ -169,19 +172,20 @@ patch(Order.prototype, {
             subtree: true
         });
     },
+    
     hideChangeCustomerButton() {
-        const observer = new MutationObserver(() => {
+        //const observer = new MutationObserver(() => {
             const changeCustomerButton = document.querySelector('button.button.set-partner');
             if (changeCustomerButton) {
                 changeCustomerButton.style.display = 'none';
             }
-        });
+        //});
 
         // Observar cambios en el DOM, especialmente el área del POS donde se renderiza el botón
-        observer.observe(document.querySelector('.pos'), {
+        /*observer.observe(document.querySelector('.pos'), {
             childList: true,
             subtree: true
-        });
+        });*/
     },
 
     resizePayButton() {
