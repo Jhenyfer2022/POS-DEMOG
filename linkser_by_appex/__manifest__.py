@@ -26,8 +26,7 @@
     #        'pos_screen_pane_position/static/src/xml/Screens/ProductScreen/ProductScreen.xml',
     #    ]
     #},
-    'post_init_hook': 'post_init_hook',
-    'uninstall_hook': 'uninstall_hook',
+    
     #'images': [
     #    'static/description/banner.jpg'
     #],
