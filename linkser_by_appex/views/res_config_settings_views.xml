@@ -8,11 +8,7 @@
         
         <field name="arch" type="xml">
             <xpath expr="//div[@id='pos_payment_terminals_section']" position="inside">
-                <!--
-                <button type="action" name="%(linkser_pos_terminal.linkser_pos_terminal_action)d" icon="fa-arrow-right" class="btn-link">View Terminals</button>
-                -->
-                <button type="action" name="linkser_pos_terminal_action" icon="fa-arrow-right" class="btn-link">View Terminals</button>
-
+                <span>HOLA</span>
             </xpath>
         </field>
     </record>
