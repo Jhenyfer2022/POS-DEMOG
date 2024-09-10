@@ -16,7 +16,7 @@
     ],
     'data': [
         'views/linkser_pos_terminal_views.xml',
-
+        'views/linkser_pos_terminal_payments_views.xml',
         'views/res_config_settings_views.xml',
     ],
     #'assets': {
