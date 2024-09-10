@@ -24,3 +24,12 @@ class LinkserPosTerminal(models.Model):
     ])
     #currency_id = fields.Many2one('res.currency', string='Currency')
     #company_id = fields.Many2one('res.company', required=True, default=lambda self: self.env.company)
+
+    def show_form_and_tree(self):
+        action = self.env['ir.actions.actions']._for_xml_id('linkser_pos_terminal.linkser_pos_terminal_payments_action')
+        action.update({
+            'domain': [('terminal_id', '=', self.id)],
+            'views': [(self.env.ref('linkser_pos_terminal.linkser_pos_terminal_payments_view_tree').id, 'tree'), (self.env.ref('linkser_pos_terminal.linkser_pos_terminal_payments_view_form').id, 'form')],
+            'res_id': self.id,
+        })
+        return action
