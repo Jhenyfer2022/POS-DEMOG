@@ -12,9 +12,9 @@
                     title="aaa The transactions are processed by Linkser. Set your Linkser credentials on the related payment method." 
                     string="Linkser" 
                     help="Accept payments with a Linkser payment terminal">
-                    <!--
+                    
                     <button type="action" name="%(linkser_pos_terminal.linkser_pos_terminal_action)d" icon="fa-arrow-right" class="btn-link">View Terminals</button>
-                    -->
+                    
                 </setting>
             </block>
         </field>
