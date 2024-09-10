@@ -14,6 +14,8 @@ class LinkserPosTerminal(models.Model):
 
     name = fields.Char()
     terminal_id = fields.Char('Terminal ID')
+    profile_id = fields.Char('Profile ID')
+
     ip_pos = fields.Char('Ip Terminal')
     port_pos = fields.Char('Puerto Terminal')
     
@@ -22,7 +24,7 @@ class LinkserPosTerminal(models.Model):
         ('active', 'Active'),
         ('inactive', 'Inactive')
     ])
-    #currency_id = fields.Many2one('res.currency', string='Currency')
+    currency_id = fields.Many2one('res.currency', string='Currency')
     #company_id = fields.Many2one('res.company', required=True, default=lambda self: self.env.company)
 
     def show_form_and_tree(self):

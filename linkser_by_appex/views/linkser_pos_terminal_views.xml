@@ -18,12 +18,14 @@
                     </div>
                     <group>
                         <group>
+                            <field name="name" />
                             <field name="terminal_id" />
                             <field name="profile_id" />
-                            <field name="serial_number" />
                         </group>
                         <group>
                             <field name="currency_id" />
+                            <field name="ip_pos" />
+                            <field name="port_pos" />
                         </group>
                     </group>
                 </sheet>
@@ -43,8 +45,13 @@
                 <field name="name" />
                 <field name="terminal_id" />
                 <field name="profile_id" />
+
                 <field name="serial_number" />
                 <field name="currency_id" />
+                
+                <field name="ip_pos" />
+                <field name="port_pos" />
+
                 <field name="status" widget="badge" decoration-info="status == 'pending'" decoration-success="status == 'active'" decoration-danger="status == 'inactive'" />
             </tree>
         </field>
