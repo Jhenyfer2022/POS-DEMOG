@@ -46,7 +46,6 @@
                 <field name="terminal_id" />
                 <field name="profile_id" />
 
-                <field name="serial_number" />
                 <field name="currency_id" />
                 
                 <field name="ip_pos" />
