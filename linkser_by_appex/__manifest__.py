@@ -1,20 +1,23 @@
 {
-    'name': 'Linkser by appex',
+    'name': 'Linkser by AppexBolivia',
     'version': '17.0.1.0.0',
-    'category': 'Point of Sale',
-    'summary': """Adicionar un metodo de pago y proveedor de pago""",
-    'description': 'Permite crear una coneccion de pago con Punto de venta con la maquina de linkser',
+    'description': 'Registra y habilita el uso de las terminales POS de linkser',
+    'summary': 'POS LINKSER de pdv',
     'author': 'Erick Denis Mercado Oudalova',
-    'company': 'AppexBo',
     'maintainer': 'AppexBo',
+    'company': 'AppexBo',
     'website': 'https://www.appexbo.com/',
+    
+    'license': 'AGPL-3',
+    
+    'category': 'Point of Sale',
     'depends': [
-        'payment'
+        'point_of_sale',
     ],
     'data': [
-        'data/linkser_payment_method_data.xml',
-        'data/linkser_payment_provider_data.xml',
-        'views/payment_provider_views.xml',
+        'views/linkser_pos_terminal_views.xml',
+
+        'views/res_config_settings_views.xml',
     ],
     #'assets': {
     #    'point_of_sale._assets_pos': [
@@ -26,7 +29,6 @@
     #'images': [
     #    'static/description/banner.jpg'
     #],
-    'license': 'AGPL-3',
     'installable': True,
     'auto_install': False,
     'application': False,
