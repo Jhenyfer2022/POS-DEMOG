@@ -13,7 +13,8 @@
                     string="Linkser" 
                     help="Accept payments with a Linkser payment terminal">
                     
-                    <span>HOLA</span>
+                    <button type="action" name="%(linkser_pos_terminal.linkser_pos_terminal_action)d" icon="fa-arrow-right" class="btn-link">View Terminals</button>
+                    
                 </setting>
             </block>
         </field>
