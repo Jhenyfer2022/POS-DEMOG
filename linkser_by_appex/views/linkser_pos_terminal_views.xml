@@ -57,14 +57,14 @@
     </record>
 
     <record id="linkser_pos_terminal_action" model="ir.actions.act_window">
-        <field name="name">Terminales POS Linkser</field>
+        <field name="name">Linkser Pos Terminals</field>
         <field name="res_model">linkser.pos.terminal</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem
         id="linkser_pos_reminal_menu"
-        name="Terminales POS Linkser"
+        name="Linkser Pos Terminals"
         action="linkser_pos_terminal_action"
         parent="point_of_sale.menu_point_config_product"/>
 

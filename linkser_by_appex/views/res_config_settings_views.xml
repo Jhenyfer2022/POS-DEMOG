@@ -9,7 +9,7 @@
             <block id="pos_payment_terminals_section" position="inside">
                 <setting 
                     id="linkser_payment_terminal_setting" 
-                    title="aaa The transactions are processed by Linkser. Set your Linkser credentials on the related payment method." 
+                    title="The transactions are processed by Linkser. Set your Linkser credentials on the related payment method." 
                     string="Linkser" 
                     help="Accept payments with a Linkser payment terminal">
                     
