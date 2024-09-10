@@ -5,11 +5,17 @@
         <field name="name">res.config.settings.view.form.inherit</field>
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
-        
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='pos_payment_terminals_section']" position="inside">
-                <span>HOLA</span>
-            </xpath>
+            <block id="pos_payment_terminals_section" position="inside">
+                <setting 
+                    id="linkser_payment_terminal_setting" 
+                    title="aaa The transactions are processed by Linkser. Set your Linkser credentials on the related payment method." 
+                    string="Linkser" 
+                    help="Accept payments with a Linkser payment terminal">
+                    
+                    <span>HOLA</span>
+                </setting>
+            </block>
         </field>
     </record>
 
