@@ -24,17 +24,25 @@ class MolliePosTerminal(models.Model):
     ], default='open')
 
     def _create_mollie_payment_request(self, response, data):
-        if response and response.get('status') == 'open':
-            self.create({
-                'name': response.get('id'),
-                'mollie_uid': data.get('mollie_uid'),
-                'terminal_id': data.get('terminal_id'),
-                'session_id': data.get('session_id'),
-                'mollie_latest_response': response,
-                'status': response.get('status')
-            })
+        self.create({
+            'name': 'default_id',  # Valor por defecto en lugar de response.get('id')
+            'mollie_uid': 'default_mollie_uid',  # Valor por defecto en lugar de data.get('mollie_uid')
+            'terminal_id': '1',  # Valor fijo para 'terminal_id'
+            'session_id': 'default_session_id',  # Valor por defecto en lugar de data.get('session_id')
+            'mollie_latest_response': 'default_response',  # Valor por defecto en lugar de response
+            'status': 'paid'  # Valor fijo para 'status'
+        })
+        #self.create({
+        #    'name': response.get('id'),
+        #    'mollie_uid': data.get('mollie_uid'),
+        #    'terminal_id': data.get('terminal_id'),
+        #    'session_id': data.get('session_id'),
+        #    'mollie_latest_response': response,
+        #    'status': response.get('status')
+        #})
+        
 
-    @api.model
+    #@api.model
     def get_mollie_payment_status(self, transaction_id=None, mollie_uid=None):
         domain = []
         if transaction_id:
@@ -48,27 +56,27 @@ class MolliePosTerminal(models.Model):
             return mollie_payment.mollie_latest_response
         return {}
 
-    @api.model
-    def mollie_cancel_payment_request(self, transaction_id=None, mollie_uid=None):
-        domain = []
-        if transaction_id:
-            domain.append(('name', '=', transaction_id))
-        elif mollie_uid:
-            domain.append(('mollie_uid', '=', mollie_uid))
-        else:
-            return {}
-        mollie_payment = self.search(domain, limit=1)
-        if mollie_payment and mollie_payment.status == 'open':
-            return mollie_payment.terminal_id._api_cancel_mollie_payment(mollie_payment.name)
-        return {}
+    #@api.model
+    #def mollie_cancel_payment_request(self, transaction_id=None, mollie_uid=None):
+    #    domain = []
+    #    if transaction_id:
+    #        domain.append(('name', '=', transaction_id))
+    #    elif mollie_uid:
+    #        domain.append(('mollie_uid', '=', mollie_uid))
+    #    else:
+    #        return {}
+    #    mollie_payment = self.search(domain, limit=1)
+    #    if mollie_payment and mollie_payment.status == 'open':
+    #        return mollie_payment.terminal_id._api_cancel_mollie_payment(mollie_payment.name)
+    #    return {}
 
-    def _mollie_process_webhook(self, webhook_data, order_type='pos'):
-        mollie_payment = self.sudo().search([('name', '=', webhook_data.get('id'))], limit=1)
-        if mollie_payment:
-            payment_status = mollie_payment.terminal_id._api_get_mollie_payment_status(webhook_data.get('id'))
-            if payment_status and payment_status.get('status'):
-                mollie_payment.write({
-                    'mollie_latest_response': payment_status,
-                    'status': payment_status.get('status')
-                })
-                self.env["bus.bus"].sudo()._sendone(mollie_payment.session_id._get_bus_channel_name(), "MOLLIE_TERMINAL_RESPONSE", mollie_payment.session_id.config_id.id)
+    #def _mollie_process_webhook(self, webhook_data, order_type='pos'):
+    #    mollie_payment = self.sudo().search([('name', '=', webhook_data.get('id'))], limit=1)
+    #    if mollie_payment:
+    #        payment_status = mollie_payment.terminal_id._api_get_mollie_payment_status(webhook_data.get('id'))
+    #        if payment_status and payment_status.get('status'):
+    #            mollie_payment.write({
+    #                'mollie_latest_response': payment_status,
+    #                'status': payment_status.get('status')
+    #            })
+    #            self.env["bus.bus"].sudo()._sendone(mollie_payment.session_id._get_bus_channel_name(), "MOLLIE_TERMINAL_RESPONSE", mollie_payment.session_id.config_id.id)

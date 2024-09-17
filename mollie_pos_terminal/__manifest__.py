@@ -20,7 +20,7 @@
         'views/mollie_pos_terminal_payments_views.xml',
         'views/res_config_settings_views.xml',
         'views/pos_payment_method_views.xml',
-        'wizard/mollie_sync_terminal.xml',
+        #'wizard/mollie_sync_terminal.xml',
     ],
     'assets': {
         'point_of_sale._assets_pos': [

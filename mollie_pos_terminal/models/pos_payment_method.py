@@ -15,12 +15,15 @@ class PosPaymentMethod(models.Model):
         return super(PosPaymentMethod, self)._get_payment_terminal_selection() + [('mollie', 'Mollie')]
 
     def mollie_payment_request(self, data):
+        #self.sudo().mollie_latest_response = {}  # avoid handling old responses multiple times
+        #return self.mollie_pos_terminal_id._api_make_payment_request(data)
         self.sudo().mollie_latest_response = {}  # avoid handling old responses multiple times
-        return self.mollie_pos_terminal_id._api_make_payment_request(data)
+        
+        return
 
-    def _is_write_forbidden(self, fields):
-        whitelisted_fields = {'mollie_latest_response'}
-        return super(PosPaymentMethod, self)._is_write_forbidden(fields - whitelisted_fields)
+    #def _is_write_forbidden(self, fields):
+    #    whitelisted_fields = {'mollie_latest_response'}
+    #    return super(PosPaymentMethod, self)._is_write_forbidden(fields - whitelisted_fields)
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -30,3 +33,9 @@ class PosPaymentMethod(models.Model):
                 if mollie_image:
                     val['image'] = base64.b64encode(mollie_image)
         return super().create(vals_list)
+
+
+    def custom_method(self, data):
+        result = {'status': 'success', 'message': 'Método ejecutado correctamente'}
+        self.mollie_pos_terminal_id._register_transaction(data)
+        return result

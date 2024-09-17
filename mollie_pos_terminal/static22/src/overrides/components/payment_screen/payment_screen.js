@@ -15,21 +15,32 @@ patch(PaymentScreen.prototype, {
                     !paymentLine.is_done() &&
                     paymentLine.get_payment_status() !== "pending"
             );
-            
             if (!pendingPaymentLine) {
                 return;
             }
-            /*
             pendingPaymentLine.payment_method.payment_terminal.set_most_recent_mollie_uid(
                 pendingPaymentLine.mollieUID
             );
-            */
         });
     },
     
     async _isOrderValid(isForceValidate) {
         console.log("valid???");
-        
+        let mollieLine = this.currentOrder.paymentlines.find(
+            (paymentLine) => paymentLine.payment_method.use_payment_terminal === "mollie"
+        );
+
+        mollieLine = this.currentOrder.paymentlines[0];
+
+        if (mollieLine
+            && mollieLine.payment_method.split_transactions
+            && mollieLine.payment_method.mollie_payment_default_partner
+            && !this.currentOrder.get_partner()) {
+            var partner = this.pos.db.get_partner_by_id(mollieLine.payment_method.mollie_payment_default_partner[0]);
+            this.currentOrder.set_partner(partner);
+        }
+
+        return super._isOrderValid(...arguments)
     },
     
     async sendMollieStatusCheck(line) {
