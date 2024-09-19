@@ -15,23 +15,20 @@ class MolliePosTerminal(models.Model):
     session_id = fields.Many2one('pos.session')
     mollie_latest_response = fields.Json('Response', default={})
     status = fields.Selection([
-        ('open', 'Open'),
         ('paid', 'Paid'),
-        ('failed', 'Failed'),
-        ('expired', 'Expired'),
-        ('canceled', 'Canceled'),
-        ('pending', 'Pending'),
-    ], default='open')
+    ], default='paid')
 
-    def _create_mollie_payment_request(self, response, data):
+    def _create_mollie_payment_request(self, id_terminal, data, pos_session):
         self.create({
-            'name': 'default_id',  # Valor por defecto en lugar de response.get('id')
-            'mollie_uid': 'default_mollie_uid',  # Valor por defecto en lugar de data.get('mollie_uid')
-            'terminal_id': '1',  # Valor fijo para 'terminal_id'
-            'session_id': 'default_session_id',  # Valor por defecto en lugar de data.get('session_id')
-            'mollie_latest_response': 'default_response',  # Valor por defecto en lugar de response
+            'name': response.get('id'),  # Valor por defecto en lugar de response.get('id')
+            'mollie_uid': data.get('mollie_uid'),  # Valor por defecto en lugar de data.get('mollie_uid')
+            'terminal_id': id_terminal,  # Valor fijo para 'terminal_id'
+            'session_id': pos_session,  # Valor por defecto en lugar de data.get('session_id')
+            'mollie_latest_response': data,  # Valor por defecto en lugar de response
             'status': 'paid'  # Valor fijo para 'status'
         })
+        result = {'status': 'success', 'message': "llegue"}
+        return result
         #self.create({
         #    'name': response.get('id'),
         #    'mollie_uid': data.get('mollie_uid'),

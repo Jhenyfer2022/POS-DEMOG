@@ -35,7 +35,19 @@ class PosPaymentMethod(models.Model):
         return super().create(vals_list)
 
 
-    def custom_method(self, data):
-        result = {'status': 'success', 'message': 'Método ejecutado correctamente'}
-        self.mollie_pos_terminal_id._register_transaction(data)
-        return result
+    def custom_method(self, id_terminal , data, pos_session):
+        termianl = self.env['mollie.pos.terminal'].browse(id_terminal)
+        return termianl.sudo()._register_transaction(data, pos_session)
+        #result = {'status': 'success', 'message': 'Método ejecutado correctamente'}
+        #return result
+
+    def get_information(self, payment_method_id):
+        payment_method = self.sudo().browse(payment_method_id)
+        if payment_method.exists():
+            terminal_model = self.env['mollie.pos.terminal']
+            #return payment_method.id
+            terminal = terminal_model.sudo().get_terminal_information(payment_method.mollie_pos_terminal_id)
+            return terminal
+        else:
+            return None  # O lanza una excepción si prefieres
+        

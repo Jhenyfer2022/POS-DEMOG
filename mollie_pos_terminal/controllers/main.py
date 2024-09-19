@@ -21,25 +21,23 @@ class PosMollieController(http.Controller):
     #    return ""
 
     @http.route('/register_linkser_payment', type='json', auth='public', methods=['POST'])
-    def register_linkser_payment(self, **kwargs):
-        # Obtén los datos del request
-        data = kwargs.get('data', [])
+    def register_linkser_payment(self, **post):
+        data = post.get('data_get')
+        terminal_id = post.get('id_terminal')
+        pos_session = post.get('pos_session')
         # Llama al método custom_method del modelo pos.payment.method
         pos_payment_method_model = request.env['pos.payment.method']
-        result = pos_payment_method_model.custom_method(data)
+        result = pos_payment_method_model.custom_method(terminal_id, data, pos_session)
         return result
 
-    @http.route('/aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', type='json', auth='user', methods=['POST'])
-    def update_payment_line(self, line_id, status):
-        # Obtén la línea de pago correspondiente
-        payment_line = request.env['payment.line'].browse(line_id)
+    @http.route('/get_linkser_payment_terminal', type='json', auth='public', methods=['POST'])
+    def get_linkser_payment_terminal(self, **post):
+        payment_method_id = post.get('payment_method_id')
         
-        if not payment_line:
-            return {'success': False, 'message': 'Línea de pago no encontrada'}
-
-        # Actualiza el estado de la línea de pago
-        try:
-            payment_line.write({'state': status})
-            return {'success': True}
-        except Exception as e:
-            return {'success': False, 'message': str(e)}
+        if payment_method_id is None:
+            return {'status': 'error', 'message': 'payment_method_id is required'}
+        else: 
+            terminal = request.env['pos.payment.method']
+            terminal_data = terminal.sudo().get_information(payment_method_id)
+            # Aquí puedes hacer lo que necesites con payment_method_id
+            return {'status': 'success', 'terminal_data': terminal_data}

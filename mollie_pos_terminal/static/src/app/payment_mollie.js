@@ -36,30 +36,59 @@ export class PaymentMollie extends PaymentInterface {
             'payment_method_id': this.payment_method.id
         }
     }
-    get_payment_terminal_information_and_save(){
-        $.ajax({
-            url: '/register_linkser_payment',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                "status": "success",
-                "message": "Método ejecutado correctamente"
-            }),
-            success: function(response) {
-                console.log('Solicitud exitosa:', response);
-            },
-            error: function(xhr, status, error) {
-                console.error('Error en la solicitud:', status, error);
-            }
+    get_payment_terminal_information_and_save(data){
+        debugger
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: '/register_linkser_payment',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "params": {
+                        "data_get": data,
+                        "pos_session": this.pos.pos_session
+                    }
+                }),
+                success: function(response) {
+                    console.log('Solicitud exitosa:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error en la solicitud:', status, error);
+                }
+            });
+        });
+    }
+
+    get_info_of_payment_terminal(data){
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: '/get_linkser_payment_terminal',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "params": {
+                        "payment_method_id": data.payment_method_id // Asegúrate de que 'data.payment_method_id' tenga el valor correcto
+                    }
+                }),
+                success: function(response) {
+                    // Puedes hacer algo con la respuesta si es necesario
+                    console.log(response);
+                    resolve(response); // Devuelve 100 en caso de éxito
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error en la solicitud:', status, error);
+                    resolve(null); // Devuelve null en caso de error
+                }
+            });
         });
     }
 
     async _submit_mollie_payment(data) {
         //obtener datos de la terminal
-        await this.get_payment_terminal_information_and_save();
+        var terminal_information = await this.get_info_of_payment_terminal(data);
         
-        var ip = "192.168.0.21";
-        var puerto = "8000";
+        var ip = terminal_information.result.terminal_data.terminal_ip;
+        var puerto = terminal_information.result.terminal_data.terminal_port;
         var monto = data.amount * 100;
         
         if(data.curruncy == "BOB"){
@@ -88,7 +117,7 @@ export class PaymentMollie extends PaymentInterface {
                     if(dataresponse.estado === "OK"){
                     //if(dataresponse.completed == false){
                         this.selfjs.pending_mollie_line().handle_payment_response(true);
-                        this.selfjs.get_payment_terminal_information_and_save();
+                        this.selfjs.get_payment_terminal_information_and_save(terminal_information, dataresponse);
                         reject();
                     }else{
                         console.error('paaaaaa');
@@ -111,8 +140,6 @@ export class PaymentMollie extends PaymentInterface {
         });
     }
     
-    
-
     async _mollie_pay(cid) {
         var order = this.pos.get_order();
 

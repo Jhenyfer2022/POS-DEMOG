@@ -191,6 +191,24 @@ class MolliePosTerminal(models.Model):
         return action
 
 
-    def _register_transaction(self, data):
-        self.env['mollie.pos.terminal.payments']._create_mollie_payment_request({**data, 'terminal_id': self.id})
-        return
+    def _register_transaction(self, data, pos_session):
+        self_id = self.id
+        terminal_payment_model = self.env['mollie.pos.terminal.payments']
+        return terminal_payment_model.sudo()._create_mollie_payment_request(self_id, data, pos_session)
+
+
+    def get_terminal_information(self, terminalinfo):
+        if terminalinfo.exists():
+            return {
+                'id': terminalinfo.id,
+                'name': terminalinfo.name,
+                'terminal_id': terminalinfo.terminal_id,
+                'terminal_ip': terminalinfo.terminal_ip,
+                'terminal_port': terminalinfo.terminal_port,
+                'comercio': terminalinfo.comercio,
+                'status': terminalinfo.status,
+                'currency_id': terminalinfo.currency_id.id if terminalinfo.currency_id else None,
+                'company_id': terminalinfo.company_id.id,
+            }
+        else:
+            return None  # O lanza una excepción si prefieres
