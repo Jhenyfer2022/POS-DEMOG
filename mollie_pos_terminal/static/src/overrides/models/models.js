@@ -11,8 +11,7 @@ patch(Payment.prototype, {
     setup() {
         super.setup(...arguments);
         this.mollieUID = this.mollieUID || null;
-        console.log("mollieUID");
-        //console.log(this.mollieUID);
+        //console.log("mollieUID");
     },
     //@override
     export_as_JSON() {
@@ -20,20 +19,19 @@ patch(Payment.prototype, {
         if (json) {
             json.mollie_uid = this.mollieUID;
         }
-        console.log("json");
-        //console.log(json);
+        //console.log("json");
         return json;
     },
     //@override
     init_from_JSON(json) {
         super.init_from_JSON(...arguments);
         this.mollieUID = json.mollie_uid;
-        console.log("asdasd");
+        //console.log("asdasd");
         //console.log(this.mollieUID);
     },
     setMollieUID(id) {
         this.mollieUID = id;
-        console.log("id");
+        //console.log("id");
         //console.log(id);
     },
     
