@@ -26,7 +26,4 @@
             'mollie_pos_terminal/static/**/*',
         ],
     },
-    'images': [
-        'static/description/cover.png',
-    ],
 }
