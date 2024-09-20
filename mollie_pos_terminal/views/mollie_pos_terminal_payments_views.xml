@@ -40,7 +40,7 @@
     </record>
 
     <record id="mollie_pos_terminal_payments_action" model="ir.actions.act_window">
-        <field name="name">Mollie Pos Terminals Payments</field>
+        <field name="name">Linkser Pos Terminals Payments</field>
         <field name="res_model">mollie.pos.terminal.payments</field>
         <field name="view_mode">tree,form</field>
     </record>

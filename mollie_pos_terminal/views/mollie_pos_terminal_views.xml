@@ -55,14 +55,14 @@
     </record>
 
     <record id="mollie_pos_terminal_action" model="ir.actions.act_window">
-        <field name="name">Mollie Pos Terminals</field>
+        <field name="name">Linkser Pos Terminals</field>
         <field name="res_model">mollie.pos.terminal</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem
         id="mollie_pos_reminal_menu"
-        name="Mollie Pos Terminal"
+        name="Linkser Pos Terminal"
         action="mollie_pos_terminal_action"
         parent="point_of_sale.menu_point_config_product"/>
 

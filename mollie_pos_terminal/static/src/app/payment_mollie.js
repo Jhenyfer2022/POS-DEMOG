@@ -36,26 +36,28 @@ export class PaymentMollie extends PaymentInterface {
             'payment_method_id': this.payment_method.id
         }
     }
-    get_payment_terminal_information_and_save(data){
-        debugger
-        return new Promise((resolve, reject) => {
-            $.ajax({
-                url: '/register_linkser_payment',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({
-                    "params": {
-                        "data_get": data,
-                        "pos_session": this.pos.pos_session
-                    }
-                }),
-                success: function(response) {
-                    console.log('Solicitud exitosa:', response);
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error en la solicitud:', status, error);
+    get_payment_terminal_information_and_save(terminal_info, data){
+        const mollie_uid = this.most_recent_mollie_uid;
+        const jsonData = JSON.stringify(data, null, 2);
+        console.log(jsonData);
+        $.ajax({
+            url: '/register_linkser_payment',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                "params": {
+                    "id_terminal": terminal_info.result.terminal_data.id,
+                    "data_get": jsonData,
+                    "pos_session": this.pos.pos_session,
+                    "mollie_uid": mollie_uid
                 }
-            });
+            }),
+            success: function(response) {
+                console.log('Solicitud exitosa:', response);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error en la solicitud:', status, error);
+            }
         });
     }
 
