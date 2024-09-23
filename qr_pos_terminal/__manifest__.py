@@ -15,7 +15,11 @@
         'point_of_sale',
     ],
     'data': [
-        'views/pos_template.xml',
-        
-    ]
+    #    'views/pos_template.xml',   
+    ],
+    'assets': {
+        'point_of_sale._assets_pos': [
+            'qr_pos_terminal/static/**/*',
+        ],
+    },
 }
