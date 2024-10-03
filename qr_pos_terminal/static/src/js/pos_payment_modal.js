@@ -80,7 +80,7 @@ patch(PaymentScreen.prototype, {
     checkForElement() {
         this.qr_painted = true;
         const html_qr = `<div style="width: 100%; height: 100%; overflow: hidden; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc;">
-            <img src="/qr_pos_terminal/static/description/qr_code_bank.png" alt="Imagen de ejemplo" style="width: 100%; height: auto;">
+            <img src="/qr_pos_terminal/static/description/qr_code.png" alt="Imagen de ejemplo" style="width: 100%; height: auto;">
         </div>`;
         const element = document.querySelector('h4.modal-title.title.drag-handle');
         if (element && element.textContent.includes("Escanea el código QR para pagar")) {
