@@ -43,7 +43,7 @@ patch(Order.prototype, {
         this.changeLogoandAddText();
 
         // Ocultar el user wifi and menu
-        //this.hideUserWifiAndMenu();
+        this.hideUserWifiAndMenu();
         // Ocultar el boton del cliente
         this.hideChangeCustomerButton();
         //redimencionar el boton de pago
@@ -58,39 +58,6 @@ patch(Order.prototype, {
         //ocultar campos del payment-screen
         this.paymentScreenHideCustomerAndFacturationZone();
         this.paymentScreenHideNumpad();
-        this.repositionAllView();
-    },
-    
-    repositionAllView(){
-        //const mainContent = document.querySelector('.main-content.d-flex.overflow-auto.h-100');
-        const main_content = document.querySelector('.main-content');
-        if (main_content) {
-            main_content.classList.remove('d-flex');
-            const left_content = main_content.querySelector('.left-content');
-            const center_content = main_content.querySelector('.center-content');
-            //ordenarlo de primero y segundo
-            if (left_content && center_content){
-                main_content.setAttribute('style', 'display: flex; flex-direction: column;');
-                left_content.setAttribute('style', 'order: 2;');
-                center_content.setAttribute('style', 'order: 1;');
-            }
-            if(left_content){
-                const paymentmethods = left_content.querySelector('.paymentmethods');
-                if (paymentmethods) {
-                    paymentmethods.classList.remove('d-flex');
-                    paymentmethods.classList.remove('flex-column');
-                }
-                left_content.classList.remove('w-25');
-
-                const paymentMethodButtons = left_content.querySelectorAll('.button.paymentmethod.btn.btn-light.rounded-0.border-bottom');
-                paymentMethodButtons.forEach(btn => {
-                    btn.style.width = '50%';
-                });
-            }
-
-            const button_validate = main_content.querySelector('.button.next.validation.btn.btn-primary');
-            button_validate.setAttribute('style', 'display: none !important;');
-        }
     },
 
     hideUserWifiAndMenu(){
