@@ -157,25 +157,38 @@ patch(Order.prototype, {
 
     paymentScreenHideCustomerAndFacturationZone() {
         const mainContent = document.querySelector('.main-content.d-flex.overflow-auto.h-100');
+        
         if (mainContent) {
             // Ocultar el div con la clase específica dentro del contenedor principal
             const divToHide = mainContent.querySelector('.right-content.w-25.bg-400');
             if (divToHide) {
-                // Verificar tiene el estilo none activado
-                const have_styles = divToHide.hasAttribute('style');
-                // Llamar a la función solo si el color de fondo no era rojo
-                if (!have_styles) {
-                    //Simulo que el boton de factura fue presionado
-                    this.simulateButtonClickFacturaccion();
-                    divToHide.style.display = 'none';
-                }
+                this.hideCustomerAndFacturationZone(divToHide);
             }
+        }
+        else {
+            const mainContent = document.querySelector('.payment-buttons.d-flex.flex-column.flex-wrap');
+            if (mainContent) {
+                this.hideCustomerAndFacturationZone(mainContent);
+            }
+        }
+        
+    },
+
+    hideCustomerAndFacturationZone(zone){
+        // Verificar tiene el estilo none activado
+        const have_styles = zone.hasAttribute('style');
+        // Llamar a la función solo si el color de fondo no era rojo
+        if (!have_styles) {
+            //Simulo que el boton de factura fue presionado
+            this.simulateButtonClickFacturaccion();
+            //ocultar el campo
+            zone.setAttribute('style', 'display: none !important;');
         }
     },
 
     simulateButtonClickFacturaccion() {
         const button = document.querySelector('.button.js_invoice.btn.btn-light.py-3.text-start.rounded-0.border-bottom');
-        if (button) {
+        if ( button && !button.classList.contains('highlight') && !button.classList.contains('text-bg-primary') ) {
             button.click(); // Simula un clic en el botón de "Factura"
         }
     },
